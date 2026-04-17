@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alimony Calculator — Estimate Spousal Support by State 2025</title>
+  <meta name="description" content="Free alimony and spousal support calculator. Estimate monthly payment amounts and duration based on your state, marriage length, and both incomes. Know what to expect before your divorce consultation."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="container">
+  <div class="tool-header fade-in">
+    <div class="badge">💍 Family Law Tool</div>
+    <h1>Alimony / Spousal Support <span>Calculator</span></h1>
+    <p>Estimate monthly spousal support amount and duration based on your state's approach, marriage length, and both parties' incomes.</p>
+    <div class="trust-row">
+      <div class="trust-item"><span class="ti">🇺🇸</span> All 50 States</div>
+      <div class="trust-item"><span class="ti">🔒</span> 100% Private</div>
+      <div class="trust-item"><span class="ti">⚡</span> Instant Results</div>
+    </div>
+  </div>
+  <div class="ad-slot ad-leaderboard">Advertisement</div>
+
+  <div id="calc-form">
+    <div class="card fade-in">
+      <div class="card-title">💍 Marriage &amp; Income Details</div>
+      <div class="card-desc">Alimony is primarily driven by the income gap between spouses and the length of the marriage. Enter all figures as gross (before tax) amounts.</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="marriage-years">Length of Marriage (Years)</label>
+          <input type="number" id="marriage-years" placeholder="8" min="1" step="1" value="8">
+        </div>
+        <div class="form-group">
+          <label for="state-approach">Your State's Alimony Approach</label>
+          <select id="state-approach">
+            <option value="formula">Formula States — TX, NY, MA, IL (guideline-based)</option>
+            <option value="discretionary" selected>Discretionary States — Most states (judge decides)</option>
+            <option value="no-fault">No-Fault / Reform States — CA, CO, FL (limited alimony)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="higher-income">Higher-Earning Spouse Annual Income <span class="hint">(gross)</span></label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="higher-income" placeholder="120000" min="0" step="1000"></div>
+        </div>
+        <div class="form-group">
+          <label for="lower-income">Lower-Earning Spouse Annual Income <span class="hint">(0 if not working)</span></label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="lower-income" placeholder="40000" min="0" step="1000" value="0"></div>
+        </div>
+        <div class="form-group">
+          <label for="marriage-standard">Marital Standard of Living</label>
+          <select id="marriage-standard">
+            <option value="modest">Modest — Below median household income</option>
+            <option value="middle" selected>Middle Class — Typical lifestyle</option>
+            <option value="upper">Upper Middle Class — Comfortable lifestyle</option>
+            <option value="wealthy">Wealthy / High Net Worth</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="custody">Minor Children?</label>
+          <select id="custody">
+            <option value="none">No minor children</option>
+            <option value="primary-lower">Yes — Lower earner has primary custody</option>
+            <option value="primary-higher">Yes — Higher earner has primary custody</option>
+            <option value="shared">Yes — Shared custody (50/50)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Are You the Payor or Recipient?</label>
+          <div class="radio-group">
+            <div class="radio-btn"><input type="radio" name="role" id="role-payor" value="payor"><label for="role-payor">💸 Payor (Higher Earner)</label></div>
+            <div class="radio-btn"><input type="radio" name="role" id="role-recipient" value="recipient" checked><label for="role-recipient">💰 Recipient (Lower Earner)</label></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Fault / Infidelity Factor?</label>
+          <div class="radio-group">
+            <div class="radio-btn"><input type="radio" name="fault-ali" id="fault-ali-yes" value="yes"><label for="fault-ali-yes">Yes (relevant state)</label></div>
+            <div class="radio-btn"><input type="radio" name="fault-ali" id="fault-ali-no" value="no" checked><label for="fault-ali-no">No / N/A</label></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ad-slot ad-rect">Advertisement</div>
+    <button class="btn-calc" id="calc-btn">💍 Estimate My Spousal Support</button>
+  </div>
+
+  <div id="results">
+    <div class="card">
+      <div class="results-head">
+        <h2>📊 Estimated Spousal Support</h2>
+        <div class="sub">Based on income gap, marriage length, and your state's approach</div>
+      </div>
+      <div class="range-cards">
+        <div class="range-card"><div class="range-lbl">Monthly Low</div><div class="range-val" id="res-low">—</div><div class="range-note">Shorter duration / lower award</div></div>
+        <div class="range-card featured"><div class="range-lbl">Estimated Monthly</div><div class="range-val" id="res-mid">—</div><div class="range-note">Based on your income gap</div></div>
+        <div class="range-card"><div class="range-lbl">Est. Duration</div><div class="range-val" id="res-high">—</div><div class="range-note">Typical support period</div></div>
+      </div>
+      <div class="bk-title">Income Comparison</div>
+      <div class="bk-item"><div class="bk-name">💼 Higher Earner Monthly</div><div class="bk-bar-wrap"><div class="bk-bar bar-1" id="bar-high"></div></div><div class="bk-amt" id="amt-high">—</div></div>
+      <div class="bk-item"><div class="bk-name">💛 Lower Earner Monthly</div><div class="bk-bar-wrap"><div class="bk-bar bar-4" id="bar-low"></div></div><div class="bk-amt" id="amt-low">—</div></div>
+      <div class="bk-item"><div class="bk-name">📊 Income Gap (Basis for Alimony)</div><div class="bk-bar-wrap"><div class="bk-bar bar-2" id="bar-gap"></div></div><div class="bk-amt" id="amt-gap">—</div></div>
+      <div class="bk-item"><div class="bk-name">💰 Est. Monthly Support Payment</div><div class="bk-bar-wrap"><div class="bk-bar bar-3" id="bar-support"></div></div><div class="bk-amt" id="amt-support">—</div></div>
+      <div class="bk-title" style="margin-top:22px">Key Factors</div>
+      <div class="factors-grid" id="factors"></div>
+    </div>
+    <div class="ad-slot ad-rect">Advertisement</div>
+    <div class="atty-cta">
+      <h3>⚖️ A Family Law Attorney Can Make a Significant Difference</h3>
+      <p>Alimony awards are highly discretionary in most states and depend heavily on how your attorney presents factors like standard of living, earning capacity, and contributions to the marriage. Whether you're the payor or recipient, experienced representation can mean thousands of dollars per year in difference. Many offer free initial consultations.</p>
+      <a href="#" class="btn-cta">Find a Family Law Attorney →</a>
+    </div>
+    <div class="legal-notice"><strong>⚠️ Disclaimer:</strong> Alimony calculations are highly discretionary and vary significantly by judge and jurisdiction. This calculator provides a general estimate only. Income tax treatment of alimony changed under the 2017 Tax Cuts and Jobs Act (no longer deductible for divorces after Dec. 31, 2018). Always consult a licensed family law attorney in your state.</div>
+    <button class="btn-reset" onclick="resetCalc()">← Adjust My Inputs</button>
+    <div class="related-section"><h3>Related Legal Calculators</h3><div class="related-grid">
+      <a class="related-link" href="./wrongful-termination-calculator.html"><span class="rl-icon">📋</span><span class="rl-title">Wrongful Termination</span><span class="rl-desc">Employment claim value</span></a>
+      <a class="related-link" href="./ssdi-calculator.html"><span class="rl-icon">♿</span><span class="rl-title">SSDI Benefits</span><span class="rl-desc">Disability benefit estimate</span></a>
+      <a class="related-link" href="./personal-injury-calculator.html"><span class="rl-icon">⚖️</span><span class="rl-title">Personal Injury</span><span class="rl-desc">Accident settlement</span></a>
+    </div></div>
+  </div>
+  <div class="ad-slot ad-banner">Advertisement</div>
+  <div class="card fade-in">
+    <h2 class="serif" style="font-size:1.35rem;font-weight:700;margin-bottom:14px">How Alimony Is Determined</h2>
+    <div class="article-block">
+      <p>Alimony (also called spousal support or spousal maintenance) is financial support paid by the higher-earning spouse to the lower-earning spouse after divorce. Unlike child support, there is no universal formula — courts have broad discretion based on a long list of statutory factors.</p>
+      <p>The most common formula used as a starting point in practice is: <strong>monthly support ≈ 30–40% of the income gap</strong> between spouses. For example, if one spouse earns $10,000/month and the other earns $3,000, the gap is $7,000 — and a typical award might be $2,100–$2,800/month. This is a guideline, not a rule.</p>
+      <p><strong>Duration</strong> is typically tied to marriage length. Short marriages (under 5 years) often result in temporary rehabilitative alimony lasting 1–3 years. Medium marriages (5–15 years) may result in 3–8 years of support. Long marriages (15+ years) can result in permanent alimony, especially if one spouse was a long-term homemaker or gave up career advancement for the family.</p>
+      <p><strong>Tax treatment changed in 2019.</strong> For divorces finalized after December 31, 2018, alimony is no longer deductible by the payor or taxable income to the recipient — a major change from prior law. This effectively increased the after-tax cost to payors and decreased the value to recipients, which has influenced negotiation strategies.</p>
+    </div>
+  </div>
+  <section class="faq-section fade-in"><h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">How is alimony calculated in most states? <i class="chev">▾</i></button><div class="faq-a">Most states use a discretionary standard rather than a fixed formula, but courts typically consider: the income and earning capacity of both spouses, the length of the marriage, the standard of living during the marriage, the age and health of both parties, contributions to the marriage (including homemaking and child-rearing), and fault in some states. A common starting estimate attorneys use is 30–40% of the income gap between spouses, adjusted up or down based on the other factors.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Can alimony be modified or terminated? <i class="chev">▾</i></button><div class="faq-a">Yes. Alimony can typically be modified if there is a "substantial change in circumstances" — such as the recipient getting a higher-paying job, the payor losing their job or retiring, or either party having a significant change in health or financial status. Alimony automatically terminates in most states upon the recipient's remarriage. Cohabitation with a new partner may also be grounds for termination or reduction in many states, though this varies.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Does fault or cheating affect alimony? <i class="chev">▾</i></button><div class="faq-a">In "at-fault" divorce states (about half of all states), marital misconduct (infidelity, abandonment, cruelty) can significantly affect alimony awards. Courts in these states may award higher alimony to the victimized spouse or deny alimony to the spouse who was at fault. In "no-fault" divorce states, marital conduct generally cannot be considered in setting alimony. Even in no-fault states, financial misconduct (hiding assets, dissipation of marital funds) can factor into the overall property division.</div></div>
+  </section>
+</div>
+<div id="footer-placeholder"></div>
+<script>var BASE='../';</script>
+<script src="../js/common.js"></script>
+<script>
+  const STD_MULT={modest:0.85,middle:1.0,upper:1.2,wealthy:1.5};
+  const CUSTODY_ADJ={none:1,primary-lower:1.1,'primary-higher':0.85,shared:0.95};
+
+  document.getElementById('calc-btn').addEventListener('click',()=>{
+    const years=+document.getElementById('marriage-years').value||5;
+    const stateApproach=document.getElementById('state-approach').value;
+    const hi=+document.getElementById('higher-income').value||0;
+    const lo=+document.getElementById('lower-income').value||0;
+    const std=document.getElementById('marriage-standard').value;
+    const custody=document.getElementById('custody').value;
+    const role=document.querySelector('input[name="role"]:checked')?.value;
+    const faultFactor=document.querySelector('input[name="fault-ali"]:checked')?.value==='yes';
+
+    if(!hi){alert('Please enter the higher-earning spouse\'s income.');return;}
+
+    const hiMonthly=hi/12, loMonthly=lo/12;
+    const gap=Math.max(0,hiMonthly-loMonthly);
+
+    // Base support: 30% of gap, adjusted
+    const stdM=STD_MULT[std]||1;
+    const stateM=stateApproach==='formula'?1.1:stateApproach==='no-fault'?0.75:1.0;
+    const custodyAdj=custody==='primary-lower'?1.1:custody==='primary-higher'?0.85:1.0;
+    const faultM=faultFactor?1.2:1.0;
+    const baseSupport=Math.round(gap*0.30*stdM*stateM*custodyAdj*faultM);
+    const lowSupport=Math.round(baseSupport*0.65);
+
+    // Duration
+    let durationYears;
+    if(years<3) durationYears=`1–2 years`;
+    else if(years<7) durationYears=`${Math.round(years*0.4)}–${Math.round(years*0.6)} years`;
+    else if(years<15) durationYears=`${Math.round(years*0.45)}–${Math.round(years*0.65)} years`;
+    else durationYears=`${Math.round(years*0.5)} yrs (possibly permanent)`;
+
+    document.getElementById('res-low').textContent=fmtMoney(lowSupport)+'/mo';
+    document.getElementById('res-mid').textContent=fmtMoney(baseSupport)+'/mo';
+    document.getElementById('res-high').textContent=durationYears;
+
+    document.getElementById('amt-high').textContent=fmtMoney(Math.round(hiMonthly))+'/mo';
+    document.getElementById('amt-low').textContent=fmtMoney(Math.round(loMonthly))+'/mo';
+    document.getElementById('amt-gap').textContent=fmtMoney(Math.round(gap))+'/mo';
+    document.getElementById('amt-support').textContent=fmtMoney(baseSupport)+'/mo';
+
+    const maxBar=hiMonthly||1;
+    animateBars([{id:'bar-high',pct:100},{id:'bar-low',pct:loMonthly/hiMonthly*100},{id:'bar-gap',pct:gap/hiMonthly*100},{id:'bar-support',pct:baseSupport/hiMonthly*100}]);
+
+    const facs=[
+      {l:`💍 ${years}-Year Marriage`,n:years>=15?'Long marriages often result in permanent or indefinite alimony':years>=7?'Medium-length marriages typically result in rehabilitative alimony':'Short marriages usually result in limited or no alimony'},
+      {l:`📊 Income Gap: ${fmtMoney(Math.round(gap))}/month`,n:'Support is typically 25–40% of the monthly income gap between spouses'},
+      {l:`🗺️ State: ${stateApproach==='formula'?'Formula/Guideline State':'Discretionary State'}`,n:stateApproach==='formula'?'Guideline-based calculation provides more predictable results':stateApproach==='no-fault'?'Limited alimony state — courts favor financial independence':'Judge has broad discretion — outcome varies significantly'},
+      {l:`👶 Children: ${custody.replace('-',' ')}`,n:custody==='primary-lower'?'Lower earner having primary custody can increase support award':custody==='primary-higher'?'Higher earner having custody may offset support obligations':'Child support is separate — alimony calculation considers both'},
+      faultFactor?{l:'⚠️ Fault Factor Present',n:'In fault-divorce states, marital misconduct can increase alimony award'}:{l:'🤝 No-Fault Separation',n:'Emotional factors do not affect the support calculation'},
+      {l:`👤 You are the ${role==='payor'?'Payor (Higher Earner)':'Recipient (Lower Earner)'}`,n:role==='payor'?'Negotiating duration limits and early buyout options is a priority':'Seeking an upfront lump-sum settlement can provide more financial security'},
+    ];
+    document.getElementById('factors').innerHTML=facs.map(f=>`<div class="factor-item"><strong>${f.l}</strong><span>${f.n}</span></div>`).join('');
+    showResults();
+  });
+</script>
+</body>
+</html>

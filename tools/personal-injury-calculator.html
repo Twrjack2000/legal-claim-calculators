@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Injury Settlement Estimator | Free Calculator 2025</title>
+  <meta name="description" content="Estimate your personal injury settlement instantly. Free calculator for car accidents, slip and fall, medical malpractice, and more. Get a settlement range in seconds — no sign-up required." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<div class="container">
+  <div class="tool-header fade-in">
+    <div class="badge">⚖️ Personal Injury Tool</div>
+    <h1>Personal Injury <span>Settlement Estimator</span></h1>
+    <p>Enter your injury details to instantly estimate what your claim may be worth — based on the same multiplier method attorneys use to evaluate cases.</p>
+    <div class="trust-row">
+      <div class="trust-item"><span class="ti">🔒</span> Private — Nothing Stored</div>
+      <div class="trust-item"><span class="ti">⚡</span> Instant Results</div>
+      <div class="trust-item"><span class="ti">🇺🇸</span> All 50 States</div>
+    </div>
+  </div>
+
+  <div class="ad-slot ad-leaderboard">Advertisement</div>
+
+  <!-- ──────────────────────────────────────────────── -->
+  <!--  FORM                                            -->
+  <!-- ──────────────────────────────────────────────── -->
+  <div id="calc-form">
+
+    <div class="card fade-in">
+      <div class="card-title">🩺 Step 1 — Injury &amp; Case Details</div>
+      <div class="card-desc">Tell us about your injury type and the circumstances of your case.</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="injury-type">Injury Type</label>
+          <select id="injury-type">
+            <option value="">-- Select Injury Type --</option>
+            <optgroup label="Vehicle Accidents">
+              <option value="car">Car Accident</option>
+              <option value="truck">Commercial Truck / Semi</option>
+              <option value="motorcycle">Motorcycle Accident</option>
+              <option value="rideshare">Rideshare (Uber/Lyft)</option>
+            </optgroup>
+            <optgroup label="Premises Liability">
+              <option value="slip">Slip &amp; Fall</option>
+              <option value="dog">Dog Bite / Animal Attack</option>
+              <option value="premises">Unsafe Premises</option>
+            </optgroup>
+            <optgroup label="Work &amp; Medical">
+              <option value="workinjury">Workplace Injury (3rd Party)</option>
+              <option value="malpractice">Medical Malpractice</option>
+            </optgroup>
+            <optgroup label="Other">
+              <option value="assault">Assault / Intentional Harm</option>
+              <option value="product">Defective Product</option>
+              <option value="other">Other</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="severity">Injury Severity</label>
+          <select id="severity">
+            <option value="">-- Select Severity --</option>
+            <option value="minor">Minor — Soft tissue, sprains, bruising</option>
+            <option value="moderate">Moderate — Fractures, lacerations, surgery</option>
+            <option value="serious">Serious — Multiple surgeries, extended recovery</option>
+            <option value="severe">Severe — Permanent disability or disfigurement</option>
+            <option value="catastrophic">Catastrophic — TBI, spinal cord, amputation</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="liability">Liability Clarity</label>
+          <select id="liability">
+            <option value="clear">Clear — Other party 100% at fault</option>
+            <option value="mostly">Mostly Clear — Mostly their fault</option>
+            <option value="disputed">Disputed — Fault is contested</option>
+            <option value="partial">Partial — You share significant fault</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="coverage">At-Fault Party's Insurance Coverage</label>
+          <select id="coverage">
+            <option value="adequate">Adequate / Unknown — Standard policy</option>
+            <option value="high">High Limits — Commercial / Umbrella</option>
+            <option value="low">Low Limits — Minimum state coverage</option>
+            <option value="uninsured">Uninsured / Underinsured</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Permanent Injury or Ongoing Treatment?</label>
+          <div class="radio-group">
+            <div class="radio-btn"><input type="radio" name="permanent" id="perm-yes" value="yes"><label for="perm-yes">✅ Yes</label></div>
+            <div class="radio-btn"><input type="radio" name="permanent" id="perm-no" value="no" checked><label for="perm-no">❌ No</label></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do You Have an Attorney?</label>
+          <div class="radio-group">
+            <div class="radio-btn"><input type="radio" name="represented" id="rep-yes" value="yes"><label for="rep-yes">✅ Yes</label></div>
+            <div class="radio-btn"><input type="radio" name="represented" id="rep-no" value="no" checked><label for="rep-no">❌ No</label></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card fade-in">
+      <div class="card-title">💰 Step 2 — Your Economic Damages</div>
+      <div class="card-desc">Enter your actual financial losses. Use 0 for anything not applicable.</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="medical">Total Medical Bills <span class="hint">(past &amp; estimated future)</span></label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="medical" placeholder="0" min="0" step="100"></div>
+        </div>
+        <div class="form-group">
+          <label for="wages">Lost Wages <span class="hint">(time missed from work)</span></label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="wages" placeholder="0" min="0" step="100"></div>
+        </div>
+        <div class="form-group">
+          <label for="future-wages">Future Lost Earnings <span class="hint">(if unable to return to same job)</span></label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="future-wages" placeholder="0" min="0" step="500"></div>
+        </div>
+        <div class="form-group">
+          <label for="property">Property Damage <span class="hint">(vehicle, belongings)</span></label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="property" placeholder="0" min="0" step="100"></div>
+        </div>
+        <div class="form-group full">
+          <label>Pain &amp; Suffering Multiplier <span class="hint">(1× = minor, 5× = catastrophic)</span></label>
+          <div class="slider-row">
+            <input type="range" id="multiplier" min="1" max="5" step="0.5" value="2">
+            <span class="slider-val" id="mult-display">2×</span>
+          </div>
+          <div class="slider-labels"><span>1× Minor</span><span>2.5× Moderate</span><span>5× Catastrophic</span></div>
+        </div>
+        <div class="form-group full">
+          <label>Your Estimated Fault % <span class="hint">(0% = not at fault)</span></label>
+          <div class="slider-row">
+            <input type="range" id="fault" min="0" max="50" step="5" value="0">
+            <span class="slider-val" id="fault-display">0%</span>
+          </div>
+          <div class="slider-labels"><span>0% (Not at fault)</span><span>25%</span><span>50%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-rect">Advertisement</div>
+    <button class="btn-calc" id="calc-btn">⚖️ Calculate My Estimated Settlement Range</button>
+  </div>
+
+  <!-- ──────────────────────────────────────────────── -->
+  <!--  RESULTS                                         -->
+  <!-- ──────────────────────────────────────────────── -->
+  <div id="results">
+    <div class="card">
+      <div class="results-head">
+        <h2>📊 Your Estimated Settlement Range</h2>
+        <div class="sub">Based on <span id="injury-label">your injury</span> and the details you provided</div>
+      </div>
+      <div class="range-cards">
+        <div class="range-card"><div class="range-lbl">Conservative Low</div><div class="range-val" id="res-low">—</div><div class="range-note">Early offer, disputed liability</div></div>
+        <div class="range-card featured"><div class="range-lbl">Most Likely Range</div><div class="range-val" id="res-mid">—</div><div class="range-note">With experienced attorney</div></div>
+        <div class="range-card"><div class="range-lbl">Potential High</div><div class="range-val" id="res-high">—</div><div class="range-note">Strong case, max policy limits</div></div>
+      </div>
+      <div class="bk-title">Damage Breakdown</div>
+      <div class="bk-item"><div class="bk-name">🏥 Medical Bills</div><div class="bk-bar-wrap"><div class="bk-bar bar-1" id="bar-med"></div></div><div class="bk-amt" id="amt-med">—</div></div>
+      <div class="bk-item"><div class="bk-name">💼 Lost Wages</div><div class="bk-bar-wrap"><div class="bk-bar bar-2" id="bar-wage"></div></div><div class="bk-amt" id="amt-wage">—</div></div>
+      <div class="bk-item"><div class="bk-name">🔧 Property Damage</div><div class="bk-bar-wrap"><div class="bk-bar bar-3" id="bar-prop"></div></div><div class="bk-amt" id="amt-prop">—</div></div>
+      <div class="bk-item"><div class="bk-name">💛 Pain &amp; Suffering</div><div class="bk-bar-wrap"><div class="bk-bar bar-4" id="bar-pain"></div></div><div class="bk-amt" id="amt-pain">—</div></div>
+      <div class="bk-title" style="margin-top:22px">Key Case Factors</div>
+      <div class="factors-grid" id="factors"></div>
+    </div>
+
+    <div class="ad-slot ad-rect">Advertisement</div>
+
+    <div class="atty-cta">
+      <h3>🔍 Get a FREE Case Evaluation</h3>
+      <p>This estimate is a starting point. An experienced personal injury attorney reviews the actual facts, identifies damages you may have missed, and negotiates far above what insurance companies offer unrepresented claimants. Most work on contingency — you pay nothing unless you win.</p>
+      <a href="#" class="btn-cta">Find a Personal Injury Attorney →</a>
+    </div>
+
+    <div class="legal-notice"><strong>⚠️ Disclaimer:</strong> Results are estimates for educational purposes only and do not constitute legal advice. Many cases settle for more or less. Consult a licensed personal injury attorney in your state for a professional evaluation.</div>
+    <button class="btn-reset" onclick="resetCalc()">← Adjust My Inputs</button>
+
+    <div class="related-section">
+      <h3>Related Legal Calculators</h3>
+      <div class="related-grid">
+        <a class="related-link" href="./workers-comp-calculator.html"><span class="rl-icon">🔨</span><span class="rl-title">Workers' Comp</span><span class="rl-desc">Workplace injury benefits</span></a>
+        <a class="related-link" href="./wrongful-termination-calculator.html"><span class="rl-icon">📋</span><span class="rl-title">Wrongful Termination</span><span class="rl-desc">Employment claim value</span></a>
+        <a class="related-link" href="./ssdi-calculator.html"><span class="rl-icon">♿</span><span class="rl-title">SSDI Benefits</span><span class="rl-desc">Disability benefit estimate</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-slot ad-banner">Advertisement</div>
+
+  <div class="card fade-in">
+    <h2 class="serif" style="font-size:1.35rem;font-weight:700;margin-bottom:14px">How Personal Injury Settlements Are Calculated</h2>
+    <div class="article-block">
+      <p>Personal injury settlements compensate victims for two categories of harm: <strong>economic damages</strong> (medical bills, lost wages, property damage) and <strong>non-economic damages</strong> (pain and suffering, emotional distress, loss of enjoyment of life).</p>
+      <p>The most widely used method for calculating pain and suffering is the <em>multiplier method</em>: your total economic damages are multiplied by a factor between 1.5× and 5× based on injury severity. Minor soft-tissue injuries typically use 1.5–2×; serious injuries requiring surgery use 2.5–3.5×; catastrophic or life-altering injuries can use 4–5× or higher.</p>
+      <p><strong>Comparative negligence</strong> reduces your award by your percentage of fault. Most states use modified comparative negligence — if you're more than 50% at fault, you cannot recover. A few states (Alabama, Maryland, North Carolina, Virginia, and D.C.) use contributory negligence — any fault on your part bars recovery entirely.</p>
+      <p>Insurance policy limits are a major practical constraint. No matter how large your damages, recovery is capped at the at-fault party's policy limits unless they have personal assets worth pursuing. This is why having adequate underinsured motorist (UIM) coverage on your own policy matters.</p>
+    </div>
+  </div>
+
+  <section class="faq-section fade-in">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What is the average car accident settlement? <i class="chev">▾</i></button><div class="faq-a">Car accident settlements vary enormously by injury severity. Minor soft-tissue injuries (whiplash, strains) typically settle between $5,000–$25,000. Moderate injuries involving fractures or one surgery often range from $25,000–$100,000. Serious injuries with permanent effects or multiple procedures can reach $100,000 to several million dollars. The strongest predictor of value is documented medical expense and prognosis.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Should I accept the first insurance settlement offer? <i class="chev">▾</i></button><div class="faq-a">Almost never. Initial offers are intentionally low — insurance adjusters are trained to minimize payouts. They often ignore future medical needs, ongoing lost earning capacity, and full pain and suffering. Studies show attorney-represented claimants receive 3–4× more in settlements on average, even after attorney fees. Never sign a release without consulting an attorney — it permanently waives all future claims.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">How long does a personal injury case take to settle? <i class="chev">▾</i></button><div class="faq-a">Most cases settle within 3–18 months. Straightforward cases with clear liability and complete medical treatment resolve faster. Complex cases with disputed fault, multiple parties, or serious injuries can take 2–4 years. A key timing factor is reaching "maximum medical improvement" (MMI) — the point where doctors determine your condition has stabilized — before settling, so future costs can be properly documented.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What percentage do personal injury attorneys take? <i class="chev">▾</i></button><div class="faq-a">Personal injury attorneys typically charge a contingency fee of 33% (one-third) if settled before a lawsuit is filed, and 40% if the case goes to trial. Some attorneys charge less for simple cases. In addition to the contingency fee, case expenses (expert witnesses, filing fees, medical records) are advanced by the attorney and reimbursed from the settlement. Even after attorney fees, represented claimants typically net more than unrepresented ones.</div></div>
+  </section>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script>var BASE = '../';</script>
+<script src="../js/common.js"></script>
+<script>
+  const LABELS = { car:'Car Accident',truck:'Truck Accident',motorcycle:'Motorcycle Accident',rideshare:'Rideshare Accident',slip:'Slip & Fall',dog:'Dog Bite',premises:'Premises Liability',workinjury:'Workplace Injury',malpractice:'Medical Malpractice',assault:'Assault',product:'Defective Product',other:'Personal Injury' };
+  const SEV = { minor:{b:.7,l:'⚠️ Minor Injury',n:'Soft tissue injuries have limited settlement value'}, moderate:{b:1,l:'🟡 Moderate Injury',n:'Fractures and surgery significantly increase value'}, serious:{b:1.5,l:'🟠 Serious Injury',n:'Multiple procedures and extended recovery strengthen your case'}, severe:{b:2.2,l:'🔴 Severe/Permanent',n:'Permanent disability dramatically increases long-term damages'}, catastrophic:{b:3.5,l:'🆘 Catastrophic',n:'Life-altering injuries warrant maximum compensation'} };
+  const LIAB = { clear:{m:1,l:'✅ Clear Liability',n:'Strong negotiating position'}, mostly:{m:.85,l:'🟡 Mostly Clear',n:'Minor shared fault may slightly reduce recovery'}, disputed:{m:.55,l:'⚠️ Disputed Liability',n:'Contested fault creates significant settlement risk'}, partial:{m:.30,l:'🔴 Significant Shared Fault',n:'High comparative negligence substantially reduces recovery'} };
+  const COV = { adequate:{m:1,l:'🛡️ Standard Insurance',n:'Adequate coverage for your losses'}, high:{m:1.25,l:'💰 High Limit Policy',n:'Deep pockets — limits unlikely to cap recovery'}, low:{m:.65,l:'📉 Low Policy Limits',n:'Minimum limits may cap recovery regardless of damages'}, uninsured:{m:.40,l:'🚫 Uninsured/UIM',n:'Recovery depends on your own UIM coverage'} };
+
+  document.getElementById('multiplier').addEventListener('input',e=>document.getElementById('mult-display').textContent=e.target.value+'×');
+  document.getElementById('fault').addEventListener('input',e=>document.getElementById('fault-display').textContent=e.target.value+'%');
+
+  document.getElementById('calc-btn').addEventListener('click',()=>{
+    const itype=document.getElementById('injury-type').value, sev=document.getElementById('severity').value;
+    if(!itype||!sev){alert('Please select an injury type and severity.');return;}
+    const liab=document.getElementById('liability').value, cov=document.getElementById('coverage').value;
+    const perm=document.querySelector('input[name="permanent"]:checked')?.value==='yes';
+    const rep=document.querySelector('input[name="represented"]:checked')?.value==='yes';
+    const med=+document.getElementById('medical').value||0;
+    const wag=+document.getElementById('wages').value||0;
+    const fw=+document.getElementById('future-wages').value||0;
+    const prop=+document.getElementById('property').value||0;
+    const mult=+document.getElementById('multiplier').value;
+    const fp=+document.getElementById('fault').value/100;
+    const totalW=wag+fw, econ=med+totalW+prop, ps=(med+wag)*mult;
+    const gross=econ+ps;
+    const adj=gross*(SEV[sev]?.b||1)*(LIAB[liab]?.m||1)*(COV[cov]?.m||1)*(perm?1.25:1)*(rep?1.15:.75);
+    const net=adj*(1-fp), low=net*.42, high=net*1.85;
+    document.getElementById('injury-label').textContent=LABELS[itype]||'Your Injury';
+    document.getElementById('res-low').textContent=fmtMoney(low);
+    document.getElementById('res-mid').textContent=fmtMoney(net*.85)+' – '+fmtMoney(net*1.15);
+    document.getElementById('res-high').textContent=fmtMoney(high);
+    const tot=econ+ps||1;
+    document.getElementById('amt-med').textContent=fmtMoney(med);
+    document.getElementById('amt-wage').textContent=fmtMoney(totalW);
+    document.getElementById('amt-prop').textContent=fmtMoney(prop);
+    document.getElementById('amt-pain').textContent=fmtMoney(ps);
+    animateBars([{id:'bar-med',pct:med/tot*100},{id:'bar-wage',pct:totalW/tot*100},{id:'bar-prop',pct:prop/tot*100},{id:'bar-pain',pct:ps/tot*100}]);
+    const facs=[SEV[sev],LIAB[liab],COV[cov],perm?{l:'📅 Ongoing Treatment',n:'Long-term care increases future damage claims'}:{l:'✔️ Fully Recovered',n:'Complete recovery limits future medical value'},rep?{l:'⚖️ Attorney Represented',n:'Representation yields significantly higher settlements'}:{l:'🔔 No Attorney Yet',n:'Unrepresented claimants typically receive less'},fp>0?{l:`📐 ${Math.round(fp*100)}% Comparative Fault`,n:'Your recovery reduced by your share of responsibility'}:{l:'🎯 Zero Assigned Fault',n:'No reduction — maximum recovery potential'}];
+    document.getElementById('factors').innerHTML=facs.map(f=>`<div class="factor-item"><strong>${f.l}</strong><span>${f.n}</span></div>`).join('');
+    showResults();
+  });
+</script>
+</body>
+</html>

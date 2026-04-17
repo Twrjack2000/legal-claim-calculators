@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Medical Malpractice Settlement Calculator — How Much Is My Case Worth? (2025)</title>
+  <meta name="description" content="Free medical malpractice settlement estimator. Calculate your claim value for surgical errors, misdiagnosis, birth injuries, medication errors, and more. Accounts for state damage caps."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="container">
+
+  <div class="tool-header fade-in">
+    <div class="badge">🏥 Medical Malpractice Tool</div>
+    <h1>Medical Malpractice <span>Settlement Estimator</span></h1>
+    <p>Estimate the value of a medical malpractice claim based on the type of negligence, injury severity, your damages, and your state's non-economic damage caps.</p>
+    <div class="trust-row">
+      <div class="trust-item"><span class="ti">🇺🇸</span> Accounts for State Caps</div>
+      <div class="trust-item"><span class="ti">🔒</span> 100% Private</div>
+      <div class="trust-item"><span class="ti">⚡</span> Instant Results</div>
+    </div>
+  </div>
+
+  <div class="ad-slot ad-leaderboard">Advertisement</div>
+
+  <div id="calc-form">
+    <div class="card fade-in">
+      <div class="card-title">🏥 Step 1 — Malpractice Type &amp; Severity</div>
+      <div class="card-desc">Medical malpractice cases have some of the highest settlement values of any personal injury claim — but also the most complex liability standards. Select the category that best fits your situation.</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="malp-type">Type of Malpractice</label>
+          <select id="malp-type">
+            <option value="surgical">Surgical Error — Wrong site, retained instrument, nerve damage</option>
+            <option value="misdiagnosis">Misdiagnosis / Delayed Diagnosis — Cancer, heart attack, stroke</option>
+            <option value="birth">Birth Injury — Cerebral palsy, Erb's palsy, brachial plexus</option>
+            <option value="medication">Medication Error — Wrong drug, wrong dose, harmful interaction</option>
+            <option value="anesthesia">Anesthesia Error — Overdose, awareness, hypoxia</option>
+            <option value="failure">Failure to Treat / Monitor — Ignored symptoms, premature discharge</option>
+            <option value="infection">Hospital-Acquired Infection (MRSA, sepsis from negligence)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="malp-severity">Injury Severity &amp; Permanence</label>
+          <select id="malp-severity">
+            <option value="minor">Minor — Full recovery expected within 1 year</option>
+            <option value="moderate">Moderate — Partial recovery, ongoing treatment needed</option>
+            <option value="serious">Serious — Permanent impairment, career impact</option>
+            <option value="severe">Severe — Life-altering disability or disfigurement</option>
+            <option value="catastrophic">Catastrophic — TBI, paralysis, permanent vegetative state</option>
+            <option value="wrongful-death">Wrongful Death — Patient died due to negligence</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="malp-state-cap">Your State's Non-Economic Damage Cap</label>
+          <select id="malp-state-cap">
+            <option value="no-cap">No Cap — NY, PA, MA, CT, AK, ME, NH, VT, WY, RI, WA, MN</option>
+            <option value="high-cap" selected>High Cap — $500K–$1M+ (OH, CO, GA, IN, WI)</option>
+            <option value="mid-cap">Mid Cap — $250K–$500K (CA, TX, FL, LA, ID, ND)</option>
+            <option value="low-cap">Low Cap — Under $250K (VA $2.55M total, some other states)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="evidence-quality">Strength of Evidence / Expert Support</label>
+          <select id="evidence-quality">
+            <option value="strong">Strong — Board-certified expert lined up, clear deviation from standard of care</option>
+            <option value="moderate" selected>Moderate — Expert likely available, causation supportable</option>
+            <option value="weak">Weak — Causation disputed, expert opinion uncertain</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Is the Defendant a Hospital or Health System?</label>
+          <div class="radio-group">
+            <div class="radio-btn"><input type="radio" name="hosp" id="hosp-yes" value="yes" checked><label for="hosp-yes">Yes — Hospital / Health System</label></div>
+            <div class="radio-btn"><input type="radio" name="hosp" id="hosp-no" value="no"><label for="hosp-no">No — Individual Physician</label></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do You Have a Malpractice Attorney?</label>
+          <div class="radio-group">
+            <div class="radio-btn"><input type="radio" name="mp-atty" id="mpa-yes" value="yes"><label for="mpa-yes">Yes</label></div>
+            <div class="radio-btn"><input type="radio" name="mp-atty" id="mpa-no" value="no" checked><label for="mpa-no">No</label></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card fade-in">
+      <div class="card-title">💰 Step 2 — Your Economic Damages</div>
+      <div class="card-desc">Economic damages in malpractice cases are often significantly higher than standard PI cases due to extensive ongoing medical costs and long-term care needs.</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="mp-medical">Past Medical Bills <span class="hint">(directly caused by malpractice)</span></label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="mp-medical" placeholder="50000" min="0" step="1000"></div>
+        </div>
+        <div class="form-group">
+          <label for="mp-future-med">Future Medical / Long-Term Care Costs <span class="hint">(estimated lifetime)</span></label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="mp-future-med" placeholder="0" min="0" step="5000"></div>
+        </div>
+        <div class="form-group">
+          <label for="mp-wages">Lost Wages / Income to Date</label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="mp-wages" placeholder="0" min="0" step="1000"></div>
+        </div>
+        <div class="form-group">
+          <label for="mp-future-wages">Future Lost Earning Capacity</label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="mp-future-wages" placeholder="0" min="0" step="5000"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-rect">Advertisement</div>
+    <button class="btn-calc" id="calc-btn">🏥 Estimate My Malpractice Settlement</button>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results">
+    <div class="card">
+      <div class="results-head">
+        <h2>📊 Your Estimated Malpractice Settlement Range</h2>
+        <div class="sub">Based on malpractice type, severity, damages, and your state's cap</div>
+      </div>
+      <div class="range-cards">
+        <div class="range-card"><div class="range-lbl">Conservative Low</div><div class="range-val" id="res-low">—</div><div class="range-note">Weak evidence, early settlement</div></div>
+        <div class="range-card featured"><div class="range-lbl">Most Likely Range</div><div class="range-val" id="res-mid">—</div><div class="range-note">Experienced attorney, clear liability</div></div>
+        <div class="range-card"><div class="range-lbl">Potential High</div><div class="range-val" id="res-high">—</div><div class="range-note">Strong case, no cap state</div></div>
+      </div>
+      <div class="bk-title">Damages Breakdown</div>
+      <div class="bk-item"><div class="bk-name">🏥 Past Medical Bills</div><div class="bk-bar-wrap"><div class="bk-bar bar-1" id="bar-past-med"></div></div><div class="bk-amt" id="amt-past-med">—</div></div>
+      <div class="bk-item"><div class="bk-name">🔬 Future Medical / Care</div><div class="bk-bar-wrap"><div class="bk-bar bar-2" id="bar-future-med"></div></div><div class="bk-amt" id="amt-future-med">—</div></div>
+      <div class="bk-item"><div class="bk-name">💼 Lost Wages &amp; Earning Capacity</div><div class="bk-bar-wrap"><div class="bk-bar bar-3" id="bar-mp-wages"></div></div><div class="bk-amt" id="amt-mp-wages">—</div></div>
+      <div class="bk-item"><div class="bk-name">💛 Pain &amp; Suffering (Non-Economic)</div><div class="bk-bar-wrap"><div class="bk-bar bar-4" id="bar-mp-pain"></div></div><div class="bk-amt" id="amt-mp-pain">—</div></div>
+      <div class="bk-title" style="margin-top:22px">Key Case Factors</div>
+      <div class="factors-grid" id="factors"></div>
+    </div>
+
+    <div class="ad-slot ad-rect">Advertisement</div>
+
+    <div class="atty-cta">
+      <h3>🔍 Medical Malpractice Cases Require Specialized Attorneys — Most Work on Contingency</h3>
+      <p>Malpractice cases require board-certified medical experts, in-depth chart review, and specialized legal strategy — making attorney selection critical. Malpractice attorneys advance all costs (often $50K–$200K/case) and charge 33–40% contingency only if you win. Only a small percentage of malpractice cases are accepted — if an attorney takes yours, it's a strong signal your case has merit.</p>
+      <a href="#" class="btn-cta">Find a Medical Malpractice Attorney →</a>
+    </div>
+
+    <div class="legal-notice"><strong>⚠️ Disclaimer:</strong> Malpractice settlements are among the most complex and variable in personal injury law. State caps, expert availability, and specific facts dramatically affect outcomes. This calculator provides a rough educational estimate only. Consult a licensed medical malpractice attorney in your state immediately — statutes of limitations for malpractice are often shorter than for other claims (typically 2–3 years).</div>
+    <button class="btn-reset" onclick="resetCalc()">← Adjust My Inputs</button>
+
+    <div class="related-section"><h3>Related Legal Calculators</h3><div class="related-grid">
+      <a class="related-link" href="./personal-injury-calculator.html"><span class="rl-icon">⚖️</span><span class="rl-title">Personal Injury</span><span class="rl-desc">General accident claims</span></a>
+      <a class="related-link" href="./ssdi-calculator.html"><span class="rl-icon">♿</span><span class="rl-title">SSDI Benefits</span><span class="rl-desc">If malpractice caused disability</span></a>
+      <a class="related-link" href="./workers-comp-calculator.html"><span class="rl-icon">🔨</span><span class="rl-title">Workers' Comp</span><span class="rl-desc">Workplace injury benefits</span></a>
+    </div></div>
+  </div>
+
+  <div class="ad-slot ad-banner">Advertisement</div>
+
+  <div class="card fade-in">
+    <h2 class="serif" style="font-size:1.35rem;font-weight:700;margin-bottom:14px">How Medical Malpractice Settlements Are Calculated</h2>
+    <div class="article-block">
+      <p>Medical malpractice cases follow the same general damage framework as other personal injury claims but with three critical differences: <strong>higher economic damages</strong> due to extensive medical treatment, <strong>state-imposed caps</strong> on non-economic (pain and suffering) damages in many states, and <strong>significantly higher proof requirements</strong> — you must prove the provider deviated from the accepted standard of care, not just that a bad outcome occurred.</p>
+      <p><strong>Non-economic damage caps</strong> are the most important jurisdictional factor. California caps non-economic damages at $350,000 (increasing annually to $750,000 by 2033). Texas caps at $250,000 per defendant. New York and Pennsylvania have no caps — which is why large verdicts are far more common in those states. The cap applies to pain, suffering, and loss of enjoyment of life, but NOT to economic damages like medical bills and lost wages, which are uncapped in all states.</p>
+      <p><strong>Birth injury cases</strong> have by far the highest average settlement values because they involve lifetime care costs for a young victim. A child with cerebral palsy caused by birth asphyxia may require 24/7 care for 70+ years — generating economic damages alone of $5M–$15M+ even before non-economic damages. These cases are often vigorously defended but frequently settle in the millions when causation is clear.</p>
+      <p><strong>Expert witnesses are essential</strong> and expensive. Most malpractice cases require one or more board-certified specialists to testify that the defendant deviated from the standard of care and that the deviation caused the injury. Expert retention typically costs $10,000–$50,000 per expert, which is why malpractice attorneys carefully screen cases before taking them — they're investing their own money.</p>
+    </div>
+  </div>
+
+  <section class="faq-section fade-in"><h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">How long do I have to file a malpractice claim? <i class="chev">▾</i></button><div class="faq-a">Malpractice statutes of limitations are typically shorter than for other injury claims — usually 2–3 years from the date of the negligent act, or from when you discovered (or reasonably should have discovered) the injury. Many states have a "discovery rule" that can extend the deadline, and most states toll (pause) the statute for minors. Do not wait — contact a malpractice attorney immediately if you suspect negligence, as evidence can be lost and witnesses' memories fade quickly.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">How long does a malpractice case take? <i class="chev">▾</i></button><div class="faq-a">Medical malpractice cases are among the longest in civil litigation, typically taking 3–5 years from filing to resolution. This is due to the complex discovery process (medical records review, expert depositions), mandatory pre-trial review panels in some states, and the willingness of hospitals and insurers to litigate aggressively. Some straightforward cases settle within 1–2 years; catastrophic injury and wrongful death cases involving major institutions often go to trial.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What percentage do malpractice attorneys take? <i class="chev">▾</i></button><div class="faq-a">Malpractice attorneys typically charge 33% if the case settles before trial, 40% if it goes to trial, and occasionally higher for cases that go through appeal. Some states (like California) cap contingency fees in malpractice cases on a sliding scale. In addition, the attorney advances all costs — often $50,000–$200,000 for expert witnesses, medical records, and trial preparation — which are reimbursed from the settlement before the contingency fee is calculated.</div></div>
+  </section>
+</div>
+<div id="footer-placeholder"></div>
+<script>var BASE='../';</script>
+<script src="../js/common.js"></script>
+<script>
+  // Type multipliers for non-economic damages (applied to economic damages)
+  const TYPE_INFO = {
+    surgical:      { mult: 3.0, pun: false, l: '🔪 Surgical Error' },
+    misdiagnosis:  { mult: 2.5, pun: false, l: '🔍 Misdiagnosis / Delayed Dx' },
+    birth:         { mult: 6.0, pun: false, l: '👶 Birth Injury' },
+    medication:    { mult: 2.0, pun: false, l: '💊 Medication Error' },
+    anesthesia:    { mult: 3.5, pun: true,  l: '😴 Anesthesia Error' },
+    failure:       { mult: 2.0, pun: false, l: '⚠️ Failure to Treat' },
+    infection:     { mult: 2.2, pun: false, l: '🦠 Hospital-Acquired Infection' },
+  };
+
+  const SEV_INFO = {
+    minor:         { m: 0.6,  l: '🟢 Minor — Full Recovery Expected' },
+    moderate:      { m: 1.0,  l: '🟡 Moderate — Ongoing Treatment' },
+    serious:       { m: 1.6,  l: '🟠 Serious — Permanent Impairment' },
+    severe:        { m: 2.5,  l: '🔴 Severe — Life-Altering Disability' },
+    catastrophic:  { m: 4.0,  l: '🆘 Catastrophic — TBI / Paralysis' },
+    'wrongful-death': { m: 3.5, l: '🕊️ Wrongful Death' },
+  };
+
+  // Non-economic cap maximums
+  const CAP_INFO = {
+    'no-cap':   { cap: Infinity, l: '✅ No-Cap State — Full recovery possible' },
+    'high-cap': { cap: 1000000, l: '🟡 High Cap State (~$500K–$1M)' },
+    'mid-cap':  { cap: 500000,  l: '⚠️ Mid-Cap State (~$250K–$500K)' },
+    'low-cap':  { cap: 250000,  l: '🔴 Low-Cap State (< $250K non-economic)' },
+  };
+
+  const EV_MULT = { strong: 1.4, moderate: 1.0, weak: 0.55 };
+
+  document.getElementById('calc-btn').addEventListener('click', () => {
+    const mtype = document.getElementById('malp-type').value;
+    const msev  = document.getElementById('malp-severity').value;
+    const capKey = document.getElementById('malp-state-cap').value;
+    const evQual = document.getElementById('evidence-quality').value;
+    const isHosp = document.querySelector('input[name="hosp"]:checked')?.value === 'yes';
+    const hasAtty = document.querySelector('input[name="mp-atty"]:checked')?.value === 'yes';
+    const pastMed = +document.getElementById('mp-medical').value || 0;
+    const futureMed = +document.getElementById('mp-future-med').value || 0;
+    const wages = +document.getElementById('mp-wages').value || 0;
+    const futureWages = +document.getElementById('mp-future-wages').value || 0;
+
+    if (!pastMed && !futureMed) { alert('Please enter at least your past medical bills.'); return; }
+
+    const typeInfo = TYPE_INFO[mtype] || { mult: 2.5, l: 'Medical Malpractice' };
+    const sevInfo  = SEV_INFO[msev]  || { m: 1.0, l: 'Moderate' };
+    const capInfo  = CAP_INFO[capKey] || { cap: Infinity };
+    const evMult   = EV_MULT[evQual] || 1.0;
+
+    const totalEconomic = pastMed + futureMed + wages + futureWages;
+    // Non-economic = multiplier applied to past medical primarily
+    const rawNonEcon = (pastMed + futureMed * 0.5) * typeInfo.mult * sevInfo.m;
+    const nonEcon = Math.min(rawNonEcon, capInfo.cap === Infinity ? rawNonEcon : capInfo.cap);
+
+    const gross = totalEconomic + nonEcon;
+    const hospBonus = isHosp ? 1.15 : 1.0;
+    const attyBonus = hasAtty ? 1.1 : 0.80;
+
+    const midEst = Math.round(gross * evMult * hospBonus * attyBonus);
+    const low = Math.round(midEst * 0.35);
+    const high = Math.round(midEst * 2.1);
+
+    document.getElementById('res-low').textContent = fmtMoney(low);
+    document.getElementById('res-mid').textContent = fmtMoney(midEst * 0.80) + ' – ' + fmtMoney(midEst * 1.2);
+    document.getElementById('res-high').textContent = fmtMoney(high);
+
+    document.getElementById('amt-past-med').textContent = fmtMoney(pastMed);
+    document.getElementById('amt-future-med').textContent = fmtMoney(futureMed);
+    document.getElementById('amt-mp-wages').textContent = fmtMoney(wages + futureWages);
+    document.getElementById('amt-mp-pain').textContent = fmtMoney(Math.round(nonEcon)) + (nonEcon < rawNonEcon ? ' (capped)' : '');
+
+    const tot = totalEconomic + nonEcon || 1;
+    animateBars([
+      { id: 'bar-past-med', pct: pastMed / tot * 100 },
+      { id: 'bar-future-med', pct: futureMed / tot * 100 },
+      { id: 'bar-mp-wages', pct: (wages + futureWages) / tot * 100 },
+      { id: 'bar-mp-pain', pct: nonEcon / tot * 100 },
+    ]);
+
+    const facs = [
+      { l: typeInfo.l, n: `Pain & suffering multiplier: ${typeInfo.mult}× applied to medical damages` },
+      { l: sevInfo.l, n: `Severity adjustment: ${sevInfo.m}× — impacts both economic projections and non-economic awards` },
+      { l: capInfo.cap === Infinity ? '✅ No Non-Economic Cap' : `⚠️ Non-Economic Cap: ${fmtMoney(capInfo.cap)}`, n: capInfo.cap !== Infinity && nonEcon >= capInfo.cap ? 'Cap applied — non-economic damages limited by state law' : capInfo.cap === Infinity ? 'Full non-economic recovery possible — significant advantage' : 'Below cap threshold — cap not limiting your recovery in this estimate' },
+      { l: evQual === 'strong' ? '✅ Strong Expert Support' : evQual === 'weak' ? '⚠️ Expert Evidence Uncertain' : '🟡 Moderate Evidence', n: 'Expert witness quality is the single biggest factor in malpractice case value' },
+      { l: isHosp ? '🏥 Hospital Defendant — Deeper Pockets' : '👨‍⚕️ Individual Physician Defendant', n: isHosp ? 'Hospitals carry larger malpractice policies and often settle to avoid publicity' : 'Individual physician policies typically $1–5M; may limit recovery' },
+      { l: hasAtty ? '✅ Attorney Represented' : '🔔 No Malpractice Attorney Yet', n: hasAtty ? 'Experienced malpractice attorneys significantly increase both outcome likelihood and award amount' : 'Malpractice claims cannot realistically be pursued without attorney representation — consult one immediately' },
+    ];
+    document.getElementById('factors').innerHTML = facs.map(f => `<div class="factor-item"><strong>${f.l}</strong><span>${f.n}</span></div>`).join('');
+    showResults();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dog Bite Settlement Calculator — How Much Is My Dog Bite Claim Worth? (2025)</title>
+  <meta name="description" content="Free dog bite settlement calculator. Estimate your dog bite injury claim based on injury severity, state liability laws, victim age, scarring, and prior knowledge of aggression. Instant results."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="container">
+
+  <div class="tool-header fade-in">
+    <div class="badge">🐕 Dog Bite Tool</div>
+    <h1>Dog Bite <span>Settlement Calculator</span></h1>
+    <p>Estimate the value of your dog bite injury claim. Accounts for strict liability vs. one-bite rule states, injury severity, scarring, child victims, and prior knowledge of aggression.</p>
+    <div class="trust-row">
+      <div class="trust-item"><span class="ti">🇺🇸</span> Strict Liability vs. One-Bite</div>
+      <div class="trust-item"><span class="ti">🔒</span> 100% Private</div>
+      <div class="trust-item"><span class="ti">⚡</span> Instant Results</div>
+    </div>
+  </div>
+
+  <div class="ad-slot ad-leaderboard">Advertisement</div>
+
+  <div id="calc-form">
+    <div class="card fade-in">
+      <div class="card-title">🐕 Step 1 — Bite &amp; Liability Details</div>
+      <div class="card-desc">Dog bite liability laws vary significantly by state. Your state's approach dramatically affects how easy it is to establish the dog owner's responsibility.</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="state-liability">Your State's Liability Standard</label>
+          <select id="state-liability">
+            <option value="strict">Strict Liability — CA, FL, IL, OH, MI, NJ, PA, WA, CO, TX, NY &amp; most others (35+ states)</option>
+            <option value="one-bite">One-Bite Rule — VA, NC, GA, TN, MS, NV, ND, WY, AK, ID &amp; others</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="bite-severity">Bite Severity</label>
+          <select id="bite-severity">
+            <option value="minor">Minor — Puncture wounds requiring basic treatment, no stitches</option>
+            <option value="moderate">Moderate — Lacerations, multiple bites, stitches required</option>
+            <option value="serious">Serious — Deep wounds, surgery required, significant scarring</option>
+            <option value="severe">Severe — Hospitalization, reconstructive surgery, disfigurement</option>
+            <option value="catastrophic">Catastrophic — Major disfigurement, facial attack, loss of function</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="bite-location">Primary Location of Injury on Body</label>
+          <select id="bite-location">
+            <option value="face">Face, Head, or Neck — Highest damage awards</option>
+            <option value="hands">Hands, Arms — Career/livelihood impact possible</option>
+            <option value="legs">Legs, Torso — Significant but lower multiplier</option>
+            <option value="other">Other Body Location</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Was the Victim a Child (Under 12)?</label>
+          <div class="radio-group">
+            <div class="radio-btn"><input type="radio" name="child-victim" id="cv-yes" value="yes"><label for="cv-yes">Yes — Child Victim</label></div>
+            <div class="radio-btn"><input type="radio" name="child-victim" id="cv-no" value="no" checked><label for="cv-no">No — Adult Victim</label></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Did the Owner Know the Dog Was Aggressive? <span class="hint">(prior bites or threats)</span></label>
+          <div class="radio-group">
+            <div class="radio-btn"><input type="radio" name="prior-know" id="pk-yes" value="yes"><label for="pk-yes">Yes — Known aggression</label></div>
+            <div class="radio-btn"><input type="radio" name="prior-know" id="pk-no" value="no" checked><label for="pk-no">No / Unknown</label></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Did You Provoke the Dog in Any Way?</label>
+          <div class="radio-group">
+            <div class="radio-btn"><input type="radio" name="provoked" id="prov-yes" value="yes"><label for="prov-yes">Yes / Possibly</label></div>
+            <div class="radio-btn"><input type="radio" name="provoked" id="prov-no" value="no" checked><label for="prov-no">No — Unprovoked</label></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Is the Owner Insured? <span class="hint">(homeowner's or renter's insurance covers most dog bites)</span></label>
+          <div class="radio-group">
+            <div class="radio-btn"><input type="radio" name="insured" id="ins-yes" value="yes" checked><label for="ins-yes">Yes / Likely</label></div>
+            <div class="radio-btn"><input type="radio" name="insured" id="ins-no" value="no"><label for="ins-no">No / Unknown</label></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do You Have a Personal Injury Attorney?</label>
+          <div class="radio-group">
+            <div class="radio-btn"><input type="radio" name="db-atty" id="dba-yes" value="yes"><label for="dba-yes">Yes</label></div>
+            <div class="radio-btn"><input type="radio" name="db-atty" id="dba-no" value="no" checked><label for="dba-no">Not Yet</label></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card fade-in">
+      <div class="card-title">💰 Step 2 — Your Damages</div>
+      <div class="card-desc">Enter your actual economic losses. For dog bite claims, medical bills and psychological treatment costs are both recoverable.</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="db-medical">Medical Bills <span class="hint">(ER, surgery, reconstructive)</span></label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="db-medical" placeholder="5000" min="0" step="100"></div>
+        </div>
+        <div class="form-group">
+          <label for="db-psych">Psychological Treatment Costs <span class="hint">(PTSD, therapy)</span></label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="db-psych" placeholder="0" min="0" step="100" value="0"></div>
+        </div>
+        <div class="form-group">
+          <label for="db-wages">Lost Wages</label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="db-wages" placeholder="0" min="0" step="100" value="0"></div>
+        </div>
+        <div class="form-group">
+          <label for="db-scarring">Permanent Scarring / Disfigurement Severity</label>
+          <select id="db-scarring">
+            <option value="none">None — No permanent scarring</option>
+            <option value="minor">Minor — Small scar, mostly covered</option>
+            <option value="moderate">Moderate — Visible scar, some social impact</option>
+            <option value="severe">Severe — Significant facial or visible scar</option>
+            <option value="disfiguring">Disfiguring — Major permanent disfigurement</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-rect">Advertisement</div>
+    <button class="btn-calc" id="calc-btn">🐕 Calculate My Dog Bite Claim Value</button>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results">
+    <div class="card">
+      <div class="results-head">
+        <h2>📊 Your Estimated Dog Bite Settlement</h2>
+        <div class="sub">Based on your state's liability law, injury severity, and damages</div>
+      </div>
+      <div class="range-cards">
+        <div class="range-card"><div class="range-lbl">Conservative Low</div><div class="range-val" id="res-low">—</div><div class="range-note">Quick settlement, no attorney</div></div>
+        <div class="range-card featured"><div class="range-lbl">Most Likely Range</div><div class="range-val" id="res-mid">—</div><div class="range-note">With attorney representation</div></div>
+        <div class="range-card"><div class="range-lbl">Potential High</div><div class="range-val" id="res-high">—</div><div class="range-note">Strong case, prior knowledge</div></div>
+      </div>
+      <div class="bk-title">Damages Breakdown</div>
+      <div class="bk-item"><div class="bk-name">🏥 Medical Bills</div><div class="bk-bar-wrap"><div class="bk-bar bar-1" id="bar-db-med"></div></div><div class="bk-amt" id="amt-db-med">—</div></div>
+      <div class="bk-item"><div class="bk-name">🧠 Psychological Treatment</div><div class="bk-bar-wrap"><div class="bk-bar bar-3" id="bar-db-psych"></div></div><div class="bk-amt" id="amt-db-psych">—</div></div>
+      <div class="bk-item"><div class="bk-name">💼 Lost Wages</div><div class="bk-bar-wrap"><div class="bk-bar bar-2" id="bar-db-wages"></div></div><div class="bk-amt" id="amt-db-wages">—</div></div>
+      <div class="bk-item"><div class="bk-name">💛 Pain, Suffering &amp; Scarring</div><div class="bk-bar-wrap"><div class="bk-bar bar-4" id="bar-db-pain"></div></div><div class="bk-amt" id="amt-db-pain">—</div></div>
+      <div class="bk-title" style="margin-top:22px">Key Case Factors</div>
+      <div class="factors-grid" id="factors"></div>
+    </div>
+
+    <div class="ad-slot ad-rect">Advertisement</div>
+
+    <div class="atty-cta">
+      <h3>⚖️ Dog Bite Attorneys Work on Contingency — Free to Start</h3>
+      <p>Homeowner's and renter's insurance covers most dog bites — meaning there's a real policy to collect from. Personal injury attorneys who handle dog bites typically charge 33% contingency and cost nothing upfront. An attorney negotiates directly with the insurance company and almost always secures significantly more than an unrepresented claimant. Most offer free consultations.</p>
+      <a href="#" class="btn-cta">Find a Dog Bite Attorney Near Me →</a>
+    </div>
+
+    <div class="legal-notice"><strong>⚠️ Disclaimer:</strong> Settlement estimates are for educational purposes only. Dog bite laws vary significantly by state — strict liability, one-bite rule standards, and contributory negligence rules all affect your recovery. Consult a licensed personal injury attorney in your state for evaluation of your specific case.</div>
+    <button class="btn-reset" onclick="resetCalc()">← Adjust My Inputs</button>
+
+    <div class="related-section"><h3>Related Legal Calculators</h3><div class="related-grid">
+      <a class="related-link" href="./personal-injury-calculator.html"><span class="rl-icon">⚖️</span><span class="rl-title">Personal Injury</span><span class="rl-desc">All accident types</span></a>
+      <a class="related-link" href="./medical-malpractice-calculator.html"><span class="rl-icon">🏥</span><span class="rl-title">Medical Malpractice</span><span class="rl-desc">If injuries were mistreated</span></a>
+      <a class="related-link" href="./workers-comp-calculator.html"><span class="rl-icon">🔨</span><span class="rl-title">Workers' Comp</span><span class="rl-desc">If bitten at work</span></a>
+    </div></div>
+  </div>
+
+  <div class="ad-slot ad-banner">Advertisement</div>
+
+  <div class="card fade-in">
+    <h2 class="serif" style="font-size:1.35rem;font-weight:700;margin-bottom:14px">Dog Bite Liability: Strict Liability vs. One-Bite Rule</h2>
+    <div class="article-block">
+      <p>The most important legal distinction in any dog bite case is whether your state follows <strong>strict liability</strong> or the <strong>one-bite rule</strong>. In strict liability states (approximately 35 states), the dog owner is liable for bites regardless of whether they knew their dog was dangerous — no prior incidents required. In one-bite rule states, you must prove the owner knew or should have known the dog had dangerous propensities.</p>
+      <p><strong>Homeowner's and renter's insurance</strong> is the primary source of recovery in dog bite cases. Standard policies typically cover dog bite liability from $100,000 to $300,000 per incident, with umbrella policies extending coverage to $1M+. This is why dog bite cases are often very collectible — unlike many personal injury claims that depend on the at-fault individual's personal assets, there's usually a real insurance policy in play.</p>
+      <p><strong>Facial bites and child victims</strong> command the highest settlements. Courts are highly sympathetic to young victims, and scarring on visible areas (particularly the face) creates a compelling, lifelong damage narrative. A disfiguring bite to a child's face that occurred in a strict liability state with a represented claimant commonly produces settlements of $100,000–$500,000+, even with modest medical bills.</p>
+      <p><strong>Provocation is the primary defense.</strong> If you teased, cornered, or threatened the dog before it bit, that reduces or eliminates recovery depending on your state's negligence rules. Trespassing at the time of the bite may also reduce or bar recovery in some states. Children are generally given more leeway on the provocation defense — courts recognize that children don't always understand animal body language.</p>
+    </div>
+  </div>
+
+  <section class="faq-section fade-in"><h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What is the average dog bite settlement? <i class="chev">▾</i></button><div class="faq-a">According to the Insurance Information Institute, the average dog bite claim paid by homeowner's insurance in 2023 was approximately $58,545. However, this average is pulled down by many small claims. Cases involving serious injuries, facial scarring, child victims, or surgery frequently settle in the $100,000–$500,000 range. Cases with catastrophic disfigurement or permanent disability have settled for $1M+. The presence of attorney representation is the single biggest factor in settlement amount.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Can I sue if the bite happened at someone's home? <i class="chev">▾</i></button><div class="faq-a">Yes. In fact, most dog bite claims are made against the homeowner's or renter's insurance policy of the dog owner. Being on private property at the time of the bite doesn't prevent recovery as long as you were lawfully present (invited, not trespassing). Even if you were bitten at a friend's house, the friend's homeowner's policy typically covers it — filing a claim does not mean suing your friend personally, it means making a claim against their insurance company.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Do I need a lawyer for a dog bite claim? <i class="chev">▾</i></button><div class="faq-a">For minor bites with full recovery and under $5,000 in medical bills, you may be able to handle the claim directly with the at-fault party's insurance company. For any bite requiring stitches or surgical treatment, involving a child, resulting in scarring, or causing psychological trauma — attorney representation is strongly recommended. Studies consistently show that represented claimants receive 3–4× larger settlements even after attorney fees, and the process is significantly less stressful.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">How long after a dog bite can I file a claim? <i class="chev">▾</i></button><div class="faq-a">The statute of limitations for dog bite claims is typically the same as other personal injury claims in your state — generally 2–3 years from the date of the bite. However, do not wait. Medical documentation, photographs, witness statements, and Animal Control records are most easily gathered immediately after the incident. If the dog has a bite history, Animal Control may have records that support your claim — obtain these as soon as possible. The sooner you consult an attorney, the better preserved your evidence will be.</div></div>
+  </section>
+</div>
+<div id="footer-placeholder"></div>
+<script>var BASE='../';</script>
+<script src="../js/common.js"></script>
+<script>
+  // Severity multipliers (applied to economic damages for P&S)
+  const SEV_MULT = { minor: 1.5, moderate: 2.5, serious: 3.5, severe: 5.0, catastrophic: 8.0 };
+
+  // Body location premium
+  const LOC_MULT = { face: 1.45, hands: 1.2, legs: 1.0, other: 0.9 };
+
+  // Scarring add-on to P&S
+  const SCAR_ADD = { none: 0, minor: 5000, moderate: 20000, severe: 60000, disfiguring: 150000 };
+
+  document.getElementById('calc-btn').addEventListener('click', () => {
+    const stateLiab  = document.getElementById('state-liability').value;
+    const severity   = document.getElementById('bite-severity').value;
+    const location   = document.getElementById('bite-location').value;
+    const childVictim = document.querySelector('input[name="child-victim"]:checked')?.value === 'yes';
+    const priorKnow  = document.querySelector('input[name="prior-know"]:checked')?.value === 'yes';
+    const provoked   = document.querySelector('input[name="provoked"]:checked')?.value === 'yes';
+    const insured    = document.querySelector('input[name="insured"]:checked')?.value === 'yes';
+    const hasAtty    = document.querySelector('input[name="db-atty"]:checked')?.value === 'yes';
+    const medical    = +document.getElementById('db-medical').value || 0;
+    const psych      = +document.getElementById('db-psych').value || 0;
+    const wages      = +document.getElementById('db-wages').value || 0;
+    const scarring   = document.getElementById('db-scarring').value;
+
+    if (!medical) { alert('Please enter your medical bills to get an estimate.'); return; }
+
+    const economic = medical + psych + wages;
+    const sevMult  = SEV_MULT[severity] || 2.5;
+    const locMult  = LOC_MULT[location] || 1.0;
+    const scarAdd  = SCAR_ADD[scarring] || 0;
+
+    let painSuffering = Math.round((medical + psych) * sevMult * locMult + scarAdd);
+
+    // Adjustments
+    const childBonus   = childVictim ? 1.35 : 1.0;
+    const priorBonus   = priorKnow   ? 1.40 : 1.0; // potential punitive
+    const provokeAdj   = provoked    ? 0.40 : 1.0;
+    const liabilityAdj = stateLiab === 'strict' ? 1.0 : (priorKnow ? 0.85 : 0.45);
+    const insuranceAdj = insured     ? 1.0  : 0.55;
+    const attyAdj      = hasAtty     ? 1.15 : 0.70;
+
+    painSuffering = Math.round(painSuffering * childBonus * priorBonus * provokeAdj * liabilityAdj);
+
+    const midEst  = Math.round((economic + painSuffering) * insuranceAdj * attyAdj);
+    const low     = Math.round(midEst * 0.35);
+    const high    = Math.round(midEst * 2.2 * (priorKnow ? 1.3 : 1));
+
+    document.getElementById('res-low').textContent  = fmtMoney(low);
+    document.getElementById('res-mid').textContent  = fmtMoney(midEst * 0.80) + ' – ' + fmtMoney(midEst * 1.2);
+    document.getElementById('res-high').textContent = fmtMoney(high);
+
+    document.getElementById('amt-db-med').textContent   = fmtMoney(medical);
+    document.getElementById('amt-db-psych').textContent = psych > 0 ? fmtMoney(psych) : '$0';
+    document.getElementById('amt-db-wages').textContent = wages > 0 ? fmtMoney(wages) : '$0';
+    document.getElementById('amt-db-pain').textContent  = fmtMoney(painSuffering);
+
+    const tot = economic + painSuffering || 1;
+    animateBars([
+      { id: 'bar-db-med',   pct: medical / tot * 100 },
+      { id: 'bar-db-psych', pct: psych / tot * 100 },
+      { id: 'bar-db-wages', pct: wages / tot * 100 },
+      { id: 'bar-db-pain',  pct: painSuffering / tot * 100 },
+    ]);
+
+    const sevLabel = { minor:'⚠️ Minor Bite',moderate:'🟡 Moderate Bite',serious:'🟠 Serious Bite',severe:'🔴 Severe Bite',catastrophic:'🆘 Catastrophic — Major Disfigurement' };
+    const locLabel = { face:'😰 Facial / Head Injury',hands:'✋ Hands / Arms',legs:'🦵 Legs / Torso',other:'⚠️ Other Location' };
+
+    const facs = [
+      { l: stateLiab === 'strict' ? '✅ Strict Liability State' : priorKnow ? '⚠️ One-Bite State — Prior Knowledge Proven' : '🔴 One-Bite State — No Known History', n: stateLiab === 'strict' ? 'Owner is liable regardless of prior knowledge — strongest liability standard' : priorKnow ? 'Prior knowledge overcomes one-bite defense' : 'One-bite rule requires proof of known dangerous propensity — consult attorney about evidence' },
+      { l: sevLabel[severity] || '🐕 Dog Bite Injury', n: `Severity multiplier: ${sevMult}× applied to medical and psychological damages` },
+      { l: locLabel[location] || '⚠️ Body Location', n: location === 'face' ? 'Facial injuries receive the highest multipliers — visible, permanent, high jury sympathy' : 'Body location premium applied to pain and suffering calculation' },
+      childVictim ? { l: '👶 Child Victim — Significant Bonus', n: 'Courts and juries are especially sympathetic to child victims — expect 35%+ above adult claims' } : { l: '👤 Adult Victim', n: 'Standard adult claim — no child victim premium' },
+      priorKnow ? { l: '⚠️ Owner Had Prior Knowledge', n: 'Prior knowledge of aggression opens the door to punitive damages — significantly increases case value' } : { l: '🐕 No Known Prior Aggression', n: 'Lack of prior incidents is normal — most dog bites are first incidents for the dog' },
+      provoked ? { l: '⚠️ Provocation Factor Present', n: 'Provocation significantly reduces recovery — consult attorney about how much it affects your specific case' } : { l: '✅ Unprovoked Attack', n: 'Unprovoked bites are the strongest factual position — maximizes liability without defense arguments' },
+    ];
+    document.getElementById('factors').innerHTML = facs.map(f => `<div class="factor-item"><strong>${f.l}</strong><span>${f.n}</span></div>`).join('');
+    showResults();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Workers' Compensation Calculator — Estimate Your Benefits by State 2025</title>
+  <meta name="description" content="Free workers' compensation calculator. Estimate your weekly benefits, total payout, and permanent disability value based on your state's formula and injury type. Instant results."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="container">
+  <div class="tool-header fade-in">
+    <div class="badge">🔨 Workers' Comp Tool</div>
+    <h1>Workers' Compensation <span>Calculator</span></h1>
+    <p>Estimate your weekly workers' comp benefit, total payout, and permanent disability value based on your state's benefit formula and injury.</p>
+    <div class="trust-row">
+      <div class="trust-item"><span class="ti">🇺🇸</span> All 50 States</div>
+      <div class="trust-item"><span class="ti">🔒</span> 100% Private</div>
+      <div class="trust-item"><span class="ti">⚡</span> Instant Results</div>
+    </div>
+  </div>
+  <div class="ad-slot ad-leaderboard">Advertisement</div>
+
+  <div id="calc-form">
+    <div class="card fade-in">
+      <div class="card-title">🔨 Step 1 — Your Injury &amp; Work Details</div>
+      <div class="card-desc">Workers' comp benefits are primarily based on your Average Weekly Wage (AWW) and disability classification.</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="weekly-wage">Your Gross Weekly Wage <span class="hint">(before taxes)</span></label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="weekly-wage" placeholder="1000" min="0" step="50"></div>
+        </div>
+        <div class="form-group">
+          <label for="state-benefit">State Benefit Rate</label>
+          <select id="state-benefit">
+            <option value="66">Standard Rate (66⅔%) — Most states</option>
+            <option value="70">Higher Rate (70%) — PA, IA, KY and others</option>
+            <option value="60">Lower Rate (60%) — Some state caps apply</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="injury-body-part">Injured Body Part</label>
+          <select id="injury-body-part">
+            <option value="back">Back / Spine</option>
+            <option value="neck">Neck / Cervical</option>
+            <option value="shoulder">Shoulder / Rotator Cuff</option>
+            <option value="knee">Knee / Leg</option>
+            <option value="arm">Arm / Elbow / Wrist</option>
+            <option value="hand">Hand / Fingers</option>
+            <option value="foot">Foot / Ankle / Toes</option>
+            <option value="head">Head / Brain Injury</option>
+            <option value="other">Other / Multiple</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="disability-class">Disability Classification</label>
+          <select id="disability-class">
+            <option value="temp-total">Temporary Total — Cannot work at all</option>
+            <option value="temp-partial">Temporary Partial — Can do light duty</option>
+            <option value="perm-partial">Permanent Partial — Lasting impairment, can work</option>
+            <option value="perm-total">Permanent Total — Cannot return to any work</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="weeks-off">Expected Weeks Out of Work</label>
+          <input type="number" id="weeks-off" placeholder="12" min="1" step="1" value="12">
+        </div>
+        <div class="form-group">
+          <label for="impairment-rating">Permanent Impairment Rating % <span class="hint">(0 if not rated yet)</span></label>
+          <input type="number" id="impairment-rating" placeholder="0" min="0" max="100" step="1" value="0">
+        </div>
+        <div class="form-group">
+          <label>Employer Disputing Your Claim?</label>
+          <div class="radio-group">
+            <div class="radio-btn"><input type="radio" name="disputed" id="disp-yes" value="yes"><label for="disp-yes">Yes — Disputed</label></div>
+            <div class="radio-btn"><input type="radio" name="disputed" id="disp-no" value="no" checked><label for="disp-no">No — Accepted</label></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do You Have a Workers' Comp Attorney?</label>
+          <div class="radio-group">
+            <div class="radio-btn"><input type="radio" name="wc-atty" id="wca-yes" value="yes"><label for="wca-yes">Yes</label></div>
+            <div class="radio-btn"><input type="radio" name="wc-atty" id="wca-no" value="no" checked><label for="wca-no">No</label></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ad-slot ad-rect">Advertisement</div>
+    <button class="btn-calc" id="calc-btn">🔨 Calculate My Workers' Comp Benefits</button>
+  </div>
+
+  <div id="results">
+    <div class="card">
+      <div class="results-head">
+        <h2>📊 Your Estimated Workers' Comp Benefits</h2>
+        <div class="sub">Based on your wage, injury type, and state benefit rate</div>
+      </div>
+      <div class="range-cards">
+        <div class="range-card"><div class="range-lbl">Weekly Benefit</div><div class="range-val" id="res-low">—</div><div class="range-note">Your estimated weekly payment</div></div>
+        <div class="range-card featured"><div class="range-lbl">Total TTD Benefits</div><div class="range-val" id="res-mid">—</div><div class="range-note">For your time out of work</div></div>
+        <div class="range-card"><div class="range-lbl">Perm. Disability Value</div><div class="range-val" id="res-high">—</div><div class="range-note">If rated for permanent impairment</div></div>
+      </div>
+      <div class="bk-title">Benefits Breakdown</div>
+      <div class="bk-item"><div class="bk-name">💰 Weekly TTD Benefit</div><div class="bk-bar-wrap"><div class="bk-bar bar-4" id="bar-weekly"></div></div><div class="bk-amt" id="amt-weekly">—</div></div>
+      <div class="bk-item"><div class="bk-name">📅 Total Temp. Disability (TTD)</div><div class="bk-bar-wrap"><div class="bk-bar bar-1" id="bar-ttd"></div></div><div class="bk-amt" id="amt-ttd">—</div></div>
+      <div class="bk-item"><div class="bk-name">🏥 Medical Treatment Coverage</div><div class="bk-bar-wrap"><div class="bk-bar bar-2" id="bar-med"></div></div><div class="bk-amt" id="amt-med">Covered</div></div>
+      <div class="bk-item"><div class="bk-name">⚠️ Permanent Disability (PPD/PTD)</div><div class="bk-bar-wrap"><div class="bk-bar bar-3" id="bar-ppd"></div></div><div class="bk-amt" id="amt-ppd">—</div></div>
+      <div class="bk-title" style="margin-top:22px">Key Factors</div>
+      <div class="factors-grid" id="factors"></div>
+    </div>
+    <div class="ad-slot ad-rect">Advertisement</div>
+    <div class="atty-cta">
+      <h3>⚖️ Workers' Comp Attorneys Work on Contingency — No Upfront Cost</h3>
+      <p>Workers' comp attorneys typically charge 15–25% of your settlement — and only if you win. They fight for maximum impairment ratings, challenge return-to-work orders, and negotiate lump-sum settlements that are often 3–4× the weekly benefit value. Especially important if your claim is disputed or involves a permanent injury.</p>
+      <a href="#" class="btn-cta">Get a Free Workers' Comp Consultation →</a>
+    </div>
+    <div class="legal-notice"><strong>⚠️ Disclaimer:</strong> Benefit amounts are estimates based on typical state formulas. Maximum weekly benefit caps, waiting periods, and specific injury schedules vary significantly by state. Consult a licensed workers' compensation attorney in your state for accurate advice.</div>
+    <button class="btn-reset" onclick="resetCalc()">← Adjust My Inputs</button>
+    <div class="related-section"><h3>Related Legal Calculators</h3><div class="related-grid">
+      <a class="related-link" href="./personal-injury-calculator.html"><span class="rl-icon">⚖️</span><span class="rl-title">Personal Injury</span><span class="rl-desc">3rd party injury claims</span></a>
+      <a class="related-link" href="./ssdi-calculator.html"><span class="rl-icon">♿</span><span class="rl-title">SSDI Benefits</span><span class="rl-desc">If you can't return to work</span></a>
+      <a class="related-link" href="./wrongful-termination-calculator.html"><span class="rl-icon">📋</span><span class="rl-title">Wrongful Termination</span><span class="rl-desc">If fired during recovery</span></a>
+    </div></div>
+  </div>
+
+  <div class="ad-slot ad-banner">Advertisement</div>
+  <div class="card fade-in">
+    <h2 class="serif" style="font-size:1.35rem;font-weight:700;margin-bottom:14px">How Workers' Compensation Benefits Are Calculated</h2>
+    <div class="article-block">
+      <p>Workers' compensation benefits replace a portion of your pre-injury wages while you recover. Most states pay <strong>66⅔% (two-thirds) of your Average Weekly Wage (AWW)</strong> for temporary total disability — with a maximum weekly cap that varies by state. Some states pay up to 70% and have higher caps.</p>
+      <p>Your AWW is usually calculated as your average gross weekly earnings over the 52 weeks prior to your injury. If you worked part of the year, the calculation may differ. Tips, overtime, and other compensation may or may not be included depending on your state.</p>
+      <p><strong>Permanent impairment</strong> is rated on a percentage scale by an authorized physician. Each body part has a maximum number of "weeks" assigned to it under your state's schedule. For example, an arm might be worth 312 weeks — a 20% impairment rating on an arm would be worth 62.4 weeks of benefits. Higher impairment ratings and higher wages produce larger permanent disability awards.</p>
+      <p>Many workers' comp cases settle as a <strong>lump-sum payment</strong> — typically calculated as the present discounted value of all future weekly benefits. A workers' comp attorney negotiates this settlement and can often achieve amounts significantly higher than what the insurer initially offers.</p>
+    </div>
+  </div>
+  <section class="faq-section fade-in"><h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Can my employer fire me for filing a workers' comp claim? <i class="chev">▾</i></button><div class="faq-a">In most states, it is illegal to retaliate against an employee for filing a workers' compensation claim. If you are fired, demoted, or have hours cut after filing a claim, you may have a separate wrongful termination or retaliation claim. Document everything — the timing of any adverse employment action relative to your claim filing date is critical evidence. Consult both a workers' comp attorney and an employment attorney if this happens.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What if my employer disputes my workers' comp claim? <i class="chev">▾</i></button><div class="faq-a">If your employer or their insurer denies or disputes your claim, you have the right to appeal. The appeals process typically involves a formal hearing before a workers' compensation judge. An attorney is strongly recommended for disputed claims — disputed cases that go to hearings have much higher success rates with legal representation. Keep detailed records of medical treatment, missed work, and all communications about your claim.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Can I also sue my employer for a workplace injury? <i class="chev">▾</i></button><div class="faq-a">In most cases, no — workers' compensation is the exclusive remedy against your employer, meaning you generally cannot also sue them in civil court. However, if a third party (not your employer) caused or contributed to your injury — such as a contractor, equipment manufacturer, or property owner — you may be able to bring a separate personal injury lawsuit against them while also receiving workers' comp benefits.</div></div>
+  </section>
+</div>
+<div id="footer-placeholder"></div>
+<script>var BASE='../';</script>
+<script src="../js/common.js"></script>
+<script>
+  // Permanent disability schedule (body part → max weeks under typical scheduling)
+  const PPD_WEEKS = { back:400, neck:350, shoulder:312, knee:288, arm:312, hand:244, foot:205, head:500, other:300 };
+
+  document.getElementById('calc-btn').addEventListener('click',()=>{
+    const ww=+document.getElementById('weekly-wage').value||0;
+    const rate=+document.getElementById('state-benefit').value/100;
+    const bodyPart=document.getElementById('injury-body-part').value;
+    const disClass=document.getElementById('disability-class').value;
+    const weeksOff=+document.getElementById('weeks-off').value||12;
+    const impRating=+document.getElementById('impairment-rating').value||0;
+    const disputed=document.querySelector('input[name="disputed"]:checked')?.value==='yes';
+    const hasAtty=document.querySelector('input[name="wc-atty"]:checked')?.value==='yes';
+
+    if(!ww){alert('Please enter your weekly wage.');return;}
+
+    const weeklyBenefit=Math.round(ww*rate);
+    const maxWeeklyBenefit=Math.round(weeklyBenefit*1.1); // rough state max (simplified)
+    const ttd=weeklyBenefit*weeksOff;
+
+    // PPD calculation
+    const schedWeeks=PPD_WEEKS[bodyPart]||300;
+    const ppdWeeks=schedWeeks*(impRating/100);
+    const ppdValue=Math.round(ppdWeeks*weeklyBenefit*(hasAtty?1.25:0.85)*(disputed?0.7:1));
+
+    // PTD: assume lifetime benefit if permanent total
+    const ptdValue=disClass==='perm-total'?Math.round(weeklyBenefit*52*20):0;
+
+    const permValue=disClass==='perm-total'?ptdValue:ppdValue;
+
+    document.getElementById('res-low').textContent=fmtMoney(weeklyBenefit)+'/wk';
+    document.getElementById('res-mid').textContent=fmtMoney(ttd);
+    document.getElementById('res-high').textContent=permValue>0?fmtMoney(permValue):'Pending Rating';
+
+    document.getElementById('amt-weekly').textContent=fmtMoney(weeklyBenefit)+'/wk';
+    document.getElementById('amt-ttd').textContent=fmtMoney(ttd);
+    document.getElementById('amt-med').textContent='Covered by carrier';
+    document.getElementById('amt-ppd').textContent=permValue>0?fmtMoney(permValue):impRating===0?'Not yet rated':'$0';
+
+    const tot=ttd+permValue||1;
+    animateBars([{id:'bar-weekly',pct:100},{id:'bar-ttd',pct:ttd/tot*100},{id:'bar-med',pct:40},{id:'bar-ppd',pct:permValue/tot*100}]);
+
+    const facs=[
+      {l:`💰 Weekly AWW Wage: ${fmtMoney(ww)}`,n:`Your weekly benefit is ${Math.round(rate*100)}% of your gross wages`},
+      {l:`🦴 Injury: ${bodyPart.charAt(0).toUpperCase()+bodyPart.slice(1)} (${schedWeeks} scheduled weeks)`,n:impRating>0?`${impRating}% impairment = ${Math.round(ppdWeeks)} benefit weeks`:'Get an independent impairment rating to strengthen your claim'},
+      {l:`📋 Classification: ${disClass.replace('-',' ').replace(/\b\w/g,l=>l.toUpperCase())}`,n:disClass==='perm-total'?'Permanent total disability may entitle you to lifetime benefits':'Temporary disability payments continue until you reach maximum medical improvement'},
+      disputed?{l:'⚠️ Claim Disputed',n:'Disputed claims require appeal — attorney representation dramatically improves outcomes'}:{l:'✅ Claim Accepted',n:'Accepted claim — focus on maximizing your impairment rating and settlement value'},
+      hasAtty?{l:'✅ Attorney Represented',n:'Attorneys typically negotiate 25–40% higher lump-sum settlements'}:{l:'🔔 No Attorney Yet',n:'Workers comp attorneys work on contingency — no upfront cost, and typically achieve much higher settlements'},
+      {l:`📅 ${weeksOff} Weeks of Disability`,n:`Total TTD: ${fmtMoney(ttd)} — does not include permanent disability or medical`},
+    ];
+    document.getElementById('factors').innerHTML=facs.map(f=>`<div class="factor-item"><strong>${f.l}</strong><span>${f.n}</span></div>`).join('');
+    showResults();
+  });
+</script>
+</body>
+</html>

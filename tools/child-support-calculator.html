@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Child Support Calculator — Estimate Monthly Payments by State 2025</title>
+  <meta name="description" content="Free child support calculator using the Income Shares model. Estimate monthly child support obligations for sole, primary, and shared custody arrangements. All 50 states, instant results."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="container">
+
+  <div class="tool-header fade-in">
+    <div class="badge">👶 Family Law Tool</div>
+    <h1>Child Support <span>Calculator</span></h1>
+    <p>Estimate monthly child support using the Income Shares model — the formula used by most U.S. states. Enter both parents' incomes and custody arrangement for an instant estimate.</p>
+    <div class="trust-row">
+      <div class="trust-item"><span class="ti">🇺🇸</span> All 50 States</div>
+      <div class="trust-item"><span class="ti">🔒</span> 100% Private</div>
+      <div class="trust-item"><span class="ti">⚡</span> Instant Results</div>
+    </div>
+  </div>
+
+  <div class="ad-slot ad-leaderboard">Advertisement</div>
+
+  <div id="calc-form">
+    <div class="card fade-in">
+      <div class="card-title">👶 Income &amp; Custody Details</div>
+      <div class="card-desc">Child support is calculated based on both parents' incomes and the custody arrangement. Enter gross (before-tax) monthly income for the most accurate estimate.</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="pay-income">Paying Parent's Gross Monthly Income</label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="pay-income" placeholder="5000" min="0" step="100"></div>
+        </div>
+        <div class="form-group">
+          <label for="rec-income">Receiving Parent's Gross Monthly Income <span class="hint">(enter 0 if not working)</span></label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="rec-income" placeholder="2500" min="0" step="100" value="0"></div>
+        </div>
+        <div class="form-group">
+          <label for="num-children">Number of Children</label>
+          <select id="num-children">
+            <option value="1">1 Child</option>
+            <option value="2" selected>2 Children</option>
+            <option value="3">3 Children</option>
+            <option value="4">4 Children</option>
+            <option value="5">5 or More Children</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="custody-type">Custody Arrangement</label>
+          <select id="custody-type">
+            <option value="sole">Sole Custody — Paying parent has less than 20% parenting time</option>
+            <option value="primary" selected>Primary Custody — Paying parent has 20–40% parenting time</option>
+            <option value="shared">Shared / Joint Custody — Close to 50/50 parenting time</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="state-model">Your State's Child Support Model</label>
+          <select id="state-model">
+            <option value="income-shares" selected>Income Shares — Most states (37 states)</option>
+            <option value="percentage">Percentage of Income — WI, Alaska, MS, AR, ND, TX (non-custodial income only)</option>
+            <option value="melson">Melson Formula — DE, HI, MT (needs-based)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="health-insurance">Monthly Health Insurance for Children</label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="health-insurance" placeholder="200" min="0" step="50" value="0"></div>
+        </div>
+        <div class="form-group">
+          <label for="childcare-costs">Monthly Childcare / Daycare Costs</label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="childcare-costs" placeholder="0" min="0" step="50" value="0"></div>
+        </div>
+        <div class="form-group">
+          <label>Do You Have an Attorney?</label>
+          <div class="radio-group">
+            <div class="radio-btn"><input type="radio" name="cs-atty" id="csa-yes" value="yes"><label for="csa-yes">Yes</label></div>
+            <div class="radio-btn"><input type="radio" name="cs-atty" id="csa-no" value="no" checked><label for="csa-no">Not Yet</label></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-rect">Advertisement</div>
+    <button class="btn-calc" id="calc-btn">👶 Calculate Monthly Child Support</button>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results">
+    <div class="card">
+      <div class="results-head">
+        <h2>📊 Estimated Monthly Child Support</h2>
+        <div class="sub">Based on both parents' incomes, <span id="children-label">2 children</span>, and custody arrangement</div>
+      </div>
+      <div class="range-cards">
+        <div class="range-card"><div class="range-lbl">Low Estimate</div><div class="range-val" id="res-low">—</div><div class="range-note">Lower court discretion</div></div>
+        <div class="range-card featured"><div class="range-lbl">Guideline Amount</div><div class="range-val" id="res-mid">—</div><div class="range-note">Per month</div></div>
+        <div class="range-card"><div class="range-lbl">Annual Total</div><div class="range-val" id="res-high">—</div><div class="range-note">12 months × guideline</div></div>
+      </div>
+
+      <div class="bk-title">Support Calculation Breakdown</div>
+      <div class="bk-item"><div class="bk-name">💰 Combined Monthly Income</div><div class="bk-bar-wrap"><div class="bk-bar bar-2" id="bar-combined"></div></div><div class="bk-amt" id="amt-combined">—</div></div>
+      <div class="bk-item"><div class="bk-name">📋 Basic Child Support Obligation</div><div class="bk-bar-wrap"><div class="bk-bar bar-4" id="bar-basic"></div></div><div class="bk-amt" id="amt-basic">—</div></div>
+      <div class="bk-item"><div class="bk-name">🏥 Health Insurance Add-On</div><div class="bk-bar-wrap"><div class="bk-bar bar-1" id="bar-health"></div></div><div class="bk-amt" id="amt-health">—</div></div>
+      <div class="bk-item"><div class="bk-name">🏫 Childcare Add-On</div><div class="bk-bar-wrap"><div class="bk-bar bar-3" id="bar-care"></div></div><div class="bk-amt" id="amt-care">—</div></div>
+
+      <div class="bk-title" style="margin-top:22px">Key Factors</div>
+      <div class="factors-grid" id="factors"></div>
+    </div>
+
+    <div class="ad-slot ad-rect">Advertisement</div>
+
+    <div class="atty-cta">
+      <h3>⚖️ Child Support Orders Require a Court — An Attorney Can Help You Get It Right</h3>
+      <p>This calculator estimates the guideline amount — but the actual order is set by a judge and can deviate based on special circumstances. A family law attorney ensures the order accounts for all income sources, tax implications (child tax credits), and modification rights. Most offer free consultations.</p>
+      <a href="#" class="btn-cta">Find a Family Law Attorney →</a>
+    </div>
+
+    <div class="legal-notice"><strong>⚠️ Disclaimer:</strong> Child support guidelines vary by state and individual circumstances. This tool uses a simplified Income Shares model and may not reflect your state's exact formula, income deductions, or deviation standards. Always consult a licensed family law attorney to determine your actual obligation or entitlement.</div>
+    <button class="btn-reset" onclick="resetCalc()">← Adjust My Inputs</button>
+
+    <div class="related-section"><h3>Related Legal Calculators</h3><div class="related-grid">
+      <a class="related-link" href="./alimony-calculator.html"><span class="rl-icon">💍</span><span class="rl-title">Alimony Calculator</span><span class="rl-desc">Spousal support estimate</span></a>
+      <a class="related-link" href="./wrongful-termination-calculator.html"><span class="rl-icon">📋</span><span class="rl-title">Wrongful Termination</span><span class="rl-desc">Employment claim value</span></a>
+      <a class="related-link" href="./personal-injury-calculator.html"><span class="rl-icon">⚖️</span><span class="rl-title">Personal Injury</span><span class="rl-desc">Settlement estimator</span></a>
+    </div></div>
+  </div>
+
+  <div class="ad-slot ad-banner">Advertisement</div>
+
+  <div class="card fade-in">
+    <h2 class="serif" style="font-size:1.35rem;font-weight:700;margin-bottom:14px">How Child Support Is Calculated in Most States</h2>
+    <div class="article-block">
+      <p>Most states (37 of 50) use the <strong>Income Shares Model</strong> for calculating child support. This approach adds both parents' gross incomes together, looks up a "basic child support obligation" from a state-published schedule based on that combined income and the number of children, then divides that obligation proportionally between the parents based on their respective income contributions.</p>
+      <p>For example, if the paying parent earns $5,000/month and the receiving parent earns $2,500/month, the combined income is $7,500. If the basic obligation for 2 children at that income level is $1,500/month, the paying parent (who earns 67% of combined income) would owe approximately $1,000/month. Add-ons for health insurance premiums and work-related childcare are then typically split the same way.</p>
+      <p><strong>Shared custody reduces the obligation.</strong> When the paying parent has significant parenting time (35–50%), most courts apply a reduction to the base amount because the paying parent is directly incurring costs during their parenting time. At true 50/50 shared custody, the "cross-obligation" method is applied — both parents calculate what they would owe the other, and only the difference changes hands.</p>
+      <p><strong>Courts can deviate from the guidelines</strong> based on extraordinary medical expenses, special educational needs, a parent's significantly reduced earning capacity, or voluntary unemployment. Judges have discretion but must document their reasoning when deviating from the guideline amount.</p>
+    </div>
+  </div>
+
+  <section class="faq-section fade-in"><h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Can child support be modified after it's set? <i class="chev">▾</i></button><div class="faq-a">Yes. Child support orders can be modified when there is a "substantial change in circumstances" — typically defined as a change in income of 10–15% or more, a change in custody arrangement, or a change in the child's needs (such as new medical requirements or aging out of daycare). Most states require you to petition the court for modification; informal agreements between parents are not legally binding and do not change your legal obligation. Review your order every 2–3 years or whenever a major life change occurs.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Does the higher earner always pay child support? <i class="chev">▾</i></button><div class="faq-a">Not necessarily. Child support is primarily determined by custody time, not just income. In a true shared custody arrangement, both parents' incomes are compared and only the net difference may change hands — meaning the higher earner might pay little or no support if they also have substantial custody time. However, in sole custody situations, the non-custodial parent almost always pays regardless of their relative income, because the custodial parent is already housing and directly caring for the child full-time.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What happens if someone doesn't pay child support? <i class="chev">▾</i></button><div class="faq-a">Non-payment of court-ordered child support has serious consequences. States can garnish wages, intercept tax refunds, suspend driver's licenses and professional licenses, report to credit bureaus, place liens on property, and ultimately hold the non-paying parent in contempt of court — which can result in jail time. The child support enforcement system is robust and agencies aggressively pursue unpaid support. Interest typically accrues on arrears in most states.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Is child support taxable income? <i class="chev">▾</i></button><div class="faq-a">No. Under federal tax law, child support payments are neither deductible by the paying parent nor taxable income to the receiving parent. This is different from the pre-2019 treatment of alimony. The child tax credit can only be claimed by one parent per year — typically the custodial parent, unless waived by signed Form 8332. Tax planning around child support orders can significantly affect the real-dollar value of an arrangement and is worth discussing with a tax professional.</div></div>
+  </section>
+</div>
+<div id="footer-placeholder"></div>
+<script>var BASE='../';</script>
+<script src="../js/common.js"></script>
+<script>
+  // Income Shares obligation percentages by number of children
+  // (approximate midpoint of typical state schedules as % of combined income)
+  const OBLIGATION_PCT = { 1: 0.17, 2: 0.25, 3: 0.29, 4: 0.31, 5: 0.35 };
+
+  // Custody time adjustments
+  const CUSTODY_ADJ = { sole: 1.0, primary: 0.85, shared: 0.60 };
+
+  // Percentage model rates (of paying parent income only)
+  const PCT_MODEL = { 1: 0.17, 2: 0.25, 3: 0.29, 4: 0.31, 5: 0.34 };
+
+  document.getElementById('calc-btn').addEventListener('click', () => {
+    const payInc = +document.getElementById('pay-income').value || 0;
+    const recInc = +document.getElementById('rec-income').value || 0;
+    const numChildren = +document.getElementById('num-children').value || 2;
+    const custodyType = document.getElementById('custody-type').value;
+    const stateModel = document.getElementById('state-model').value;
+    const healthIns = +document.getElementById('health-insurance').value || 0;
+    const childcare = +document.getElementById('childcare-costs').value || 0;
+
+    if (!payInc) { alert('Please enter the paying parent\'s monthly income.'); return; }
+
+    let basicObligation, payerShare;
+
+    if (stateModel === 'percentage') {
+      // Percentage of income model — only paying parent's income matters
+      const rate = PCT_MODEL[Math.min(numChildren, 5)] || 0.17;
+      basicObligation = payInc * rate;
+      payerShare = 1.0;
+    } else {
+      // Income Shares model (default)
+      const combined = payInc + recInc;
+      const rate = OBLIGATION_PCT[Math.min(numChildren, 5)] || 0.17;
+      basicObligation = combined * rate;
+      payerShare = combined > 0 ? payInc / combined : 1;
+    }
+
+    // Paying parent's share of basic obligation
+    const payerBasic = Math.round(basicObligation * payerShare * CUSTODY_ADJ[custodyType]);
+
+    // Add-ons: payer's proportional share of extras
+    const healthAddon = Math.round(healthIns * payerShare);
+    const careAddon = Math.round(childcare * payerShare);
+
+    const totalSupport = payerBasic + healthAddon + careAddon;
+    const lowEstimate = Math.round(totalSupport * 0.80);
+    const annual = totalSupport * 12;
+
+    document.getElementById('children-label').textContent = `${numChildren} ${numChildren === 1 ? 'child' : 'children'}`;
+    document.getElementById('res-low').textContent = fmtMoney(lowEstimate) + '/mo';
+    document.getElementById('res-mid').textContent = fmtMoney(totalSupport) + '/mo';
+    document.getElementById('res-high').textContent = fmtMoney(annual) + '/yr';
+
+    const combined2 = payInc + recInc;
+    document.getElementById('amt-combined').textContent = fmtMoney(combined2) + '/mo';
+    document.getElementById('amt-basic').textContent = fmtMoney(payerBasic) + '/mo';
+    document.getElementById('amt-health').textContent = healthAddon > 0 ? fmtMoney(healthAddon) + '/mo' : '$0';
+    document.getElementById('amt-care').textContent = careAddon > 0 ? fmtMoney(careAddon) + '/mo' : '$0';
+
+    const tot = totalSupport || 1;
+    animateBars([
+      { id: 'bar-combined', pct: 100 },
+      { id: 'bar-basic', pct: payerBasic / tot * 100 },
+      { id: 'bar-health', pct: healthAddon / tot * 100 },
+      { id: 'bar-care', pct: careAddon / tot * 100 },
+    ]);
+
+    const custodyLabel = { sole: 'Sole Custody (< 20% time)', primary: 'Primary Custody (20–40%)', shared: 'Shared / Joint (≈50/50)' };
+    const modelLabel = { 'income-shares': 'Income Shares (37 states)', percentage: 'Percentage of Income', melson: 'Melson Formula' };
+
+    const facs = [
+      { l: `💰 Paying Parent: ${fmtMoney(payInc)}/mo`, n: `${Math.round(payerShare * 100)}% of combined income — determines proportional obligation` },
+      { l: `💛 Receiving Parent: ${fmtMoney(recInc)}/mo`, n: recInc === 0 ? 'Non-working parent — paying parent covers full basic obligation' : 'Both incomes factored into combined obligation' },
+      { l: `👶 ${numChildren} ${numChildren === 1 ? 'Child' : 'Children'}`, n: `Basic obligation: ${Math.round((OBLIGATION_PCT[Math.min(numChildren,5)]||0.17)*100)}% of combined income under Income Shares model` },
+      { l: `🏠 ${custodyLabel[custodyType]}`, n: custodyType === 'shared' ? 'Shared custody reduces base obligation by ~40%' : custodyType === 'primary' ? 'Primary pays 85% of base due to partial parenting time' : 'Sole custody = full base obligation applies' },
+      { l: `🗺️ Formula: ${modelLabel[stateModel]}`, n: 'Your state\'s model determines how incomes are combined and obligation is split' },
+      (healthIns > 0 || childcare > 0) ? { l: `➕ Add-Ons: ${fmtMoney(healthAddon + careAddon)}/mo`, n: 'Health insurance and childcare are typically shared proportionally between parents' } : { l: '📋 No Add-Ons Entered', n: 'Health insurance premiums and childcare costs can increase the total obligation' },
+    ];
+    document.getElementById('factors').innerHTML = facs.map(f => `<div class="factor-item"><strong>${f.l}</strong><span>${f.n}</span></div>`).join('');
+    showResults();
+  });
+</script>
+</body>
+</html>
