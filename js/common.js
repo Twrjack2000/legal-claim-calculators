@@ -40,6 +40,7 @@
       <span class="nav-logo-text">Legal Claim <span>Calculators</span></span>
     </a>
     ${!isHome ? `<a href="${BASE}index.html" class="nav-home-link">← All Tools</a>` : ''}
+    <a href="${BASE}articles/index.html" class="nav-home-link" style="margin-left:20px;">📚 Articles</a>
     <div class="nav-tools-wrap">
       <button class="nav-tools-btn" id="tools-btn" aria-haspopup="true" aria-expanded="false">
         ⚖️ All 10 Legal Tools <i class="chev-down">▾</i>
