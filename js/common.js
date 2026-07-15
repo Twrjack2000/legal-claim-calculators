@@ -7,16 +7,16 @@
 
   // ── TOOLS MANIFEST ──────────────────────────────────────
   const TOOLS = [
-    { id: 'personal-injury-calculator',       icon: '⚖️',  label: 'Personal Injury Settlement' },
-    { id: 'workers-comp-calculator',          icon: '🔨',  label: 'Workers\' Compensation' },
-    { id: 'ssdi-calculator',                  icon: '♿',  label: 'SSDI Benefits' },
-    { id: 'dui-cost-calculator',              icon: '🚘',  label: 'DUI / DWI True Cost' },
-    { id: 'wrongful-termination-calculator',  icon: '📋',  label: 'Wrongful Termination' },
-    { id: 'alimony-calculator',               icon: '💍',  label: 'Alimony / Spousal Support' },
-    { id: 'non-compete-checker',              icon: '🔕',  label: 'Non-Compete Checker' },
-    { id: 'child-support-calculator',         icon: '👶',  label: 'Child Support' },
-    { id: 'medical-malpractice-calculator',   icon: '🏥',  label: 'Medical Malpractice' },
-    { id: 'dog-bite-calculator',              icon: '🐕',  label: 'Dog Bite Settlement' },
+    { id: 'personal-injury-calculator', icon: '⚖️', label: 'Personal Injury Settlement' },
+    { id: 'workers-comp-calculator', icon: '🔨', label: 'Workers\' Compensation' },
+    { id: 'ssdi-calculator', icon: '♿', label: 'SSDI Benefits' },
+    { id: 'dui-cost-calculator', icon: '🚘', label: 'DUI / DWI True Cost' },
+    { id: 'wrongful-termination-calculator', icon: '📋', label: 'Wrongful Termination' },
+    { id: 'alimony-calculator', icon: '💍', label: 'Alimony / Spousal Support' },
+    { id: 'non-compete-checker', icon: '🔕', label: 'Non-Compete Checker' },
+    { id: 'child-support-calculator', icon: '👶', label: 'Child Support' },
+    { id: 'medical-malpractice-calculator', icon: '🏥', label: 'Medical Malpractice' },
+    { id: 'dog-bite-calculator', icon: '🐕', label: 'Dog Bite Settlement' },
   ];
 
   // ── DETECT CURRENT PAGE ──────────────────────────────────
@@ -62,7 +62,20 @@
     `<a href="${BASE}tools/${t.id}.html">${t.icon} ${t.label}</a>`
   ).join('');
 
-  const footerHTML = `
+  const emailCaptureHTML = `
+<section class="gv-capture-section fade-in">
+  <div class="gv-capture-inner">
+    <h2>Don't Let the Adjusters Win</h2>
+    <p>Join 25,000+ people getting my ruthless, straight-shooting weekly strategies on maximizing settlements and knowing your legal leverage.</p>
+    <form class="gv-form" onsubmit="event.preventDefault(); alert('Awesome! You\\'re in.');">
+      <input type="email" placeholder="Enter your email address..." required />
+      <button type="submit">SEND ME THE SECRETS</button>
+    </form>
+    <div class="gv-subtext">No lawyer BS. Just facts. Unsubscribe whenever.</div>
+  </div>
+</section>`;
+
+  const footerHTML = emailCaptureHTML + `
 <footer class="site-footer" role="contentinfo">
   <div class="footer-inner">
     <div class="footer-top">
@@ -150,13 +163,13 @@
   });
 
   // ── UTILITY: Format as currency ──────────────────────────
-  window.fmtMoney = function(n) {
+  window.fmtMoney = function (n) {
     if (n >= 1_000_000) return '$' + (n / 1_000_000).toFixed(2) + 'M';
     if (n >= 1000) return '$' + Math.round(n).toLocaleString();
     return '$' + Math.round(n);
   };
 
-  window.animateBars = function(items) {
+  window.animateBars = function (items) {
     setTimeout(() => {
       items.forEach(({ id, pct }) => {
         const el = document.getElementById(id);
@@ -165,7 +178,7 @@
     }, 120);
   };
 
-  window.showResults = function() {
+  window.showResults = function () {
     const form = document.getElementById('calc-form');
     const results = document.getElementById('results');
     if (form) form.style.display = 'none';
@@ -175,7 +188,7 @@
     }
   };
 
-  window.resetCalc = function() {
+  window.resetCalc = function () {
     const form = document.getElementById('calc-form');
     const results = document.getElementById('results');
     if (results) results.style.display = 'none';
