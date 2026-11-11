@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Premises Liability &amp; Slip-and-Fall Settlement Calculator | Free 2026</title>
+  <meta name="description" content="Calculate your slip-and-fall or premises liability settlement value instantly. Accounts for commercial vs. residential property policies, constructive notice proof, surveillance video, surgical vs. non-surgical recovery, and comparative fault." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3175050594873956" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Premises Liability & Slip-and-Fall Settlement Calculator",
+  "description": "Attorney-grade slip-and-fall and premises liability settlement calculator factoring commercial property insurance, hazard notice proof, surgical intervention, and comparative fault reduction.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the average slip and fall settlement amount?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Slip-and-fall settlements depend heavily on whether surgery was required and whether the property is commercial. Non-surgical sprains or soft-tissue falls typically settle between $15,000 and $45,000. Fractured wrists, ankles, hips, or herniated discs requiring injections often settle between $60,000 and $175,000. Falls requiring orthopedic hardware surgery, hip replacement, or spinal fusion at major commercial properties regularly settle for $200,000 to $750,000+."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is 'Actual or Constructive Notice' in a premises liability case?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Simply falling on someone's property does not automatically make them liable. To win a premises liability claim, you must prove the property owner or store either (1) created the hazard, (2) had Actual Notice (knew about the spill/defect and failed to fix or warn), or (3) had Constructive Notice (the hazard existed long enough—proven by footprints, dirty liquid, or CCTV sweep logs—that a reasonable inspection would have discovered it)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the 'Open and Obvious' defense reduce slip-and-fall payouts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Insurance defense attorneys routinely argue that the hazard was 'open and obvious' and that you were looking at your phone or not watching your step. This defense is used to assign 20%–40% comparative fault to the victim, directly reducing your net payout. Building code violations (like uneven stair risers, missing handrails, or poor lighting) defeat the open-and-obvious defense in most jurisdictions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is 'MedPay' coverage in a commercial slip and fall?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most commercial general liability (CGL) policies carry $5,000 to $10,000 in no-fault Medical Payments ('MedPay') coverage that pays initial ER bills regardless of fault—separate from your bodily injury liability claim."
+      }
+    }
+  ]
+}
+</script>
+  <link rel="canonical" href="https://legalclaimcalculators.com/tools/slip-and-fall-calculator.html" />
+  <style>
+    @media print {
+      .site-nav, .site-footer, .gv-capture-section, .ad-slot, .btn-calc, .btn-reset, .related-section, .faq-section { display: none !important; }
+      body { background: #fff !important; color: #000 !important; padding-top: 0 !important; }
+      .card { background: #fff !important; border: 1px solid #ccc !important; box-shadow: none !important; color: #000 !important; }
+      .range-card, .factor-item { background: #f8f8f8 !important; border: 1px solid #ddd !important; color: #000 !important; }
+      .range-val, .bk-amt, h1, h2, h3, strong { color: #000 !important; -webkit-text-fill-color: initial !important; }
+    }
+    .dossier-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 20px 0 28px; }
+    .btn-print {
+      background: rgba(232, 146, 74, 0.14);
+      border: 1px solid var(--gold);
+      border-radius: var(--rs);
+      padding: 12px 24px;
+      color: var(--gold-light);
+      font-size: 14px;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-print:hover { background: var(--gold); color: #1a0e00; }
+    .lead-box {
+      background: linear-gradient(135deg, rgba(232,146,74,0.12), rgba(26,26,46,0.9));
+      border: 1px solid var(--border-glow);
+      border-radius: var(--r);
+      padding: 24px;
+      margin-top: 22px;
+    }
+    .lead-box h3 { font-size: 1.15rem; margin-bottom: 6px; color: var(--gold-light); }
+    .lead-box p { font-size: 13.5px; color: var(--text-2); margin-bottom: 16px; }
+    .lead-grid { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px; }
+    @media (max-width: 700px) { .lead-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<div class="container">
+  <div class="tool-header fade-in">
+    <div class="badge">🏢 Premises Liability Valuation Tool</div>
+    <h1>Slip-and-Fall &amp; Premises Liability <span>Settlement Calculator</span></h1>
+    <p>Estimate your premises liability claim based on commercial vs. residential property coverage, constructive notice evidence, building code violations, and surgical recovery tiers.</p>
+    <div class="trust-row">
+      <div class="trust-item"><span class="ti">🔒</span> 100% Private Browser Math</div>
+      <div class="trust-item"><span class="ti">🏢</span> Commercial CGL Multipliers</div>
+      <div class="trust-item"><span class="ti">📹</span> Notice &amp; Code Violation Logic</div>
+    </div>
+  </div>
+
+  <!-- ──────────────────────────────────────────────── -->
+  <!--  FORM                                            -->
+  <!-- ──────────────────────────────────────────────── -->
+  <div id="calc-form">
+
+    <div class="card fade-in">
+      <div class="card-title">🏢 Step 1 — Property Classification &amp; Hazard Notice Factor</div>
+      <div class="card-desc">Premises liability hinges on who owns the property and how clearly you can prove they knew—or should have known—about the hazard.</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="prop-type">Property Classification &amp; Insurance Tier</label>
+          <select id="prop-type">
+            <option value="national" selected>Big-Box Retailer / Supermarket / Hotel / Casino ($2M+ Commercial CGL)</option>
+            <option value="commercial">Apartment Complex / Office Building / Shopping Plaza ($1M CGL)</option>
+            <option value="small_biz">Local Restaurant / Small Retail Store ($500K–$1M Policy)</option>
+            <option value="residential">Private Home / Residential Rental ($100K–$300K Homeowners Policy)</option>
+            <option value="gov">Government Sidewalk / Municipal Building (Strict Tort Claim Caps)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="notice-factor">Proof of Property Owner "Notice" (Liability Strength)</label>
+          <select id="notice-factor">
+            <option value="code">Building Code Violation (Broken stairs, missing handrail, unlit step)</option>
+            <option value="actual" selected>Actual Notice / Created by Staff (Mopping w/o wet floor sign, leak)</option>
+            <option value="constructive">Constructive Notice (Spill/ice present 30+ mins; missing sweep logs)</option>
+            <option value="weak">Unwitnessed / Momentary Spill (No photos or incident report yet)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="recovery-tier">Medical &amp; Surgical Recovery Tier</label>
+          <select id="recovery-tier">
+            <option value="nonsurg_soft">Non-Surgical — Sprains, Contusions, Physical Therapy Only</option>
+            <option value="nonsurg_frac" selected>Non-Surgical — Closed Fracture (Cast/Boot) or Disc Epidural Injections</option>
+            <option value="surg_ortho">Surgical — Arthroscopic Knee/Shoulder Repair or Wrist/Ankle ORIF</option>
+            <option value="surg_major">Major Surgery — Hip Replacement, Spinal Fusion, or Multiple Surgeries</option>
+            <option value="tbi_perm">Catastrophic — Head Strike TBI, Permanent Mobility Loss / Wheelchair</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Incident Report Filed or Photos/Video Captured?</label>
+          <div class="radio-group">
+            <div class="radio-btn"><input type="radio" name="evidence" id="ev-yes" value="yes" checked><label for="ev-yes">✅ Yes (Report/Photos)</label></div>
+            <div class="radio-btn"><input type="radio" name="evidence" id="ev-no" value="no"><label for="ev-no">❌ No Report Yet</label></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card fade-in">
+      <div class="card-title">💰 Step 2 — Medical Expenses, Lost Wages &amp; Comparative Fault</div>
+      <div class="card-desc">Property insurers nearly always assert some comparative fault ("open and obvious hazard"). Use the slider to model fault reductions.</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="med-bills">Total Medical Bills (Past + Future Rehab/Surgery)</label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="med-bills" value="42000" min="0" step="500"></div>
+        </div>
+        <div class="form-group">
+          <label for="lost-wages">Lost Wages &amp; Future Earning Loss</label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="lost-wages" value="9500" min="0" step="500"></div>
+        </div>
+        <div class="form-group full">
+          <label>Pain &amp; Suffering Multiplier <span class="hint">(1.5× = non-surgical, 4.5× = hardware surgery / code violation)</span></label>
+          <div class="slider-row">
+            <input type="range" id="multiplier" min="1.5" max="5" step="0.5" value="2.5">
+            <span class="slider-val" id="mult-display">2.5×</span>
+          </div>
+          <div class="slider-labels"><span>1.5× Conservative</span><span>2.5× Fracture / Disc</span><span>5.0× Major Surgery</span></div>
+        </div>
+        <div class="form-group full">
+          <label>Comparative Fault Reduction % <span class="hint">("Open &amp; Obvious" / Footwear / Distraction Defense)</span></label>
+          <div class="slider-row">
+            <input type="range" id="fault" min="0" max="50" step="5" value="15">
+            <span class="slider-val" id="fault-display">15%</span>
+          </div>
+          <div class="slider-labels"><span>0% (Hidden Hazard / Code Defect)</span><span>20% Typical Defense Claim</span><span>50% Barred in Most States</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-rect">Advertisement</div>
+    <button class="btn-calc" id="calc-btn">🏢 Calculate Premises Liability Settlement Range</button>
+  </div>
+
+  <!-- ──────────────────────────────────────────────── -->
+  <!--  RESULTS                                         -->
+  <!-- ──────────────────────────────────────────────── -->
+  <div id="results">
+    <div class="card">
+      <div class="results-head">
+        <h2>📊 Premises Liability Valuation Dossier</h2>
+        <div class="sub">Property Tier: <span id="res-prop-label">Commercial Property</span> &bull; Notice: <span id="res-notice-label">Actual Notice</span></div>
+      </div>
+      <div class="range-cards">
+        <div class="range-card"><div class="range-lbl">Initial Adjuster Offer</div><div class="range-val" id="res-low">—</div><div class="range-note">Pre-suit with aggressive fault deduction</div></div>
+        <div class="range-card featured"><div class="range-lbl">Projected Settlement Range</div><div class="range-val" id="res-mid">—</div><div class="range-note">After CCTV &amp; sweep-log discovery</div></div>
+        <div class="range-card"><div class="range-lbl">Litigation / Trial High</div><div class="range-val" id="res-high">—</div><div class="range-note">Clear notice / code violation proven</div></div>
+      </div>
+
+      <div class="bk-title">Premises Claim Damage Breakdown (Before &amp; After Fault Adjustment)</div>
+      <div class="bk-item"><div class="bk-name">🏥 Medical Bills</div><div class="bk-bar-wrap"><div class="bk-bar bar-1" id="bar-med"></div></div><div class="bk-amt" id="amt-med">—</div></div>
+      <div class="bk-item"><div class="bk-name">💼 Lost Income</div><div class="bk-bar-wrap"><div class="bk-bar bar-2" id="bar-wage"></div></div><div class="bk-amt" id="amt-wage">—</div></div>
+      <div class="bk-item"><div class="bk-name">💛 Pain &amp; Suffering</div><div class="bk-bar-wrap"><div class="bk-bar bar-4" id="bar-pain"></div></div><div class="bk-amt" id="amt-pain">—</div></div>
+      <div class="bk-item"><div class="bk-name">📉 Comparative Fault Offset</div><div class="bk-bar-wrap"><div class="bk-bar bar-3" id="bar-fault"></div></div><div class="bk-amt" id="amt-fault">—</div></div>
+
+      <div class="bk-title" style="margin-top:22px">Key Premises Liability &amp; Notice Factors</div>
+      <div class="factors-grid" id="factors"></div>
+
+      <div class="lead-box">
+        <h3>📹 Crucial: Store CCTV Security Cameras Overwrite Footage Every 7 to 14 Days</h3>
+        <p>Big-box retailers and grocery chains use third-party claims administrators (Sedgwick, Gallagher Bassett) who stall claimants until store surveillance video is automatically looped over. Have a Premises Liability Attorney send a legal CCTV Preservation Demand today.</p>
+        <form class="lead-grid" onsubmit="event.preventDefault(); alert('Your Premises Liability Dossier has been queued. A local slip-and-fall attorney will reach out shortly.');">
+          <input type="text" placeholder="Full Name" required />
+          <input type="text" placeholder="Phone Number" required />
+          <input type="text" placeholder="ZIP Code" required />
+          <button type="submit" class="btn-cta" style="border:none;cursor:pointer;">Preserve Store Video Now →</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="dossier-actions">
+      <button class="btn-print" onclick="window.print()">🖨️ Print Case Valuation Dossier (PDF)</button>
+      <button class="btn-reset" style="margin:0;" onclick="resetCalc()">← Adjust Premises Inputs</button>
+    </div>
+
+    <div class="ad-slot ad-rect">Advertisement</div>
+
+    <div class="legal-notice"><strong>⚠️ Disclaimer:</strong> Estimates are for educational purposes only and do not constitute legal advice. Municipal tort claims often require formal notice within 60–180 days. Consult a licensed premises liability attorney in your state.</div>
+
+    <div class="related-section">
+      <h3>Related Legal Calculators</h3>
+      <div class="related-grid">
+        <a class="related-link" href="./concussion-tbi-calculator.html"><span class="rl-icon">🧠</span><span class="rl-title">Concussion &amp; TBI</span><span class="rl-desc">Fall head-strike injuries</span></a>
+        <a class="related-link" href="./personal-injury-calculator.html"><span class="rl-icon">⚖️</span><span class="rl-title">Personal Injury</span><span class="rl-desc">General injury claims</span></a>
+        <a class="related-link" href="./dog-bite-calculator.html"><span class="rl-icon">🐕</span><span class="rl-title">Dog Bite Claims</span><span class="rl-desc">Homeowners policy claims</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-slot ad-banner">Advertisement</div>
+
+  <div class="card fade-in">
+    <h2 class="serif" style="font-size:1.35rem;font-weight:700;margin-bottom:14px">How Insurance Adjusters Value Slip-and-Fall &amp; Premises Claims</h2>
+    <div class="article-block">
+      <p>Premises liability claims are among the most fiercely defended cases in tort law. Because there is no police traffic citation assigning automatic fault, commercial insurers like Sedgwick, Travelers, and Liberty Mutual evaluate three primary pillars: <strong>Notice, Severity (Surgical vs. Non-Surgical), and Comparative Fault</strong>.</p>
+      <p><strong>1. Constructive Notice &amp; Sweep Logs:</strong> When an attorney subpoenas a supermarket or hotel's hourly inspection sweep logs and CCTV camera footage showing employees walking past a liquid spill, ice patch, or torn carpet without remedying it, the defense loses its ability to claim the hazard "just happened." Even stronger are <strong>Building Code Violations</strong> (IBC/NFPA life-safety violations for stair riser height variance, lack of handrails, or inadequate illumination), which establish negligence per se.</p>
+      <p><strong>2. Surgical vs. Non-Surgical Multipliers:</strong> Falls that cause objective fractures (Colles wrist fracture, trimalleolar ankle fracture, femoral neck hip fracture) or require arthroscopic/spinal surgery command multipliers 2× to 3× higher than soft-tissue sprains because defense doctors cannot credibly label a broken bone "pre-existing degeneration."</p>
+    </div>
+  </div>
+
+  <section class="faq-section fade-in">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What is the average slip and fall settlement amount? <i class="chev">▾</i></button><div class="faq-a">Slip-and-fall settlements depend heavily on whether surgery was required and whether the property is commercial. Non-surgical sprains or soft-tissue falls typically settle between $15,000 and $45,000. Fractured wrists, ankles, hips, or herniated discs requiring injections often settle between $60,000 and $175,000. Falls requiring orthopedic hardware surgery, hip replacement, or spinal fusion at major commercial properties regularly settle for $200,000 to $750,000+.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What is 'Actual or Constructive Notice' in a premises liability case? <i class="chev">▾</i></button><div class="faq-a">Simply falling on someone's property does not automatically make them liable. To win a premises liability claim, you must prove the property owner or store either (1) created the hazard, (2) had Actual Notice (knew about the spill/defect and failed to fix or warn), or (3) had Constructive Notice (the hazard existed long enough—proven by footprints, dirty liquid, or CCTV sweep logs—that a reasonable inspection would have discovered it).</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">How does the 'Open and Obvious' defense reduce slip-and-fall payouts? <i class="chev">▾</i></button><div class="faq-a">Insurance defense attorneys routinely argue that the hazard was 'open and obvious' and that you were looking at your phone or not watching your step. This defense is used to assign 20%–40% comparative fault to the victim, directly reducing your net payout. Building code violations (like uneven stair risers, missing handrails, or poor lighting) defeat the open-and-obvious defense in most jurisdictions.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What is 'MedPay' coverage in a commercial slip and fall? <i class="chev">▾</i></button><div class="faq-a">Most commercial general liability (CGL) policies carry $5,000 to $10,000 in no-fault Medical Payments ('MedPay') coverage that pays initial ER bills regardless of fault—separate from your bodily injury liability claim.</div></div>
+  </section>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script>var BASE = '../';</script>
+<script src="../js/common.js"></script>
+<script>
+  const PROP_MODS = {
+    national: { m: 1.25, l: '🏬 National Retail / Hotel / Casino', n: '$2M+ commercial CGL policy + strict corporate sweep-log mandates' },
+    commercial: { m: 1.15, l: '🏢 Commercial Plaza / Apartment Complex', n: '$1M commercial premises policy + non-delegable common-area duty' },
+    small_biz: { m: 0.95, l: '🏪 Small Business / Restaurant', n: 'Standard $500K–$1M business owner policy (BOP) + $5K MedPay' },
+    residential: { m: 0.80, l: '🏠 Residential Homeowners Policy', n: 'Capped by $100K–$300K homeowners policy limits' },
+    gov: { m: 0.70, l: '🏛️ Municipal / Government Property', n: 'Subject to sovereign immunity caps and strict 60–180 day notice deadlines' }
+  };
+
+  const NOTICE_MODS = {
+    code: { m: 1.35, l: '📐 Building / Life-Safety Code Violation', n: 'IBC/ADA stair, handrail, or lighting defect establishes negligence per se' },
+    actual: { m: 1.20, l: '✅ Actual Notice / Staff-Created Hazard', n: 'Employees created the hazard or knew of it and failed to place cones' },
+    constructive: { m: 1.0, l: '🕒 Constructive Notice (Time on Floor)', n: 'Proving hazard existed long enough via dirty tracks or missing sweep logs' },
+    weak: { m: 0.55, l: '⚠️ Contested Notice (High Defense Risk)', n: 'Without CCTV or witness proof of duration, insurer will dispute liability' }
+  };
+
+  const REC_MODS = {
+    nonsurg_soft: { m: 0.75, l: '🟡 Non-Surgical Soft Tissue', n: 'Conservative PT/chiropractic care; adjusters scrutinize degenerative MRI findings' },
+    nonsurg_frac: { m: 1.15, l: '🟠 Closed Fracture / Epidural Injections', n: 'Objective radiographic fracture or spinal pain management intervention' },
+    surg_ortho: { m: 1.60, l: '🔴 Operative Orthopedic Repair (ORIF)', n: 'Surgical plates, screws, or arthroscopy anchors high 6-figure settlement value' },
+    surg_major: { m: 2.15, l: '🚨 Major Hip / Spine Surgery', n: 'Joint replacement or spinal fusion with permanent hardware & life-care costs' },
+    tbi_perm: { m: 2.75, l: '🆘 Catastrophic Head Strike / Mobility Loss', n: 'Permanent functional impairment commanding commercial policy limits' }
+  };
+
+  document.getElementById('multiplier').addEventListener('input', e => document.getElementById('mult-display').textContent = e.target.value + '×');
+  document.getElementById('fault').addEventListener('input', e => document.getElementById('fault-display').textContent = e.target.value + '%');
+
+  document.getElementById('calc-btn').addEventListener('click', () => {
+    const prop = document.getElementById('prop-type').value;
+    const notice = document.getElementById('notice-factor').value;
+    const rec = document.getElementById('recovery-tier').value;
+    const hasEv = document.querySelector('input[name="evidence"]:checked')?.value === 'yes';
+
+    const med = +document.getElementById('med-bills').value || 0;
+    const wage = +document.getElementById('lost-wages').value || 0;
+    const mult = +document.getElementById('multiplier').value || 2.5;
+    const faultPct = (+document.getElementById('fault').value || 0) / 100;
+
+    const econ = med + wage;
+    const pain = med * mult * (REC_MODS[rec]?.m || 1);
+    const gross = (econ + pain) * (PROP_MODS[prop]?.m || 1) * (NOTICE_MODS[notice]?.m || 1) * (hasEv ? 1.10 : 0.85);
+    const faultOffset = gross * faultPct;
+    const net = gross - faultOffset;
+
+    const low = net * 0.48;
+    const midLow = net * 0.85;
+    const midHigh = net * 1.18;
+    const high = net * 1.60;
+
+    document.getElementById('res-prop-label').textContent = PROP_MODS[prop].l;
+    document.getElementById('res-notice-label').textContent = NOTICE_MODS[notice].l;
+    document.getElementById('res-low').textContent = fmtMoney(low);
+    document.getElementById('res-mid').textContent = fmtMoney(midLow) + ' – ' + fmtMoney(midHigh);
+    document.getElementById('res-high').textContent = fmtMoney(high);
+
+    const tot = med + wage + pain || 1;
+    document.getElementById('amt-med').textContent = fmtMoney(med);
+    document.getElementById('amt-wage').textContent = fmtMoney(wage);
+    document.getElementById('amt-pain').textContent = fmtMoney(pain);
+    document.getElementById('amt-fault').textContent = '-' + fmtMoney(faultOffset);
+
+    animateBars([
+      { id: 'bar-med', pct: med / tot * 100 },
+      { id: 'bar-wage', pct: wage / tot * 100 },
+      { id: 'bar-pain', pct: pain / tot * 100 },
+      { id: 'bar-fault', pct: faultPct * 100 }
+    ]);
+
+    const facs = [
+      PROP_MODS[prop],
+      NOTICE_MODS[notice],
+      REC_MODS[rec],
+      hasEv ? { l: '📸 Contemporaneous Incident Report', n: 'Store report & hazard photos defeat claims that the fall occurred elsewhere' } : { l: '📹 Demand CCTV Preservation Now', n: 'Without an incident report, surveillance footage is essential to prove the fall' },
+      { l: `⚖️ ${Math.round(faultPct * 100)}% Open-and-Obvious Offset`, n: `Net valuation reflects a ${fmtMoney(faultOffset)} comparative fault reduction` },
+      { l: '💊 Commercial MedPay Eligibility', n: 'Most commercial properties carry $5,000–$10,000 in no-fault MedPay on top of liability' }
+    ];
+    document.getElementById('factors').innerHTML = facs.map(f => `<div class="factor-item"><strong>${f.l}</strong><span>${f.n}</span></div>`).join('');
+    showResults();
+  });
+</script>
+</body>
+</html>

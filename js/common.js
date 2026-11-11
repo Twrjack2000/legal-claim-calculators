@@ -5,17 +5,22 @@
 (function () {
   'use strict';
 
-  // ── TOOLS MANIFEST ──────────────────────────────────────
+  // ── TOOLS MANIFEST (All 15 Calculators) ─────────────────
   const TOOLS = [
+    { id: 'truck-accident-calculator', icon: '🚛', label: '18-Wheeler & Truck Accident' },
+    { id: 'oilfield-injury-calculator', icon: '🛢️', label: 'Oilfield & Rig Injury' },
+    { id: 'rideshare-accident-calculator', icon: '🚕', label: 'Uber & Lyft Rideshare' },
+    { id: 'concussion-tbi-calculator', icon: '🧠', label: 'Concussion & TBI' },
+    { id: 'slip-and-fall-calculator', icon: '🏢', label: 'Slip & Fall / Premises' },
     { id: 'personal-injury-calculator', icon: '⚖️', label: 'Personal Injury Settlement' },
     { id: 'workers-comp-calculator', icon: '🔨', label: 'Workers\' Compensation' },
     { id: 'ssdi-calculator', icon: '♿', label: 'SSDI Benefits' },
+    { id: 'medical-malpractice-calculator', icon: '🏥', label: 'Medical Malpractice' },
     { id: 'dui-cost-calculator', icon: '🚘', label: 'DUI / DWI True Cost' },
     { id: 'wrongful-termination-calculator', icon: '📋', label: 'Wrongful Termination' },
     { id: 'alimony-calculator', icon: '💍', label: 'Alimony / Spousal Support' },
     { id: 'non-compete-checker', icon: '🔕', label: 'Non-Compete Checker' },
     { id: 'child-support-calculator', icon: '👶', label: 'Child Support' },
-    { id: 'medical-malpractice-calculator', icon: '🏥', label: 'Medical Malpractice' },
     { id: 'dog-bite-calculator', icon: '🐕', label: 'Dog Bite Settlement' },
   ];
 
@@ -43,7 +48,7 @@
     <a href="${BASE}articles/index.html" class="nav-home-link" style="margin-left:20px;">📚 Articles</a>
     <div class="nav-tools-wrap">
       <button class="nav-tools-btn" id="tools-btn" aria-haspopup="true" aria-expanded="false">
-        ⚖️ All 10 Legal Tools <i class="chev-down">▾</i>
+        ⚖️ All 15 Legal Tools <i class="chev-down">▾</i>
       </button>
       <div class="nav-dropdown" id="nav-dropdown" role="menu">
         ${dropdownLinks}
@@ -84,14 +89,14 @@
           <span class="fb-icon">⚖️</span>
           <span class="fb-name">Legal Claim <span>Calculators</span></span>
         </div>
-        <p>Free, attorney-grade legal calculators to help you understand your rights before your first consultation. 10 tools, no sign-up required.</p>
+        <p>Free, attorney-grade legal calculators to help you understand your rights before your first consultation. 15 tools, no sign-up required.</p>
       </div>
       <div class="footer-col">
-        <h4>Tools (1–5)</h4>
+        <h4>Tools (1–8)</h4>
         ${col1}
       </div>
       <div class="footer-col">
-        <h4>Tools (6–10) &amp; Info</h4>
+        <h4>Tools (9–15) &amp; Info</h4>
         ${col2}
         <a href="${BASE}about.html">About This Site</a>
         <a href="${BASE}disclaimer.html">Legal Disclaimer</a>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oilfield, Rig &amp; Industrial Accident Settlement Calculator | Free 2026</title>
+  <meta name="description" content="Calculate your oilfield, drilling rig, refinery, or industrial accident settlement value. Compare Workers' Comp vs. Third-Party Contractor tort lawsuits, OSHA violation uplifts, burn/crush multipliers, and lost day-rate wages." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3175050594873956" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Oilfield, Rig & Industrial Accident Settlement Calculator",
+  "description": "Compare statutory workers' compensation payouts against third-party oilfield contractor tort claims factoring lost day-rate wages, OSHA citations, and burn/crush/amputation multipliers.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I sue beyond Workers' Comp after an oilfield or drilling rig injury?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, in the vast majority of oilfield accidents. While you generally cannot sue your direct W-2 employer (unless they are a Texas Non-Subscriber or committed gross negligence), oil and gas well sites operate with dozens of independent third-party contractors—including the lease operator, drilling contractor, directional drillers, mud engineers, wireline crews, snubbing units, and equipment manufacturers. Filing a third-party personal injury claim unlocks 100% of lost day-rate wages and full pain and suffering damages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are lost oilfield day-rate and rotational overtime wages calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard workers' compensation caps weekly benefits at a fraction of an oilfield worker's true earnings, ignoring per diem, hitch bonuses, and 80+ hour workweeks. In a third-party tort lawsuit, forensic economists calculate your full gross day rate, rotational hitch schedule (e.g., 14/14 or 21/7), fringe benefits, and remaining work-life expectancy up to age 67."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do OSHA or BSEE safety citations impact an industrial injury settlement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Citations under OSHA (29 CFR 1910 / 1926) for Process Safety Management (PSM) failures, Lockout/Tagout (LOTO) violations, H2S gas monitoring failures, or blowout preventer (BOP) defects serve as powerful evidence of corporate negligence. Wilful or Repeat OSHA violations frequently double or triple settlement valuations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if my injury happened on an offshore jack-up rig or vessel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you work on a navigable vessel, semi-submersible, drillship, or jack-up rig, you may qualify as a Jones Act Seaman under 46 U.S.C. § 30104. Unlike state workers' comp, the Jones Act grants you the right to sue your direct employer for negligence and Vessel Unseaworthiness, in addition to Maintenance and Cure."
+      }
+    }
+  ]
+}
+</script>
+  <link rel="canonical" href="https://legalclaimcalculators.com/tools/oilfield-injury-calculator.html" />
+  <style>
+    @media print {
+      .site-nav, .site-footer, .gv-capture-section, .ad-slot, .btn-calc, .btn-reset, .related-section, .faq-section { display: none !important; }
+      body { background: #fff !important; color: #000 !important; padding-top: 0 !important; }
+      .card { background: #fff !important; border: 1px solid #ccc !important; box-shadow: none !important; color: #000 !important; }
+      .range-card, .factor-item { background: #f8f8f8 !important; border: 1px solid #ddd !important; color: #000 !important; }
+      .range-val, .bk-amt, h1, h2, h3, strong { color: #000 !important; -webkit-text-fill-color: initial !important; }
+    }
+    .dossier-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 20px 0 28px; }
+    .btn-print {
+      background: rgba(232, 146, 74, 0.14);
+      border: 1px solid var(--gold);
+      border-radius: var(--rs);
+      padding: 12px 24px;
+      color: var(--gold-light);
+      font-size: 14px;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-print:hover { background: var(--gold); color: #1a0e00; }
+    .lead-box {
+      background: linear-gradient(135deg, rgba(232,146,74,0.12), rgba(26,26,46,0.9));
+      border: 1px solid var(--border-glow);
+      border-radius: var(--r);
+      padding: 24px;
+      margin-top: 22px;
+    }
+    .lead-box h3 { font-size: 1.15rem; margin-bottom: 6px; color: var(--gold-light); }
+    .lead-box p { font-size: 13.5px; color: var(--text-2); margin-bottom: 16px; }
+    .lead-grid { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px; }
+    @media (max-width: 700px) { .lead-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<div class="container">
+  <div class="tool-header fade-in">
+    <div class="badge">🛢️ Energy &amp; Industrial Tort Tool</div>
+    <h1>Oilfield, Rig &amp; Industrial <span>Settlement Calculator</span></h1>
+    <p>Compare capped Workers' Comp benefits against full Third-Party Contractor &amp; Operator Tort Liability for Permian Basin, Eagle Ford, Bakken, refinery, and offshore rig injuries.</p>
+    <div class="trust-row">
+      <div class="trust-item"><span class="ti">🔒</span> 100% Confidential</div>
+      <div class="trust-item"><span class="ti">🛢️</span> Day-Rate &amp; Hitch Wage Math</div>
+      <div class="trust-item"><span class="ti">⚠️</span> OSHA &amp; 3rd-Party Liability</div>
+    </div>
+  </div>
+
+  <!-- ──────────────────────────────────────────────── -->
+  <!--  FORM                                            -->
+  <!-- ──────────────────────────────────────────────── -->
+  <div id="calc-form">
+
+    <div class="card fade-in">
+      <div class="card-title">🛢️ Step 1 — Well Site, Rig &amp; Liability Pathway</div>
+      <div class="card-desc">Third-party contractor claims and Texas Non-Subscriber / Jones Act claims bypass low workers' compensation caps.</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="liability-path">Primary Legal Liability Pathway</label>
+          <select id="liability-path">
+            <option value="thirdparty" selected>Third-Party Contractor / Well Operator Negligence (Uncapped Tort)</option>
+            <option value="nonsub">Texas Non-Subscriber Employer (No Workers' Comp Immunity)</option>
+            <option value="jones">Offshore Rig / Jones Act Vessel Unseaworthiness (46 USC § 30104)</option>
+            <option value="defect">Defective Valve / BOP / Rig Equipment (Strict Product Liability)</option>
+            <option value="wc_only">Workers' Comp Only (Direct Employer, No 3rd Party Involved)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="trauma-tier">Industrial Trauma Classification</label>
+          <select id="trauma-tier">
+            <option value="ortho">Orthopedic Fracture / Torn Rotator Cuff / Disc Herniation</option>
+            <option value="crush" selected>Caught-In / Crush Injury / Pipe &amp; Tongs Impact / Hand Trauma</option>
+            <option value="burn">Flash Fire / Thermal or Chemical Burn (2nd / 3rd Degree) / Explosion</option>
+            <option value="toxic">H2S Hydrogen Sulfide Gas Exposure / Chemical Inhalation / TBI</option>
+            <option value="amputation">Traumatic Amputation / Paraplegia / Catastrophic Blowout</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="osha-status">OSHA / BSEE / Railroad Commission Safety Violations</label>
+          <select id="osha-status">
+            <option value="none">Investigation Pending / Standard Operational Negligence</option>
+            <option value="serious" selected>Serious Violation (LOTO failure, unguarded machinery, fall hazard)</option>
+            <option value="willful">Willful or Repeat OSHA Violation / Ignored H2S Alarms</option>
+            <option value="psm">Process Safety Management (PSM) / Blowout Preventer Failure</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="hitch-type">Work Schedule / Hitch Pattern</label>
+          <select id="hitch-type">
+            <option value="260">Standard 5-Day / 40–60 Hr Industrial Week (260 days/yr)</option>
+            <option value="200" selected>14/7 or 21/7 Oilfield Rotational Hitch (~240 days/yr + OT)</option>
+            <option value="182">14/14 Rotational Hitch / Offshore Schedule (182 days/yr)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="card fade-in">
+      <div class="card-title">💰 Step 2 — Day-Rate Earnings &amp; Medical Specials</div>
+      <div class="card-desc">Oilfield workers earn substantial overtime, per diem, and day rates that workers' comp ignores—but third-party tort lawsuits recover in full.</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="day-rate">Gross Daily Earnings (Wages + OT + Per Diem) <span class="hint">($/day worked)</span></label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="day-rate" value="550" min="100" step="25"></div>
+        </div>
+        <div class="form-group">
+          <label for="months-missed">Months Unable to Work <span class="hint">(past + recovery period)</span></label>
+          <input type="number" id="months-missed" value="8" min="0" max="120" step="1">
+        </div>
+        <div class="form-group">
+          <label for="future-years">Years of Future Earning Capacity Loss <span class="hint">(0 if returning full duty)</span></label>
+          <input type="number" id="future-years" value="5" min="0" max="40" step="1">
+        </div>
+        <div class="form-group">
+          <label for="med-bills">Total Medical &amp; Life Care Bills <span class="hint">(burn unit, surgery, rehab)</span></label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="med-bills" value="145000" min="0" step="5000"></div>
+        </div>
+        <div class="form-group full">
+          <label>Disfigurement, Pain &amp; Suffering Multiplier <span class="hint">(2× = orthopedic, 6× = severe burn / amputation)</span></label>
+          <div class="slider-row">
+            <input type="range" id="multiplier" min="1.5" max="6.5" step="0.5" value="4.0">
+            <span class="slider-val" id="mult-display">4.0×</span>
+          </div>
+          <div class="slider-labels"><span>1.5× Minor</span><span>4.0× Heavy Industrial</span><span>6.5× Severe Burn / Amputation</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-rect">Advertisement</div>
+    <button class="btn-calc" id="calc-btn">🛢️ Calculate Oilfield Tort vs. Workers' Comp Value</button>
+  </div>
+
+  <!-- ──────────────────────────────────────────────── -->
+  <!--  RESULTS                                         -->
+  <!-- ──────────────────────────────────────────────── -->
+  <div id="results">
+    <div class="card">
+      <div class="results-head">
+        <h2>📊 Oilfield &amp; Industrial Claim Valuation Comparison</h2>
+        <div class="sub">Comparing statutory Workers' Comp vs. <span id="res-path-label">Third-Party Contractor Tort Recovery</span></div>
+      </div>
+      <div class="range-cards">
+        <div class="range-card"><div class="range-lbl">Workers' Comp Only Cap</div><div class="range-val" id="res-wc">—</div><div class="range-note">Capped weekly benefit, $0 pain/suffering</div></div>
+        <div class="range-card featured"><div class="range-lbl">3rd-Party Tort Settlement</div><div class="range-val" id="res-mid">—</div><div class="range-note">100% day-rate + pain &amp; suffering</div></div>
+        <div class="range-card"><div class="range-lbl">Trial / Punitive High</div><div class="range-val" id="res-high">—</div><div class="range-note">With OSHA willful/PSM uplift</div></div>
+      </div>
+
+      <div class="bk-title">Third-Party Tort Damage Breakdown</div>
+      <div class="bk-item"><div class="bk-name">🏥 Medical &amp; Burn/Trauma Care</div><div class="bk-bar-wrap"><div class="bk-bar bar-1" id="bar-med"></div></div><div class="bk-amt" id="amt-med">—</div></div>
+      <div class="bk-item"><div class="bk-name">🛢️ Lost Day-Rate &amp; Future Wages</div><div class="bk-bar-wrap"><div class="bk-bar bar-2" id="bar-wage"></div></div><div class="bk-amt" id="amt-wage">—</div></div>
+      <div class="bk-item"><div class="bk-name">⚠️ OSHA / Safety Violation Uplift</div><div class="bk-bar-wrap"><div class="bk-bar bar-3" id="bar-osha"></div></div><div class="bk-amt" id="amt-osha">—</div></div>
+      <div class="bk-item"><div class="bk-name">🔥 Pain, Suffering &amp; Disfigurement</div><div class="bk-bar-wrap"><div class="bk-bar bar-4" id="bar-pain"></div></div><div class="bk-amt" id="amt-pain">—</div></div>
+
+      <div class="bk-title" style="margin-top:22px">Key Industrial &amp; Multi-Employer Site Factors</div>
+      <div class="factors-grid" id="factors"></div>
+
+      <div class="lead-box">
+        <h3>🛢️ Don't Let the Company Man or Comp Adjuster Force a Recorded Statement</h3>
+        <p>After a rig or refinery accident, company safety reps work to pin fault on the injured hand and shield the third-party operator (Master Service Agreement indemnities). Get a free, confidential evaluation from an Oilfield &amp; Industrial Trial Lawyer.</p>
+        <form class="lead-grid" onsubmit="event.preventDefault(); alert('Your Oilfield Injury Valuation Dossier has been submitted. An industrial trial attorney will contact you shortly.');">
+          <input type="text" placeholder="Full Name" required />
+          <input type="text" placeholder="Phone Number" required />
+          <input type="text" placeholder="Basin / State (e.g. Permian, TX)" required />
+          <button type="submit" class="btn-cta" style="border:none;cursor:pointer;">Get Free Rig Claim Review →</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="dossier-actions">
+      <button class="btn-print" onclick="window.print()">🖨️ Print Industrial Claim Dossier (PDF)</button>
+      <button class="btn-reset" style="margin:0;" onclick="resetCalc()">← Adjust Rig &amp; Wage Inputs</button>
+    </div>
+
+    <div class="ad-slot ad-rect">Advertisement</div>
+
+    <div class="legal-notice"><strong>⚠️ Disclaimer:</strong> Estimates are for educational comparison between workers' compensation and third-party tort claims and do not constitute legal advice. Consult a licensed oilfield injury attorney in Texas, New Mexico, Louisiana, North Dakota, or your jurisdiction.</div>
+
+    <div class="related-section">
+      <h3>Related Legal Calculators</h3>
+      <div class="related-grid">
+        <a class="related-link" href="./workers-comp-calculator.html"><span class="rl-icon">🔨</span><span class="rl-title">Workers' Comp</span><span class="rl-desc">State statutory benefits</span></a>
+        <a class="related-link" href="./truck-accident-calculator.html"><span class="rl-icon">🚛</span><span class="rl-title">Oilfield Water/Sand Truck</span><span class="rl-desc">Commercial 18-wheeler crashes</span></a>
+        <a class="related-link" href="./concussion-tbi-calculator.html"><span class="rl-icon">🧠</span><span class="rl-title">Traumatic Brain Injury</span><span class="rl-desc">Struck-by &amp; blast TBI claims</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-slot ad-banner">Advertisement</div>
+
+  <div class="card fade-in">
+    <h2 class="serif" style="font-size:1.35rem;font-weight:700;margin-bottom:14px">Third-Party Oilfield Lawsuits vs. Workers' Compensation</h2>
+    <div class="article-block">
+      <p>When a roughneck, derrickhand, roustabout, wireline operator, or plant technician is injured on a multi-employer drill site or refinery, employers often tell the worker that <strong>Workers' Compensation is their sole remedy</strong>. While Workers' Comp bars most direct lawsuits against your own W-2 payroll employer, it <strong>does not protect third-party companies</strong> working on the same pad or facility.</p>
+      <p>If an employee of the <strong>well operator (Company Man), directional drilling firm, frac crew, crane contractor, mud company, or trucking company</strong> caused the hazard—or if a piece of rig hardware failed—you can file an uncapped <strong>Third-Party Personal Injury Lawsuit</strong> alongside your Workers' Comp claim. Third-party tort claims recover <strong>100% of lost day-rate and overtime earnings</strong>, full future earning capacity, physical pain, mental anguish, and disfigurement damages.</p>
+    </div>
+  </div>
+
+  <section class="faq-section fade-in">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Can I sue beyond Workers' Comp after an oilfield or drilling rig injury? <i class="chev">▾</i></button><div class="faq-a">Yes, in the vast majority of oilfield accidents. While you generally cannot sue your direct W-2 employer (unless they are a Texas Non-Subscriber or committed gross negligence), oil and gas well sites operate with dozens of independent third-party contractors—including the lease operator, drilling contractor, directional drillers, mud engineers, wireline crews, snubbing units, and equipment manufacturers. Filing a third-party personal injury claim unlocks 100% of lost day-rate wages and full pain and suffering damages.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">How are lost oilfield day-rate and rotational overtime wages calculated? <i class="chev">▾</i></button><div class="faq-a">Standard workers' compensation caps weekly benefits at a fraction of an oilfield worker's true earnings, ignoring per diem, hitch bonuses, and 80+ hour workweeks. In a third-party tort lawsuit, forensic economists calculate your full gross day rate, rotational hitch schedule (e.g., 14/14 or 21/7), fringe benefits, and remaining work-life expectancy up to age 67.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">How do OSHA or BSEE safety citations impact an industrial injury settlement? <i class="chev">▾</i></button><div class="faq-a">Citations under OSHA (29 CFR 1910 / 1926) for Process Safety Management (PSM) failures, Lockout/Tagout (LOTO) violations, H2S gas monitoring failures, or blowout preventer (BOP) defects serve as powerful evidence of corporate negligence. Wilful or Repeat OSHA violations frequently double or triple settlement valuations.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What if my injury happened on an offshore jack-up rig or vessel? <i class="chev">▾</i></button><div class="faq-a">If you work on a navigable vessel, semi-submersible, drillship, or jack-up rig, you may qualify as a Jones Act Seaman under 46 U.S.C. § 30104. Unlike state workers' comp, the Jones Act grants you the right to sue your direct employer for negligence and Vessel Unseaworthiness, in addition to Maintenance and Cure.</div></div>
+  </section>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script>var BASE = '../';</script>
+<script src="../js/common.js"></script>
+<script>
+  const PATH_MODS = {
+    thirdparty: { m: 1.25, l: '🛢️ 3rd-Party Operator / Contractor Tort', n: 'Uncapped commercial general liability (CGL) & MSA excess policies ($5M–$25M+)' },
+    nonsub: { m: 1.30, l: '🤠 Texas Non-Subscriber Lawsuit', n: 'Employer opted out of TX Workers\' Comp — stripped of common-law defenses' },
+    jones: { m: 1.40, l: '⚓ Offshore Jones Act / Unseaworthiness', n: 'Featherweight causation standard under federal maritime law' },
+    defect: { m: 1.35, l: '⚙️ Strict Product Liability (Rig Equipment)', n: 'Manufacturer liability for valve, tongs, top-drive, or BOP failure' },
+    wc_only: { m: 0.35, l: '📋 Statutory Workers\' Comp Only', n: 'No pain & suffering allowed; weekly indemnity capped by state maximum' }
+  };
+
+  const TRAUMA_MODS = {
+    ortho: { m: 1.0, l: '🦴 Orthopedic / Spine Trauma', n: 'Heavy manual labor restrictions prevent return to rig floor duty' },
+    crush: { m: 1.4, l: '⚙️ Crush / Pipe & Tongs Trauma', n: 'High permanent impairment and vocational retraining damages' },
+    burn: { m: 2.1, l: '🔥 Flash Fire / Thermal or Chemical Burn', n: 'Skin grafts, contractures, and disfigurement drive nuclear jury verdicts' },
+    toxic: { m: 1.65, l: '☣️ H2S Sour Gas / Neurotoxic Exposure', n: 'Permanent pulmonary & neurological deficits from gas release' },
+    amputation: { m: 2.6, l: '🆘 Amputation / Catastrophic Rig Blowout', n: 'Lifetime prosthetic care + complete loss of high-income rig career' }
+  };
+
+  const OSHA_MODS = {
+    none: { u: 0.10, l: '🔍 Standard Site Negligence', n: 'Failure to maintain a reasonably safe work environment' },
+    serious: { u: 0.30, l: '⚠️ Serious OSHA Violation (29 CFR 1910)', n: 'Failure to follow Lockout/Tagout (LOTO), fall protection, or JSA protocol' },
+    willful: { u: 0.60, l: '🚨 Willful / Repeat OSHA Citation', n: 'Conscious disregard of worker safety unlocks punitive damages' },
+    psm: { u: 0.75, l: '💥 PSM / Well Control Failure', n: 'Catastrophic failure of Process Safety Management or Blowout Preventer' }
+  };
+
+  document.getElementById('multiplier').addEventListener('input', e => document.getElementById('mult-display').textContent = e.target.value + '×');
+
+  document.getElementById('calc-btn').addEventListener('click', () => {
+    const path = document.getElementById('liability-path').value;
+    const trauma = document.getElementById('trauma-tier').value;
+    const osha = document.getElementById('osha-status').value;
+    const daysPerYear = +document.getElementById('hitch-type').value || 200;
+
+    const dayRate = +document.getElementById('day-rate').value || 550;
+    const monthsMissed = +document.getElementById('months-missed').value || 0;
+    const futureYears = +document.getElementById('future-years').value || 0;
+    const medBills = +document.getElementById('med-bills').value || 0;
+    const mult = +document.getElementById('multiplier').value || 4;
+
+    const annualEarnings = dayRate * daysPerYear;
+    const pastWageLoss = (annualEarnings / 12) * monthsMissed;
+    const futureWageLoss = annualEarnings * futureYears * 0.85; // Present value discount
+    const totalWageLoss = pastWageLoss + futureWageLoss;
+
+    // Workers' comp cap comparison (~$1,150/wk max TTD + medical + small PPD)
+    const wcWeeklyCap = Math.min((annualEarnings / 52) * 0.667, 1180);
+    const wcEstimate = medBills + (wcWeeklyCap * (monthsMissed * 4.33)) + (futureYears > 0 ? wcWeeklyCap * 65 : 0);
+
+    const basePain = medBills * mult * (TRAUMA_MODS[trauma]?.m || 1);
+    const oshaUplift = (medBills + totalWageLoss + basePain) * (OSHA_MODS[osha]?.u || 0.1);
+    const tortGross = (medBills + totalWageLoss + basePain + oshaUplift) * (PATH_MODS[path]?.m || 1.25);
+
+    const midLow = path === 'wc_only' ? wcEstimate * 0.9 : tortGross * 0.85;
+    const midHigh = path === 'wc_only' ? wcEstimate * 1.15 : tortGross * 1.18;
+    const high = path === 'wc_only' ? wcEstimate * 1.3 : tortGross * 1.65;
+
+    document.getElementById('res-path-label').textContent = PATH_MODS[path].l;
+    document.getElementById('res-wc').textContent = fmtMoney(wcEstimate);
+    document.getElementById('res-mid').textContent = fmtMoney(midLow) + ' – ' + fmtMoney(midHigh);
+    document.getElementById('res-high').textContent = fmtMoney(high);
+
+    const tot = medBills + totalWageLoss + oshaUplift + basePain || 1;
+    document.getElementById('amt-med').textContent = fmtMoney(medBills);
+    document.getElementById('amt-wage').textContent = fmtMoney(totalWageLoss);
+    document.getElementById('amt-osha').textContent = fmtMoney(oshaUplift);
+    document.getElementById('amt-pain').textContent = fmtMoney(basePain);
+
+    animateBars([
+      { id: 'bar-med', pct: medBills / tot * 100 },
+      { id: 'bar-wage', pct: totalWageLoss / tot * 100 },
+      { id: 'bar-osha', pct: oshaUplift / tot * 100 },
+      { id: 'bar-pain', pct: basePain / tot * 100 }
+    ]);
+
+    const facs = [
+      PATH_MODS[path],
+      TRAUMA_MODS[trauma],
+      OSHA_MODS[osha],
+      { l: `💵 ${fmtMoney(annualEarnings)}/yr Oilfield Earning Base`, n: `Calculated at $${dayRate}/day across ${daysPerYear} rotational workdays/yr` },
+      { l: `📈 ${Math.round((tortGross / Math.max(wcEstimate, 1)) * 10) / 10}× Tort vs. Comp Advantage`, n: '3rd-party lawsuit recovers full day-rate loss + non-economic damages' },
+      { l: '📑 Master Service Agreement (MSA) Review', n: 'Well operator & contractor insurance policies often stack up to $10M+' }
+    ];
+    document.getElementById('factors').innerHTML = facs.map(f => `<div class="factor-item"><strong>${f.l}</strong><span>${f.n}</span></div>`).join('');
+    showResults();
+  });
+</script>
+</body>
+</html>

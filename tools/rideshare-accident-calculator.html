@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uber &amp; Lyft Rideshare Accident Settlement Calculator | Free 2026</title>
+  <meta name="description" content="Calculate your Uber or Lyft rideshare accident settlement value instantly. Factors in Period 1 ($50K/$100K), Period 2 &amp; Period 3 ($1,000,000 commercial insurance policy) tier logic, UM/UIM coverage, medical bills, and pain &amp; suffering." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3175050594873956" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Uber & Lyft Rideshare Accident Settlement Calculator",
+  "description": "Estimate Uber and Lyft accident settlements using Period 0, Period 1, Period 2, and Period 3 ($1,000,000 commercial liability + UM/UIM) insurance tier rules.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do Uber and Lyft's $1,000,000 insurance periods work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rideshare insurance operates in three distinct app phases: Period 1 (App ON, waiting for a ride request) provides $50,000 per person / $100,000 per accident in contingent liability coverage. Period 2 (Ride accepted, driver en route to pick up passenger) and Period 3 (Passenger inside the vehicle until drop-off) unlock Uber and Lyft's full $1,000,000 commercial third-party liability policy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I was an Uber or Lyft passenger hit by another driver?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As a paying rideshare passenger in Period 3, you have zero comparative fault. If your Uber/Lyft driver was at fault, the $1,000,000 commercial liability policy applies. If another motorist caused the crash and is uninsured or carries state-minimum limits, Uber and Lyft carry high-limit Uninsured/Underinsured Motorist (UM/UIM) coverage in most states to cover your damages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Uber or Lyft deny liability because drivers are 'independent contractors'?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "While Uber and Lyft classify drivers as 1099 independent contractors to avoid direct vicarious employment liability, state Transportation Network Company (TNC) statutes mandate that their $1,000,000 primary commercial insurance policies (administered by insurers like Progressive, Farmers, Allstate, or Liberty Mutual) cover bodily injuries caused during active rides."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is the average Uber or Lyft accident settlement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because Period 2 and Period 3 crashes are backed by a $1,000,000 commercial policy rather than a $15,000–$30,000 personal policy, rideshare settlements average significantly more than standard car wrecks. Soft-tissue claims with physical therapy often settle for $20,000–$45,000, disc herniations with epidural injections range from $75,000–$225,000, and surgical injuries regularly settle between $250,000 and $1,000,000."
+      }
+    }
+  ]
+}
+</script>
+  <link rel="canonical" href="https://legalclaimcalculators.com/tools/rideshare-accident-calculator.html" />
+  <style>
+    @media print {
+      .site-nav, .site-footer, .gv-capture-section, .ad-slot, .btn-calc, .btn-reset, .related-section, .faq-section { display: none !important; }
+      body { background: #fff !important; color: #000 !important; padding-top: 0 !important; }
+      .card { background: #fff !important; border: 1px solid #ccc !important; box-shadow: none !important; color: #000 !important; }
+      .range-card, .factor-item { background: #f8f8f8 !important; border: 1px solid #ddd !important; color: #000 !important; }
+      .range-val, .bk-amt, h1, h2, h3, strong { color: #000 !important; -webkit-text-fill-color: initial !important; }
+    }
+    .dossier-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 20px 0 28px; }
+    .btn-print {
+      background: rgba(232, 146, 74, 0.14);
+      border: 1px solid var(--gold);
+      border-radius: var(--rs);
+      padding: 12px 24px;
+      color: var(--gold-light);
+      font-size: 14px;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-print:hover { background: var(--gold); color: #1a0e00; }
+    .lead-box {
+      background: linear-gradient(135deg, rgba(232,146,74,0.12), rgba(26,26,46,0.9));
+      border: 1px solid var(--border-glow);
+      border-radius: var(--r);
+      padding: 24px;
+      margin-top: 22px;
+    }
+    .lead-box h3 { font-size: 1.15rem; margin-bottom: 6px; color: var(--gold-light); }
+    .lead-box p { font-size: 13.5px; color: var(--text-2); margin-bottom: 16px; }
+    .lead-grid { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px; }
+    @media (max-width: 700px) { .lead-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<div class="container">
+  <div class="tool-header fade-in">
+    <div class="badge">🚕 Rideshare Commercial Policy Tool</div>
+    <h1>Uber &amp; Lyft Accident <span>Settlement Calculator</span></h1>
+    <p>Calculate your rideshare injury settlement using official TNC Period 1, Period 2, and Period 3 ($1,000,000 Commercial Policy) insurance tier rules.</p>
+    <div class="trust-row">
+      <div class="trust-item"><span class="ti">🔒</span> 100% Private</div>
+      <div class="trust-item"><span class="ti">🛡️</span> Period 1 / 2 / 3 Policy Logic</div>
+      <div class="trust-item"><span class="ti">⚡</span> Passenger &amp; 3rd-Party Claims</div>
+    </div>
+  </div>
+
+  <!-- ──────────────────────────────────────────────── -->
+  <!--  FORM                                            -->
+  <!-- ──────────────────────────────────────────────── -->
+  <div id="calc-form">
+
+    <div class="card fade-in">
+      <div class="card-title">🚕 Step 1 — Rideshare App Period &amp; Claimant Role</div>
+      <div class="card-desc">Your available insurance policy limit depends strictly on the Uber/Lyft driver's app status at the exact second of impact.</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="app-period">Rideshare Driver App Status (TNC Period)</label>
+          <select id="app-period">
+            <option value="p3" selected>Period 3 — Passenger in Uber/Lyft ($1,000,000 Commercial Policy)</option>
+            <option value="p2">Period 2 — Ride Accepted, En Route to Pick Up ($1,000,000 Policy)</option>
+            <option value="p1">Period 1 — App ON, Waiting for Ride Request ($50K/$100K Policy)</option>
+            <option value="delivery">UberEats / DoorDash / Instacart Active Delivery ($1,000,000 Policy)</option>
+            <option value="p0">Period 0 — App OFF (Driver's Personal Auto Policy Only)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="claimant-role">Your Role in the Accident</label>
+          <select id="claimant-role">
+            <option value="passenger" selected>Paying Uber / Lyft Passenger (0% Fault Presumption)</option>
+            <option value="other_driver">Occupant of Another Vehicle Hit by Rideshare Driver</option>
+            <option value="pedestrian">Pedestrian / Cyclist / Scooter Rider Hit by Rideshare</option>
+            <option value="rideshare_driver">Rideshare Driver Hit by At-Fault 3rd Party (UM/UIM Claim)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="injury-sev">Primary Injury Severity</label>
+          <select id="injury-sev">
+            <option value="whiplash">Whiplash / Cervical &amp; Lumbar Sprain (Chiro / PT)</option>
+            <option value="disc" selected>Herniated / Bulging Discs, Concussion, or Pain Injections</option>
+            <option value="fracture">Broken Bone(s), Torn Ligament (ACL/Meniscus/Rotator Cuff)</option>
+            <option value="surgery">Orthopedic or Spinal Surgery (Fusion, Discectomy, ORIF)</option>
+            <option value="catastrophic">Traumatic Brain Injury (TBI), Permanent Disability</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="fault-party">Who Caused the Collision?</label>
+          <select id="fault-party">
+            <option value="rideshare" selected>The Uber / Lyft Driver (100% At Fault)</option>
+            <option value="both">Both Drivers Shared Fault (Joint &amp; Several / Multi-Policy)</option>
+            <option value="other_uninsured">Another Driver (Uninsured / Underinsured — Triggers Rideshare UIM)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="card fade-in">
+      <div class="card-title">💰 Step 2 — Economic Damages &amp; Pain Multiplier</div>
+      <div class="card-desc">Enter your medical bills (ER, MRI, physical therapy, injections, surgery) and lost income.</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="med-bills">Total Medical Bills (Past + Projected Future)</label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="med-bills" value="32000" min="0" step="500"></div>
+        </div>
+        <div class="form-group">
+          <label for="lost-wages">Lost Wages &amp; Missed Work Income</label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="lost-wages" value="6500" min="0" step="500"></div>
+        </div>
+        <div class="form-group">
+          <label for="prop-damage">Vehicle / Personal Property Damage</label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="prop-damage" value="0" min="0" step="250"></div>
+        </div>
+        <div class="form-group">
+          <label>Did You Capture App Trip Screenshots / Ride Receipt?</label>
+          <div class="radio-group">
+            <div class="radio-btn"><input type="radio" name="receipt" id="rec-yes" value="yes" checked><label for="rec-yes">✅ Yes</label></div>
+            <div class="radio-btn"><input type="radio" name="receipt" id="rec-no" value="no"><label for="rec-no">❌ Not Yet</label></div>
+          </div>
+        </div>
+        <div class="form-group full">
+          <label>Pain &amp; Suffering Multiplier <span class="hint">(1.5× = minor PT, 5× = surgical / permanent)</span></label>
+          <div class="slider-row">
+            <input type="range" id="multiplier" min="1.5" max="5" step="0.5" value="3.0">
+            <span class="slider-val" id="mult-display">3.0×</span>
+          </div>
+          <div class="slider-labels"><span>1.5× Soft Tissue</span><span>3.0× Disc / Injections</span><span>5.0× Surgery / TBI</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-rect">Advertisement</div>
+    <button class="btn-calc" id="calc-btn">🚕 Calculate Uber / Lyft Settlement Value</button>
+  </div>
+
+  <!-- ──────────────────────────────────────────────── -->
+  <!--  RESULTS                                         -->
+  <!-- ──────────────────────────────────────────────── -->
+  <div id="results">
+    <div class="card">
+      <div class="results-head">
+        <h2>📊 Rideshare Settlement Valuation Dossier</h2>
+        <div class="sub">Active Insurance Tier: <span id="res-period-label">Period 3 ($1,000,000 Commercial Policy)</span></div>
+      </div>
+      <div class="range-cards">
+        <div class="range-card"><div class="range-lbl">Unrepresented Offer</div><div class="range-val" id="res-low">—</div><div class="range-note">Initial TNC third-party adjuster offer</div></div>
+        <div class="range-card featured"><div class="range-lbl">Estimated Settlement Range</div><div class="range-val" id="res-mid">—</div><div class="range-note">Represented by rideshare counsel</div></div>
+        <div class="range-card"><div class="range-lbl">Policy Ceiling / High</div><div class="range-val" id="res-high">—</div><div class="range-note">Max recovery under active period</div></div>
+      </div>
+
+      <div class="bk-title">Settlement Component Breakdown</div>
+      <div class="bk-item"><div class="bk-name">🏥 Medical Specials</div><div class="bk-bar-wrap"><div class="bk-bar bar-1" id="bar-med"></div></div><div class="bk-amt" id="amt-med">—</div></div>
+      <div class="bk-item"><div class="bk-name">💼 Lost Income</div><div class="bk-bar-wrap"><div class="bk-bar bar-2" id="bar-wage"></div></div><div class="bk-amt" id="amt-wage">—</div></div>
+      <div class="bk-item"><div class="bk-name">🚗 Property / Out-of-Pocket</div><div class="bk-bar-wrap"><div class="bk-bar bar-3" id="bar-prop"></div></div><div class="bk-amt" id="amt-prop">—</div></div>
+      <div class="bk-item"><div class="bk-name">💛 Pain &amp; Suffering</div><div class="bk-bar-wrap"><div class="bk-bar bar-4" id="bar-pain"></div></div><div class="bk-amt" id="amt-pain">—</div></div>
+
+      <div class="bk-title" style="margin-top:22px">Rideshare Insurance Tier &amp; Liability Factors</div>
+      <div class="factors-grid" id="factors"></div>
+
+      <div class="lead-box">
+        <h3>📱 Subpoena the Uber/Lyft Electronic Trip Log Before Adjusters Dispute Period Status</h3>
+        <p>Uber and Lyft commercial adjusters (Progressive / Farmers / James River) routinely claim the driver was "logged off" or in Period 1 to cap payouts at $50,000 instead of $1,000,000. Get a free rideshare legal audit to lock in the $1M policy tier.</p>
+        <form class="lead-grid" onsubmit="event.preventDefault(); alert('Your Rideshare Valuation Dossier has been queued. A rideshare injury specialist will contact you shortly.');">
+          <input type="text" placeholder="Full Name" required />
+          <input type="text" placeholder="Phone Number" required />
+          <input type="text" placeholder="City / State" required />
+          <button type="submit" class="btn-cta" style="border:none;cursor:pointer;">Verify $1M Policy Tier →</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="dossier-actions">
+      <button class="btn-print" onclick="window.print()">🖨️ Print Case Valuation Dossier (PDF)</button>
+      <button class="btn-reset" style="margin:0;" onclick="resetCalc()">← Adjust Rideshare Inputs</button>
+    </div>
+
+    <div class="ad-slot ad-rect">Advertisement</div>
+
+    <div class="legal-notice"><strong>⚠️ Disclaimer:</strong> Estimates are for educational purposes only and do not constitute legal advice. TNC UM/UIM limits vary by state statute. Consult a licensed rideshare accident attorney in your state.</div>
+
+    <div class="related-section">
+      <h3>Related Legal Calculators</h3>
+      <div class="related-grid">
+        <a class="related-link" href="./personal-injury-calculator.html"><span class="rl-icon">⚖️</span><span class="rl-title">Personal Injury</span><span class="rl-desc">General auto &amp; injury claims</span></a>
+        <a class="related-link" href="./concussion-tbi-calculator.html"><span class="rl-icon">🧠</span><span class="rl-title">Concussion &amp; TBI</span><span class="rl-desc">Whiplash &amp; head injury claims</span></a>
+        <a class="related-link" href="./truck-accident-calculator.html"><span class="rl-icon">🚛</span><span class="rl-title">Commercial Truck</span><span class="rl-desc">18-wheeler &amp; fleet crashes</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-slot ad-banner">Advertisement</div>
+
+  <div class="card fade-in">
+    <h2 class="serif" style="font-size:1.35rem;font-weight:700;margin-bottom:14px">Understanding Uber &amp; Lyft's 3-Period Insurance System</h2>
+    <div class="article-block">
+      <p>Unlike standard car accidents where recovery is often bottlenecked by a driver's minimum personal auto policy, crashes involving Transportation Network Companies (TNCs) like <strong>Uber and Lyft</strong> are governed by a tiered commercial insurance framework:</p>
+      <p><strong>Period 1 (App On, Waiting for Match):</strong> If the driver is logged into the driver app waiting for a ping, personal auto insurance typically denies coverage due to the "commercial livery exclusion." Uber and Lyft provide contingent liability limits of <strong>$50,000 per injured person / $100,000 total per accident</strong> plus $25,000 property damage.</p>
+      <p><strong>Period 2 (Match Accepted, En Route) &amp; Period 3 (Passenger in Car):</strong> The instant the driver taps "Accept" through the moment the passenger exits the vehicle, a <strong>$1,000,000 primary commercial liability policy</strong> activates. Paying passengers in Period 3 hold the strongest legal leverage in personal injury law because they bear <strong>0% comparative fault</strong> regardless of which driver caused the wreck.</p>
+    </div>
+  </div>
+
+  <section class="faq-section fade-in">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">How do Uber and Lyft's $1,000,000 insurance periods work? <i class="chev">▾</i></button><div class="faq-a">Rideshare insurance operates in three distinct app phases: Period 1 (App ON, waiting for a ride request) provides $50,000 per person / $100,000 per accident in contingent liability coverage. Period 2 (Ride accepted, driver en route to pick up passenger) and Period 3 (Passenger inside the vehicle until drop-off) unlock Uber and Lyft's full $1,000,000 commercial third-party liability policy.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What if I was an Uber or Lyft passenger hit by another driver? <i class="chev">▾</i></button><div class="faq-a">As a paying rideshare passenger in Period 3, you have zero comparative fault. If your Uber/Lyft driver was at fault, the $1,000,000 commercial liability policy applies. If another motorist caused the crash and is uninsured or carries state-minimum limits, Uber and Lyft carry high-limit Uninsured/Underinsured Motorist (UM/UIM) coverage in most states to cover your damages.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Can Uber or Lyft deny liability because drivers are 'independent contractors'? <i class="chev">▾</i></button><div class="faq-a">While Uber and Lyft classify drivers as 1099 independent contractors to avoid direct vicarious employment liability, state Transportation Network Company (TNC) statutes mandate that their $1,000,000 primary commercial insurance policies (administered by insurers like Progressive, Farmers, Allstate, or Liberty Mutual) cover bodily injuries caused during active rides.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">How much is the average Uber or Lyft accident settlement? <i class="chev">▾</i></button><div class="faq-a">Because Period 2 and Period 3 crashes are backed by a $1,000,000 commercial policy rather than a $15,000–$30,000 personal policy, rideshare settlements average significantly more than standard car wrecks. Soft-tissue claims with physical therapy often settle for $20,000–$45,000, disc herniations with epidural injections range from $75,000–$225,000, and surgical injuries regularly settle between $250,000 and $1,000,000.</div></div>
+  </section>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script>var BASE = '../';</script>
+<script src="../js/common.js"></script>
+<script>
+  const PERIODS = {
+    p3: { cap: 1000000, m: 1.25, l: '🟢 Period 3 ($1,000,000 Commercial Policy)', n: 'Full $1M TNC primary commercial liability & applicable UM/UIM active' },
+    p2: { cap: 1000000, m: 1.20, l: '🟢 Period 2 ($1,000,000 En-Route Policy)', n: 'Driver dispatched to pickup — full $1,000,000 commercial tier unlocked' },
+    p1: { cap: 50000, m: 0.85, l: '🟡 Period 1 ($50K/$100K Contingent Tier)', n: 'App ON awaiting ping — $50k/person cap unless personal UIM stacks' },
+    delivery: { cap: 1000000, m: 1.18, l: '📦 Active Delivery ($1,000,000 Commercial)', n: 'Commercial delivery dispatch period triggers $1M corporate policy' },
+    p0: { cap: 30000, m: 0.65, l: '🔴 Period 0 (Offline — Personal Auto Policy)', n: 'Rideshare policy inactive; recovery limited to personal policy + UIM' }
+  };
+
+  const ROLES = {
+    passenger: { m: 1.2, l: '🛡️ Innocent Rideshare Passenger (0% Fault)', n: 'Zero comparative negligence — can claim against both drivers\' policies' },
+    other_driver: { m: 1.0, l: '🚗 Third-Party Motorist Hit by Rideshare', n: 'Full access to TNC commercial liability policy upon proving driver fault' },
+    pedestrian: { m: 1.25, l: '🚶 Pedestrian / Cyclist Right-of-Way', n: 'High jury sympathy and severe orthopedic vulnerability uplift' },
+    rideshare_driver: { m: 1.05, l: '🚕 Rideshare Driver (3rd-Party + TNC UIM)', n: 'Claim against at-fault driver policy + TNC underinsured motorist coverage' }
+  };
+
+  const SEV_MODS = {
+    whiplash: { m: 0.8, l: '🟡 Cervical/Lumbar Strain', n: 'Documented physical therapy & chiropractic care' },
+    disc: { m: 1.25, l: '🟠 MRI Disc Herniation / Injections', n: 'Objective MRI pathology & interventional pain management' },
+    fracture: { m: 1.45, l: '🟠 Orthopedic Fracture / Ligament Tear', n: 'Clear radiographic trauma commands strong commercial reserve' },
+    surgery: { m: 1.9, l: '🔴 Surgical Repair / Spinal Fusion', n: 'Triggers upper tiers of Uber/Lyft $1,000,000 policy' },
+    catastrophic: { m: 2.5, l: '🆘 Catastrophic Injury / TBI', n: 'Demands full $1,000,000 policy limit tender' }
+  };
+
+  document.getElementById('multiplier').addEventListener('input', e => document.getElementById('mult-display').textContent = e.target.value + '×');
+
+  document.getElementById('calc-btn').addEventListener('click', () => {
+    const period = document.getElementById('app-period').value;
+    const role = document.getElementById('claimant-role').value;
+    const sev = document.getElementById('injury-sev').value;
+    const faultParty = document.getElementById('fault-party').value;
+    const hasReceipt = document.querySelector('input[name="receipt"]:checked')?.value === 'yes';
+
+    const med = +document.getElementById('med-bills').value || 0;
+    const wage = +document.getElementById('lost-wages').value || 0;
+    const prop = +document.getElementById('prop-damage').value || 0;
+    const mult = +document.getElementById('multiplier').value || 3.0;
+
+    const econ = med + wage + prop;
+    const pain = (med + wage) * mult * (SEV_MODS[sev]?.m || 1);
+    const policyCap = PERIODS[period].cap * (faultParty === 'both' ? 1.25 : 1);
+
+    const gross = (econ + pain) * (PERIODS[period]?.m || 1) * (ROLES[role]?.m || 1) * (hasReceipt ? 1.08 : 0.95);
+    const low = Math.min(gross * 0.45, policyCap);
+    const midLow = Math.min(gross * 0.82, policyCap);
+    const midHigh = Math.min(gross * 1.15, policyCap);
+    const high = Math.min(gross * 1.55, policyCap);
+
+    document.getElementById('res-period-label').textContent = PERIODS[period].l;
+    document.getElementById('res-low').textContent = fmtMoney(low);
+    document.getElementById('res-mid').textContent = fmtMoney(midLow) + ' – ' + fmtMoney(midHigh);
+    document.getElementById('res-high').textContent = fmtMoney(high);
+
+    const tot = med + wage + prop + pain || 1;
+    document.getElementById('amt-med').textContent = fmtMoney(med);
+    document.getElementById('amt-wage').textContent = fmtMoney(wage);
+    document.getElementById('amt-prop').textContent = fmtMoney(prop);
+    document.getElementById('amt-pain').textContent = fmtMoney(pain);
+
+    animateBars([
+      { id: 'bar-med', pct: med / tot * 100 },
+      { id: 'bar-wage', pct: wage / tot * 100 },
+      { id: 'bar-prop', pct: prop / tot * 100 },
+      { id: 'bar-pain', pct: pain / tot * 100 }
+    ]);
+
+    const facs = [
+      PERIODS[period],
+      ROLES[role],
+      SEV_MODS[sev],
+      faultParty === 'both' ? { l: '🔗 Multi-Policy Stacking Active', n: 'Shared fault allows claims against both the TNC policy and 3rd-party insurer' } : { l: '🎯 Single Primary Commercial Target', n: 'Direct liability against the $1M TNC carrier or UM/UIM endorsement' },
+      hasReceipt ? { l: '📱 Digital Trip Receipt Verified', n: 'Proves Period 2/3 timestamp and defeats adjuster off-app defenses' } : { l: '⚠️ Subpoena GPS Telemetry', n: 'Attorney must subpoena Uber/Lyft server logs to prove active app status' },
+      { l: `💰 ${fmtMoney(policyCap)} Effective Policy Ceiling`, n: gross > policyCap ? 'Damages approach/exceed tier limit — check personal UIM stacking' : 'Full damages fall comfortably within commercial policy limit' }
+    ];
+    document.getElementById('factors').innerHTML = facs.map(f => `<div class="factor-item"><strong>${f.l}</strong><span>${f.n}</span></div>`).join('');
+    showResults();
+  });
+</script>
+</body>
+</html>

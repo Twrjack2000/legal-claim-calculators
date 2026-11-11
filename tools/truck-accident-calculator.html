@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>18-Wheeler &amp; Commercial Truck Accident Settlement Calculator | Free 2026</title>
+  <meta name="description" content="Calculate your 18-wheeler or commercial semi-truck accident settlement value instantly. Factors in FMCSA federal safety violations, commercial insurance tiers ($750K–$5M+), medical specials, lost earning capacity, and comparative fault." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3175050594873956" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "18-Wheeler & Commercial Truck Accident Settlement Calculator",
+  "description": "Attorney-grade 18-wheeler and commercial truck accident settlement calculator factoring FMCSA violations, commercial carrier policy limits, medical specials, and lost earning capacity.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the average 18-wheeler truck accident settlement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because commercial semi-trucks weigh up to 80,000 lbs and are required by federal law (FMCSA) to carry at least $750,000 to $5,000,000 in liability insurance, settlements are significantly higher than standard car crashes. Moderate injury cases involving surgery often settle between $150,000 and $650,000, while severe injuries or cases involving hours-of-service (ELD) or maintenance violations frequently exceed $1,000,000 to $5,000,000+."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do FMCSA violations increase a truck accident settlement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Federal Motor Carrier Safety Administration (FMCSA) enforces strict rules on driver Hours of Service (49 CFR Part 395), CDL qualification, drug/alcohol testing, brake inspections, and cargo securement. Proven FMCSA violations establish negligence per se or gross negligence, exposing the motor carrier to punitive damages and forcing commercial insurers to pay near or at policy limits to avoid runaway jury verdicts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who can be sued in a commercial trucking crash?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unlike standard auto accidents, commercial truck crashes often involve multiple deep-pocket defendants: the truck driver, the motor carrier (trucking company), the freight broker or shipper, the trailer owner, third-party maintenance contractors, and cargo loaders. Identifying multiple liable entities allows attorneys to stack commercial insurance policies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is an ECM 'Black Box' preservation letter critical?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Modern commercial trucks contain an Electronic Control Module (ECM) and Electronic Logging Device (ELD) that record speed, braking, throttle, GPS, and driver hours right before impact. Trucking companies can legally overwrite or destroy this data in as little as 30 days unless an attorney serves a formal Spoliation / Preservation Letter immediately after the crash."
+      }
+    }
+  ]
+}
+</script>
+  <link rel="canonical" href="https://legalclaimcalculators.com/tools/truck-accident-calculator.html" />
+  <style>
+    @media print {
+      .site-nav, .site-footer, .gv-capture-section, .ad-slot, .btn-calc, .btn-reset, .related-section, .faq-section { display: none !important; }
+      body { background: #fff !important; color: #000 !important; padding-top: 0 !important; }
+      .card { background: #fff !important; border: 1px solid #ccc !important; box-shadow: none !important; color: #000 !important; }
+      .range-card, .factor-item { background: #f8f8f8 !important; border: 1px solid #ddd !important; color: #000 !important; }
+      .range-val, .bk-amt, h1, h2, h3, strong { color: #000 !important; -webkit-text-fill-color: initial !important; }
+    }
+    .dossier-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 20px 0 28px; }
+    .btn-print {
+      background: rgba(232, 146, 74, 0.14);
+      border: 1px solid var(--gold);
+      border-radius: var(--rs);
+      padding: 12px 24px;
+      color: var(--gold-light);
+      font-size: 14px;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-print:hover { background: var(--gold); color: #1a0e00; }
+    .lead-box {
+      background: linear-gradient(135deg, rgba(232,146,74,0.12), rgba(26,26,46,0.9));
+      border: 1px solid var(--border-glow);
+      border-radius: var(--r);
+      padding: 24px;
+      margin-top: 22px;
+    }
+    .lead-box h3 { font-size: 1.15rem; margin-bottom: 6px; color: var(--gold-light); }
+    .lead-box p { font-size: 13.5px; color: var(--text-2); margin-bottom: 16px; }
+    .lead-grid { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px; }
+    @media (max-width: 700px) { .lead-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<div class="container">
+  <div class="tool-header fade-in">
+    <div class="badge">🚛 Commercial Tort Valuation Tool</div>
+    <h1>18-Wheeler &amp; Truck Accident <span>Settlement Calculator</span></h1>
+    <p>Estimate the settlement value of a semi-truck, 18-wheeler, or commercial delivery vehicle crash using FMCSA safety violation multipliers, federal policy tiers, and economic loss formulas.</p>
+    <div class="trust-row">
+      <div class="trust-item"><span class="ti">🔒</span> 100% Private Browser Math</div>
+      <div class="trust-item"><span class="ti">⚖️</span> FMCSA 49 CFR Multipliers</div>
+      <div class="trust-item"><span class="ti">📋</span> Printable Case Dossier</div>
+    </div>
+  </div>
+
+  <!-- ──────────────────────────────────────────────── -->
+  <!--  FORM                                            -->
+  <!-- ──────────────────────────────────────────────── -->
+  <div id="calc-form">
+
+    <div class="card fade-in">
+      <div class="card-title">🚛 Step 1 — Commercial Vehicle &amp; FMCSA Liability Details</div>
+      <div class="card-desc">Commercial carriers carry layered policies ($750K–$5M+) and face severe multipliers when federal safety regulations are violated.</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="truck-type">Commercial Vehicle Classification</label>
+          <select id="truck-type">
+            <option value="semi">Class 8 Semi-Truck / 18-Wheeler (80,000 lbs)</option>
+            <option value="hazmat">Hazmat / Fuel Tanker Truck ($5M FMCSA Min.)</option>
+            <option value="dump">Heavy Dump Truck / Cement Mixer / Garbage</option>
+            <option value="delivery">Commercial Box Truck / Fleet Delivery (FedEx/UPS/Amazon)</option>
+            <option value="bus">Commercial Motorcoach / Charter Bus</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="fmcsa-violation">Primary FMCSA / Safety Violation</label>
+          <select id="fmcsa-violation">
+            <option value="standard">Standard Driver Negligence (Speeding, following too closely)</option>
+            <option value="hos">Hours-of-Service (HOS) / Falsified ELD Logbooks (Fatigue)</option>
+            <option value="maintenance">Deferred Brake / Tire Maintenance or Overweight Cargo</option>
+            <option value="hiring">Negligent Hiring / Unqualified Driver / Prior Crashes</option>
+            <option value="dui">CDL Alcohol / Drug Violation or Distracted Driving (Texting)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="injury-tier">Primary Injury Tier</label>
+          <select id="injury-tier">
+            <option value="soft">Tier 1 — Soft Tissue, Whiplash, Sprains (No Surgery)</option>
+            <option value="fracture" selected>Tier 2 — Orthopedic Fractures, Herniated Discs, Injections</option>
+            <option value="surgery">Tier 3 — Spinal Fusion, ORIF Hardware Surgery, Multi-Trauma</option>
+            <option value="permanent">Tier 4 — Permanent Disability, Severe Burn, Crush Injury</option>
+            <option value="catastrophic">Tier 5 — Catastrophic TBI, Paralysis, Amputation, Wrongful Death</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="policy-tier">Carrier Commercial Insurance Policy Limit</label>
+          <select id="policy-tier">
+            <option value="750000">$750,000 (Federal Interstate Freight Minimum)</option>
+            <option value="1000000" selected>$1,000,000 (Standard Commercial Fleet Primary Policy)</option>
+            <option value="2500000">$2,500,000 (Mid-Sized Fleet + Excess Layer)</option>
+            <option value="5000000">$5,000,000+ (Hazmat / National Carrier Umbrella Tower)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="state-rule">State Comparative Negligence Rule</label>
+          <select id="state-rule">
+            <option value="pure">Pure Comparative Fault (CA, NY, FL*, TX 51%, etc. — Recover minus fault %)</option>
+            <option value="mod50">50% Bar Rule (GA, CO, TN, UT, etc. — Barred at 50%+ fault)</option>
+            <option value="mod51" selected>51% Bar Rule (TX, IL, PA, OH, NJ, etc. — Barred at 51%+ fault)</option>
+            <option value="contrib">Pure Contributory Negligence (AL, MD, NC, VA, DC — Barred at 1% fault)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>ECM "Black Box" / Dashcam Evidence Preserved?</label>
+          <div class="radio-group">
+            <div class="radio-btn"><input type="radio" name="ecm" id="ecm-yes" value="yes" checked><label for="ecm-yes">✅ Yes / Police Report</label></div>
+            <div class="radio-btn"><input type="radio" name="ecm" id="ecm-no" value="no"><label for="ecm-no">❓ Unknown / Not Yet</label></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card fade-in">
+      <div class="card-title">💰 Step 2 — Medical Specials &amp; Lost Earning Capacity</div>
+      <div class="card-desc">Enter billed medical costs (not just out-of-pocket co-pays) and projected income loss.</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="past-med">Past Medical Bills <span class="hint">(ER, imaging, hospital, surgery)</span></label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="past-med" value="65000" min="0" step="1000"></div>
+        </div>
+        <div class="form-group">
+          <label for="future-med">Estimated Future Medical Care <span class="hint">(rehab, future spine/joint care)</span></label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="future-med" value="45000" min="0" step="1000"></div>
+        </div>
+        <div class="form-group">
+          <label for="past-wages">Past Lost Wages <span class="hint">(missed work to date)</span></label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="past-wages" value="18000" min="0" step="500"></div>
+        </div>
+        <div class="form-group">
+          <label for="future-earning">Lost Future Earning Capacity <span class="hint">(vocational impairment)</span></label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="future-earning" value="50000" min="0" step="1000"></div>
+        </div>
+        <div class="form-group full">
+          <label>Non-Economic Pain &amp; Suffering / Punitive Multiplier <span class="hint">(2× = moderate, 6× = egregious FMCSA violation)</span></label>
+          <div class="slider-row">
+            <input type="range" id="multiplier" min="1.5" max="6" step="0.5" value="3.5">
+            <span class="slider-val" id="mult-display">3.5×</span>
+          </div>
+          <div class="slider-labels"><span>1.5× Standard</span><span>3.5× Surgery / Commercial</span><span>6.0× Gross Negligence</span></div>
+        </div>
+        <div class="form-group full">
+          <label>Your Assigned Comparative Fault % <span class="hint">(0% = Truck driver 100% at fault)</span></label>
+          <div class="slider-row">
+            <input type="range" id="fault" min="0" max="60" step="5" value="0">
+            <span class="slider-val" id="fault-display">0%</span>
+          </div>
+          <div class="slider-labels"><span>0% (Zero Fault)</span><span>25% Shared</span><span>50%+ High Risk</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-rect">Advertisement</div>
+    <button class="btn-calc" id="calc-btn">🚛 Calculate Commercial Truck Settlement Range</button>
+  </div>
+
+  <!-- ──────────────────────────────────────────────── -->
+  <!--  RESULTS                                         -->
+  <!-- ──────────────────────────────────────────────── -->
+  <div id="results">
+    <div class="card">
+      <div class="results-head">
+        <h2>📊 Commercial Truck Accident Valuation Dossier</h2>
+        <div class="sub">Calculated for <span id="res-truck-label">Class 8 Semi-Truck</span> with <span id="res-fmcsa-label">FMCSA liability adjustment</span></div>
+      </div>
+      <div class="range-cards">
+        <div class="range-card"><div class="range-lbl">Pre-Litigation Low</div><div class="range-val" id="res-low">—</div><div class="range-note">Initial defense adjuster reserve</div></div>
+        <div class="range-card featured"><div class="range-lbl">Projected Settlement Range</div><div class="range-val" id="res-mid">—</div><div class="range-note">With commercial trial counsel</div></div>
+        <div class="range-card"><div class="range-lbl">Trial / Policy Limit High</div><div class="range-val" id="res-high">—</div><div class="range-note">Full FMCSA punitive leverage</div></div>
+      </div>
+
+      <div class="bk-title">Economic &amp; Non-Economic Damage Breakdown</div>
+      <div class="bk-item"><div class="bk-name">🏥 Past &amp; Future Medical</div><div class="bk-bar-wrap"><div class="bk-bar bar-1" id="bar-med"></div></div><div class="bk-amt" id="amt-med">—</div></div>
+      <div class="bk-item"><div class="bk-name">💼 Lost Earning Capacity</div><div class="bk-bar-wrap"><div class="bk-bar bar-2" id="bar-wage"></div></div><div class="bk-amt" id="amt-wage">—</div></div>
+      <div class="bk-item"><div class="bk-name">⚠️ FMCSA Violation Uplift</div><div class="bk-bar-wrap"><div class="bk-bar bar-3" id="bar-fmcsa"></div></div><div class="bk-amt" id="amt-fmcsa">—</div></div>
+      <div class="bk-item"><div class="bk-name">💛 Pain &amp; Suffering</div><div class="bk-bar-wrap"><div class="bk-bar bar-4" id="bar-pain"></div></div><div class="bk-amt" id="amt-pain">—</div></div>
+
+      <div class="bk-title" style="margin-top:22px">Commercial Litigation Multipliers &amp; Case Factors</div>
+      <div class="factors-grid" id="factors"></div>
+
+      <div class="lead-box">
+        <h3>🚨 Urgent: Demand an Immediate ECM "Black Box" Preservation Letter</h3>
+        <p>Trucking defense teams deploy rapid-response investigators within hours of a crash, and federal law allows carriers to overwrite Electronic Logging Device (ELD) logs in 6 months—or sooner if the cab is repaired. Lock in your valuation dossier and connect with a vetted Commercial Truck Trial Attorney.</p>
+        <form class="lead-grid" onsubmit="event.preventDefault(); alert('Your Truck Accident Valuation Dossier has been queued. A commercial trucking trial specialist will reach out shortly.');">
+          <input type="text" placeholder="Full Name" required />
+          <input type="text" placeholder="Phone Number" required />
+          <input type="text" placeholder="State / ZIP Code" required />
+          <button type="submit" class="btn-cta" style="border:none;cursor:pointer;">Request Free Case Review →</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="dossier-actions">
+      <button class="btn-print" onclick="window.print()">🖨️ Print Case Valuation Dossier (PDF)</button>
+      <button class="btn-reset" style="margin:0;" onclick="resetCalc()">← Modify Case Inputs</button>
+    </div>
+
+    <div class="ad-slot ad-rect">Advertisement</div>
+
+    <div class="legal-notice"><strong>⚠️ Legal Disclaimer:</strong> Commercial trucking estimates are for educational purposes only and do not constitute legal advice. Actual recovery depends on policy stacking, venue, FMCSA inspection records, and medical causation.</div>
+
+    <div class="related-section">
+      <h3>Related High-Value Tort Calculators</h3>
+      <div class="related-grid">
+        <a class="related-link" href="./concussion-tbi-calculator.html"><span class="rl-icon">🧠</span><span class="rl-title">Concussion &amp; TBI</span><span class="rl-desc">Brain injury valuation</span></a>
+        <a class="related-link" href="./oilfield-injury-calculator.html"><span class="rl-icon">🛢️</span><span class="rl-title">Oilfield &amp; Rig Injury</span><span class="rl-desc">3rd-party industrial claims</span></a>
+        <a class="related-link" href="./rideshare-accident-calculator.html"><span class="rl-icon">🚕</span><span class="rl-title">Uber / Lyft Crash</span><span class="rl-desc">$1M commercial policy tiers</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-slot ad-banner">Advertisement</div>
+
+  <div class="card fade-in">
+    <h2 class="serif" style="font-size:1.35rem;font-weight:700;margin-bottom:14px">How 18-Wheeler &amp; Commercial Truck Settlements Are Valued</h2>
+    <div class="article-block">
+      <p>Commercial trucking collisions are governed by federal regulations under <strong>Title 49 of the Code of Federal Regulations (49 CFR Parts 382–399)</strong> enforced by the Federal Motor Carrier Safety Administration (FMCSA). Unlike passenger car crashes—where recovery is frequently capped by a $25,000 or $50,000 state minimum auto policy—interstate motor carriers must carry a minimum of <strong>$750,000 for general freight</strong>, <strong>$1,000,000 for oil/hazardous materials</strong>, and up to <strong>$5,000,000 for bulk hazmat</strong>, often backed by multi-million-dollar excess and umbrella towers.</p>
+      <p>When an attorney proves that a motor carrier violated federal safety mandates—such as forcing a driver to exceed the <strong>11-hour driving limit or 14-hour on-duty window</strong>, ignoring out-of-service brake defects, or hiring a driver with disqualifying safety violations—the case shifts from ordinary negligence to <strong>negligent entrustment and gross negligence</strong>. This unlocks punitive damage exposure and drives settlement multipliers from standard 2×–3× levels up to 4×–6× total economic specials.</p>
+    </div>
+  </div>
+
+  <section class="faq-section fade-in">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What is the average 18-wheeler truck accident settlement? <i class="chev">▾</i></button><div class="faq-a">Because commercial semi-trucks weigh up to 80,000 lbs and are required by federal law (FMCSA) to carry at least $750,000 to $5,000,000 in liability insurance, settlements are significantly higher than standard car crashes. Moderate injury cases involving surgery often settle between $150,000 and $650,000, while severe injuries or cases involving hours-of-service (ELD) or maintenance violations frequently exceed $1,000,000 to $5,000,000+.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">How do FMCSA violations increase a truck accident settlement? <i class="chev">▾</i></button><div class="faq-a">The Federal Motor Carrier Safety Administration (FMCSA) enforces strict rules on driver Hours of Service (49 CFR Part 395), CDL qualification, drug/alcohol testing, brake inspections, and cargo securement. Proven FMCSA violations establish negligence per se or gross negligence, exposing the motor carrier to punitive damages and forcing commercial insurers to pay near or at policy limits to avoid runaway jury verdicts.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Who can be sued in a commercial trucking crash? <i class="chev">▾</i></button><div class="faq-a">Unlike standard auto accidents, commercial truck crashes often involve multiple deep-pocket defendants: the truck driver, the motor carrier (trucking company), the freight broker or shipper, the trailer owner, third-party maintenance contractors, and cargo loaders. Identifying multiple liable entities allows attorneys to stack commercial insurance policies.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Why is an ECM 'Black Box' preservation letter critical? <i class="chev">▾</i></button><div class="faq-a">Modern commercial trucks contain an Electronic Control Module (ECM) and Electronic Logging Device (ELD) that record speed, braking, throttle, GPS, and driver hours right before impact. Trucking companies can legally overwrite or destroy this data in as little as 30 days unless an attorney serves a formal Spoliation / Preservation Letter immediately after the crash.</div></div>
+  </section>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script>var BASE = '../';</script>
+<script src="../js/common.js"></script>
+<script>
+  const TRUCK_TYPES = {
+    semi: { m: 1.2, l: '🚛 Class 8 Semi-Truck (80k lbs)', n: 'Interstate motor carrier subject to full FMCSA Part 390–399 rules' },
+    hazmat: { m: 1.45, l: '☣️ Hazmat / Tanker Carrier', n: '$5,000,000 federal minimum policy under 49 CFR § 387.9' },
+    dump: { m: 1.15, l: '🏗️ Heavy Dump / Construction Truck', n: 'High weight-to-brake ratio and commercial contractor liability' },
+    delivery: { m: 1.18, l: '📦 Corporate Fleet Delivery', n: 'Deep-pocket corporate parent / vicarious responder liability' },
+    bus: { m: 1.25, l: '🚌 Commercial Motorcoach', n: '$5M federal passenger carrier minimum insurance requirement' }
+  };
+
+  const FMCSA_MODS = {
+    standard: { u: 0.15, l: '⚠️ Standard Commercial Negligence', n: ' Vicarious liability under Respondeat Superior doctrine' },
+    hos: { u: 0.45, l: '🚨 49 CFR Part 395 HOS / ELD Violation', n: 'Driver fatigue & logbook falsification trigger punitive exposure' },
+    maintenance: { u: 0.35, l: '🔧 49 CFR Part 396 Brake/Defect Violation', n: 'Direct corporate negligence for dispatching unsafe equipment' },
+    hiring: { u: 0.50, l: '📋 Negligent Hiring / Retention', n: 'Failure to vet driver DQ file exposes carrier to reptile-theory verdicts' },
+    dui: { u: 0.75, l: '🔥 CDL Impairment / Texting Violation', n: 'Gross negligence per se — unlocks punitive damages in most states' }
+  };
+
+  const TIER_MODS = {
+    soft: { m: 0.75, l: '🟡 Tier 1 Soft Tissue', n: 'Conservative chiropractic/PT treatment without surgical intervention' },
+    fracture: { m: 1.15, l: '🟠 Tier 2 Fractures / Disc Herniation', n: 'Objective CT/MRI pathology substantially increases settlement floor' },
+    surgery: { m: 1.55, l: '🔴 Tier 3 Surgical Repair / Fusion', n: 'Operative hardware & spinal procedures command high 6- to 7-figure payouts' },
+    permanent: { m: 2.1, l: '🚨 Tier 4 Permanent Impairment', n: 'Life Care Plan (LCP) & permanent AMA impairment rating apply' },
+    catastrophic: { m: 3.0, l: '🆘 Tier 5 Catastrophic / Wrongful Death', n: 'Maximum commercial umbrella & excess policy limit exposure' }
+  };
+
+  document.getElementById('multiplier').addEventListener('input', e => document.getElementById('mult-display').textContent = e.target.value + '×');
+  document.getElementById('fault').addEventListener('input', e => document.getElementById('fault-display').textContent = e.target.value + '%');
+
+  document.getElementById('calc-btn').addEventListener('click', () => {
+    const tType = document.getElementById('truck-type').value;
+    const fmcsa = document.getElementById('fmcsa-violation').value;
+    const tier = document.getElementById('injury-tier').value;
+    const policyLim = +document.getElementById('policy-tier').value || 1000000;
+    const stateRule = document.getElementById('state-rule').value;
+    const ecmPreserved = document.querySelector('input[name="ecm"]:checked')?.value === 'yes';
+
+    const pastMed = +document.getElementById('past-med').value || 0;
+    const futMed = +document.getElementById('future-med').value || 0;
+    const pastWag = +document.getElementById('past-wages').value || 0;
+    const futWag = +document.getElementById('future-earning').value || 0;
+    const mult = +document.getElementById('multiplier').value || 3;
+    const faultPct = (+document.getElementById('fault').value || 0) / 100;
+
+    const totalMed = pastMed + futMed;
+    const totalWage = pastWag + futWag;
+    const econ = totalMed + totalWage;
+
+    const basePain = totalMed * mult * (TIER_MODS[tier]?.m || 1);
+    const fmcsaUplift = (econ + basePain) * (FMCSA_MODS[fmcsa]?.u || 0.15);
+    const gross = (econ + basePain + fmcsaUplift) * (TRUCK_TYPES[tType]?.m || 1.15) * (ecmPreserved ? 1.12 : 0.92);
+
+    let faultMultiplier = 1 - faultPct;
+    let faultNote = `${Math.round(faultPct * 100)}% comparative fault deduction applied`;
+    if (stateRule === 'contrib' && faultPct > 0) {
+      faultMultiplier = 0;
+      faultNote = 'BARRED: Pure Contributory Negligence state bars recovery if ≥1% at fault';
+    } else if (stateRule === 'mod50' && faultPct >= 0.50) {
+      faultMultiplier = 0;
+      faultNote = 'BARRED: 50% Modified Comparative Fault rule bars recovery at ≥50% fault';
+    } else if (stateRule === 'mod51' && faultPct >= 0.51) {
+      faultMultiplier = 0;
+      faultNote = 'BARRED: 51% Modified Comparative Fault rule bars recovery at ≥51% fault';
+    }
+
+    const net = gross * faultMultiplier;
+    const low = Math.min(net * 0.58, policyLim);
+    const midLow = Math.min(net * 0.85, policyLim * 1.15);
+    const midHigh = Math.min(net * 1.18, policyLim * 1.35);
+    const high = Math.min(net * 1.65, policyLim * 1.75);
+
+    document.getElementById('res-truck-label').textContent = TRUCK_TYPES[tType].l;
+    document.getElementById('res-fmcsa-label').textContent = FMCSA_MODS[fmcsa].l;
+    document.getElementById('res-low').textContent = fmtMoney(low);
+    document.getElementById('res-mid').textContent = fmtMoney(midLow) + ' – ' + fmtMoney(midHigh);
+    document.getElementById('res-high').textContent = fmtMoney(high);
+
+    const tot = totalMed + totalWage + fmcsaUplift + basePain || 1;
+    document.getElementById('amt-med').textContent = fmtMoney(totalMed);
+    document.getElementById('amt-wage').textContent = fmtMoney(totalWage);
+    document.getElementById('amt-fmcsa').textContent = fmtMoney(fmcsaUplift);
+    document.getElementById('amt-pain').textContent = fmtMoney(basePain);
+
+    animateBars([
+      { id: 'bar-med', pct: totalMed / tot * 100 },
+      { id: 'bar-wage', pct: totalWage / tot * 100 },
+      { id: 'bar-fmcsa', pct: fmcsaUplift / tot * 100 },
+      { id: 'bar-pain', pct: basePain / tot * 100 }
+    ]);
+
+    const facs = [
+      TRUCK_TYPES[tType],
+      FMCSA_MODS[fmcsa],
+      TIER_MODS[tier],
+      { l: `🛡️ ${fmtMoney(policyLim)} Policy Tower`, n: net > policyLim ? 'Damages exceed primary policy — pursue broker/umbrella excess layers' : 'Primary commercial policy has sufficient liquidity to cover damages' },
+      ecmPreserved ? { l: '📡 ECM / ELD Data Preserved', n: 'Black box telemetry provides objective proof of speed & hours' } : { l: '⚠️ Send Spoliation Letter Now', n: 'ECM & ELD logs risk being overwritten without formal legal notice' },
+      { l: `⚖️ Fault Rule (${Math.round(faultPct * 100)}% Fault)`, n: faultNote }
+    ];
+    document.getElementById('factors').innerHTML = facs.map(f => `<div class="factor-item"><strong>${f.l}</strong><span>${f.n}</span></div>`).join('');
+    showResults();
+  });
+</script>
+</body>
+</html>

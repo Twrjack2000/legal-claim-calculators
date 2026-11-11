@@ -4,78 +4,113 @@
   <!-- Home Page -->
   <url>
     <loc>https://legalclaimcalculators.com/</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Tool Pages -->
+  <!-- 15 Attorney-Grade Legal Calculator Tool Pages -->
+  <url>
+    <loc>https://legalclaimcalculators.com/tools/truck-accident-calculator.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://legalclaimcalculators.com/tools/oilfield-injury-calculator.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://legalclaimcalculators.com/tools/rideshare-accident-calculator.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://legalclaimcalculators.com/tools/concussion-tbi-calculator.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://legalclaimcalculators.com/tools/slip-and-fall-calculator.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
   <url>
     <loc>https://legalclaimcalculators.com/tools/personal-injury-calculator.html</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://legalclaimcalculators.com/tools/workers-comp-calculator.html</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://legalclaimcalculators.com/tools/ssdi-calculator.html</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://legalclaimcalculators.com/tools/dui-cost-calculator.html</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://legalclaimcalculators.com/tools/wrongful-termination-calculator.html</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://legalclaimcalculators.com/tools/alimony-calculator.html</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://legalclaimcalculators.com/tools/non-compete-checker.html</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://legalclaimcalculators.com/tools/child-support-calculator.html</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://legalclaimcalculators.com/tools/medical-malpractice-calculator.html</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://legalclaimcalculators.com/tools/dog-bite-calculator.html</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>

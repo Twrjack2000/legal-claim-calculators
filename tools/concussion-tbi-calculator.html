@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traumatic Brain Injury (TBI) &amp; Concussion Settlement Calculator | Free 2026</title>
+  <meta name="description" content="Calculate your Traumatic Brain Injury (TBI), concussion, or post-concussion syndrome settlement value. Factors in Glasgow Coma Scale severity, DTI/neuropsychological testing, neurological therapy costs, cognitive wage-loss multipliers, and printable Case Valuation Dossier." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3175050594873956" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Traumatic Brain Injury (TBI) & Concussion Settlement Calculator",
+  "description": "Estimate mild concussion, post-concussion syndrome, and moderate-to-severe Traumatic Brain Injury (TBI) settlements using neurological care projections, diagnostic imaging tiers, and cognitive wage-loss multipliers.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the average settlement for a concussion or Traumatic Brain Injury (TBI)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TBI settlements span a wide spectrum depending on diagnostic proof and symptom duration. A resolved mild concussion typically settles between $20,000 and $65,000. Persistent Post-Concussion Syndrome (PCS) with documented vestibular, ocular, or cognitive deficits documented by a neuropsychologist often settles between $125,000 and $450,000. Moderate-to-severe TBIs involving positive DTI/MRI findings, intracranial bleed, or permanent executive-function wage loss regularly exceed $750,000 to $5,000,000+."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I win a brain injury settlement if my ER CT scan was 'normal'?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Emergency room CT scans only detect acute skull fractures or large brain bleeds—they miss over 90% of mild Traumatic Brain Injuries (mTBI) and microscopic axonal shearing (Diffuse Axonal Injury). Specialized neuro-attorneys use 3T MRI with Susceptibility Weighted Imaging (SWI), Diffusion Tensor Imaging (DTI), Videonystagmography (VNG) eye-tracking, and formal Neuropsychological Testing batteries to prove objective brain injury."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does cognitive impairment impact future lost earning capacity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Even when a TBI survivor looks physically normal ('the invisible injury'), chronic migraines, photophobia, short-term memory loss, executive dysfunction, and emotional lability can reduce work productivity by 25% to 100%. Vocational rehabilitation experts and forensic economists quantify this lifetime cognitive wage-loss penalty into present-value dollars."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do insurance adjusters fight post-concussion syndrome claims so hard?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because brain injuries carry massive jury verdict potential, insurers hire Defense Medical Examiners (DMEs) to claim that symptoms lasting beyond 90 days are psychological or malingering. Documenting vestibular therapy, neuro-optometry, and testimony from "before-and-after" witnesses (coworkers and family) is essential to defeat defense tactics."
+      }
+    }
+  ]
+}
+</script>
+  <link rel="canonical" href="https://legalclaimcalculators.com/tools/concussion-tbi-calculator.html" />
+  <style>
+    @media print {
+      .site-nav, .site-footer, .gv-capture-section, .ad-slot, .btn-calc, .btn-reset, .related-section, .faq-section { display: none !important; }
+      body { background: #fff !important; color: #000 !important; padding-top: 0 !important; }
+      .card { background: #fff !important; border: 1px solid #ccc !important; box-shadow: none !important; color: #000 !important; }
+      .range-card, .factor-item { background: #f8f8f8 !important; border: 1px solid #ddd !important; color: #000 !important; }
+      .range-val, .bk-amt, h1, h2, h3, strong { color: #000 !important; -webkit-text-fill-color: initial !important; }
+    }
+    .dossier-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 20px 0 28px; }
+    .btn-print {
+      background: rgba(232, 146, 74, 0.14);
+      border: 1px solid var(--gold);
+      border-radius: var(--rs);
+      padding: 12px 24px;
+      color: var(--gold-light);
+      font-size: 14px;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-print:hover { background: var(--gold); color: #1a0e00; }
+    .lead-box {
+      background: linear-gradient(135deg, rgba(232,146,74,0.12), rgba(26,26,46,0.9));
+      border: 1px solid var(--border-glow);
+      border-radius: var(--r);
+      padding: 24px;
+      margin-top: 22px;
+    }
+    .lead-box h3 { font-size: 1.15rem; margin-bottom: 6px; color: var(--gold-light); }
+    .lead-box p { font-size: 13.5px; color: var(--text-2); margin-bottom: 16px; }
+    .lead-grid { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px; }
+    @media (max-width: 700px) { .lead-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<div class="container">
+  <div class="tool-header fade-in">
+    <div class="badge">🧠 Neuro-Trauma Tort Valuation Tool</div>
+    <h1>Traumatic Brain Injury &amp; Concussion <span>Settlement Calculator</span></h1>
+    <p>Estimate the settlement value of a mild concussion, Persistent Post-Concussion Syndrome (PCS), or Moderate/Severe TBI using neurological diagnostics, cognitive wage-loss multipliers, and life-care projections.</p>
+    <div class="trust-row">
+      <div class="trust-item"><span class="ti">🔒</span> 100% Private Browser Math</div>
+      <div class="trust-item"><span class="ti">🧠</span> DTI / Neuropsych Diagnostic Logic</div>
+      <div class="trust-item"><span class="ti">🖨️</span> Printable Case Dossier</div>
+    </div>
+  </div>
+
+  <!-- ──────────────────────────────────────────────── -->
+  <!--  FORM                                            -->
+  <!-- ──────────────────────────────────────────────── -->
+  <div id="calc-form">
+
+    <div class="card fade-in">
+      <div class="card-title">🧠 Step 1 — Brain Injury Classification &amp; Objective Diagnostic Proof</div>
+      <div class="card-desc">Neurological claim value is driven by symptom permanence and objective neuro-diagnostic testing beyond a standard ER CT scan.</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="tbi-tier">TBI / Concussion Severity Classification</label>
+          <select id="tbi-tier">
+            <option value="mild_resolved">Mild Concussion (mTBI) — Resolved within 3–6 Months</option>
+            <option value="pcs" selected>Persistent Post-Concussion Syndrome (PCS — Migraines, Vertigo, Fog &gt;6 Mos)</option>
+            <option value="moderate">Moderate TBI — Brief Loss of Consciousness, Cognitive/Executive Deficits</option>
+            <option value="dai">Diffuse Axonal Injury (DAI) / Microhemorrhages / Cranial Nerve Damage</option>
+            <option value="severe">Severe TBI — Intracranial Bleed, Craniotomy, Coma, or 24/7 Life Care</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="diag-tier">Highest Objective Neurological Diagnostic Completed</label>
+          <select id="diag-tier">
+            <option value="er_ct">ER Clinical Diagnosis Only (Negative/Normal Head CT Scan)</option>
+            <option value="neuro_eval" selected>Neurologist Care + Vestibular / VNG Ocular / Speech Therapy</option>
+            <option value="neuropsych">Formal Neuropsychological Testing Battery (Documented Cognitive Drop)</option>
+            <option value="dti_swi">Positive 3T MRI / DTI (Diffusion Tensor Imaging) or Positive CT Bleed</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="cause-policy">Accident Mechanism &amp; Defendant Policy Tier</label>
+          <select id="cause-policy">
+            <option value="auto_std">Standard Passenger Auto Crash ($50K–$250K Auto/UIM Policy)</option>
+            <option value="commercial" selected>Commercial Truck / Rideshare / Corporate Fleet ($1M–$5M+ Policy)</option>
+            <option value="premises">Commercial Slip &amp; Fall / Falling Object Head Strike ($1M+ CGL)</option>
+            <option value="industrial">Construction / Oilfield / Struck-By Industrial Accident ($2M+ Policy)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Documented Loss of Consciousness (LOC) or Amnesia at Scene?</label>
+          <div class="radio-group">
+            <div class="radio-btn"><input type="radio" name="loc" id="loc-yes" value="yes" checked><label for="loc-yes">✅ Yes (LOC / Dazed)</label></div>
+            <div class="radio-btn"><input type="radio" name="loc" id="loc-no" value="no"><label for="loc-no">❌ No LOC</label></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card fade-in">
+      <div class="card-title">💰 Step 2 — Neurological Therapy Costs &amp; Cognitive Wage-Loss Multiplier</div>
+      <div class="card-desc">Even mild-to-moderate brain injuries cause severe work fatigue, screen intolerance, and executive dysfunction that impair career earnings.</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="past-med">Past Medical &amp; ER / Imaging Bills</label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="past-med" value="38000" min="0" step="1000"></div>
+        </div>
+        <div class="form-group">
+          <label for="neuro-rehab">Projected Future Neuro-Rehab &amp; Therapy <span class="hint">(vestibular, cognitive, meds)</span></label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="neuro-rehab" value="45000" min="0" step="1000"></div>
+        </div>
+        <div class="form-group">
+          <label for="annual-income">Your Pre-Injury Annual Income</label>
+          <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="annual-income" value="75000" min="0" step="2500"></div>
+        </div>
+        <div class="form-group">
+          <label for="work-years">Remaining Work-Life Horizon Affected <span class="hint">(years impacted)</span></label>
+          <input type="number" id="work-years" value="6" min="0" max="40" step="1">
+        </div>
+        <div class="form-group full">
+          <label>Cognitive Earning Capacity Impairment % <span class="hint">(0% = no work impact, 25% = reduced stamina/focus, 100% = total disability)</span></label>
+          <div class="slider-row">
+            <input type="range" id="cog-loss" min="0" max="100" step="5" value="25">
+            <span class="slider-val" id="cog-display">25%</span>
+          </div>
+          <div class="slider-labels"><span>0% Full Duty</span><span>25% Executive Fatigue / Screen Intolerance</span><span>100% Unable to Work</span></div>
+        </div>
+        <div class="form-group full">
+          <label>Neuro-Trauma Pain, Suffering &amp; Loss of Enjoyment Multiplier <span class="hint">(2× = mild, 6× = permanent TBI)</span></label>
+          <div class="slider-row">
+            <input type="range" id="multiplier" min="2" max="6.5" step="0.5" value="3.5">
+            <span class="slider-val" id="mult-display">3.5×</span>
+          </div>
+          <div class="slider-labels"><span>2.0× Resolved Concussion</span><span>3.5× Chronic PCS</span><span>6.5× Severe TBI</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-rect">Advertisement</div>
+    <button class="btn-calc" id="calc-btn">🧠 Calculate TBI &amp; Concussion Settlement Range</button>
+  </div>
+
+  <!-- ──────────────────────────────────────────────── -->
+  <!--  RESULTS                                         -->
+  <!-- ──────────────────────────────────────────────── -->
+  <div id="results">
+    <div class="card">
+      <div class="results-head">
+        <h2>📊 Neurological &amp; TBI Case Valuation Dossier</h2>
+        <div class="sub">Diagnosis: <span id="res-tbi-label">Persistent Post-Concussion Syndrome</span> &bull; Proof: <span id="res-diag-label">Neurologist &amp; Vestibular Care</span></div>
+      </div>
+      <div class="range-cards">
+        <div class="range-card"><div class="range-lbl">Standard Adjuster Offer</div><div class="range-val" id="res-low">—</div><div class="range-note">Treating as "normal CT" minor head bump</div></div>
+        <div class="range-card featured"><div class="range-lbl">Neuro-Litigation Range</div><div class="range-val" id="res-mid">—</div><div class="range-note">With DTI / Neuropsych documentation</div></div>
+        <div class="range-card"><div class="range-lbl">Trial / Life-Care High</div><div class="range-val" id="res-high">—</div><div class="range-note">Full cognitive vocational loss proven</div></div>
+      </div>
+
+      <div class="bk-title">Neurological Economic &amp; Non-Economic Damage Breakdown</div>
+      <div class="bk-item"><div class="bk-name">🏥 Past &amp; Future Neuro Care</div><div class="bk-bar-wrap"><div class="bk-bar bar-1" id="bar-med"></div></div><div class="bk-amt" id="amt-med">—</div></div>
+      <div class="bk-item"><div class="bk-name">🧠 Cognitive Wage-Loss Value</div><div class="bk-bar-wrap"><div class="bk-bar bar-2" id="bar-wage"></div></div><div class="bk-amt" id="amt-wage">—</div></div>
+      <div class="bk-item"><div class="bk-name">🔬 Objective Diagnostic Uplift</div><div class="bk-bar-wrap"><div class="bk-bar bar-3" id="bar-diag"></div></div><div class="bk-amt" id="amt-diag">—</div></div>
+      <div class="bk-item"><div class="bk-name">💛 Pain &amp; Loss of Enjoyment</div><div class="bk-bar-wrap"><div class="bk-bar bar-4" id="bar-pain"></div></div><div class="bk-amt" id="amt-pain">—</div></div>
+
+      <div class="bk-title" style="margin-top:22px">Key Neuro-Trauma Valuation Factors</div>
+      <div class="factors-grid" id="factors"></div>
+
+      <div class="lead-box">
+        <h3>🧠 Upgrade a "Negative ER CT Scan" with Advanced DTI &amp; Neuropsychological Testing</h3>
+        <p>Insurance adjusters routinely discount concussion claims by pointing to a normal emergency room CT scan. Top Brain Injury Trial Lawyers arrange lien-based 3T MRI with Diffusion Tensor Imaging (DTI) and Neuropsychological testing at zero upfront cost to prove microscopic white-matter injury.</p>
+        <form class="lead-grid" onsubmit="event.preventDefault(); alert('Your TBI Case Valuation Dossier has been queued. A specialized Brain Injury Trial Attorney will contact you shortly.');">
+          <input type="text" placeholder="Full Name" required />
+          <input type="text" placeholder="Phone Number" required />
+          <input type="text" placeholder="State / ZIP Code" required />
+          <button type="submit" class="btn-cta" style="border:none;cursor:pointer;">Request Free TBI Case Audit →</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="dossier-actions">
+      <button class="btn-print" onclick="window.print()">🖨️ Print TBI Case Valuation Dossier (PDF)</button>
+      <button class="btn-reset" style="margin:0;" onclick="resetCalc()">← Modify TBI &amp; Wage Inputs</button>
+    </div>
+
+    <div class="ad-slot ad-rect">Advertisement</div>
+
+    <div class="legal-notice"><strong>⚠️ Disclaimer:</strong> Estimates are for educational purposes only and do not constitute medical or legal advice. Traumatic brain injury valuations depend heavily on clinical documentation and insurance policy limits. Consult a licensed TBI trial attorney.</div>
+
+    <div class="related-section">
+      <h3>Related High-Value Tort Calculators</h3>
+      <div class="related-grid">
+        <a class="related-link" href="./truck-accident-calculator.html"><span class="rl-icon">🚛</span><span class="rl-title">18-Wheeler Crash</span><span class="rl-desc">High-impact commercial TBI</span></a>
+        <a class="related-link" href="./slip-and-fall-calculator.html"><span class="rl-icon">🏢</span><span class="rl-title">Slip &amp; Fall</span><span class="rl-desc">Premises head-strike claims</span></a>
+        <a class="related-link" href="./rideshare-accident-calculator.html"><span class="rl-icon">🚕</span><span class="rl-title">Uber / Lyft Crash</span><span class="rl-desc">$1M rideshare policy claims</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-slot ad-banner">Advertisement</div>
+
+  <div class="card fade-in">
+    <h2 class="serif" style="font-size:1.35rem;font-weight:700;margin-bottom:14px">How Traumatic Brain Injury (TBI) &amp; Concussion Claims Are Valued</h2>
+    <div class="article-block">
+      <p>Traumatic Brain Injuries—even those initially labeled "mild concussion" in an emergency room—frequently result in life-altering neurological deficits known as <strong>Persistent Post-Concussion Syndrome (PCS)</strong>. Victims suffer from chronic intractable migraines, vestibular vertigo, convergence insufficiency (vision tracking problems), tinnitus, short-term memory loss, executive dysfunction, and personality changes.</p>
+      <p><strong>Overcoming the "Normal CT Scan" Defense:</strong> Standard hospital CT scans are designed only to detect emergency surgical bleeds or skull fractures; they cannot see axonal shearing in the brain's white matter tracts. When a brain injury specialist documents your injury using <strong>Diffusion Tensor Imaging (DTI)</strong>, <strong>Susceptibility Weighted Imaging (SWI)</strong>, <strong>Videonystagmography (VNG)</strong>, and a <strong>Neuropsychological Testing Battery</strong>, settlement values routinely increase by 300% to 500%.</p>
+    </div>
+  </div>
+
+  <section class="faq-section fade-in">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What is the average settlement for a concussion or Traumatic Brain Injury (TBI)? <i class="chev">▾</i></button><div class="faq-a">TBI settlements span a wide spectrum depending on diagnostic proof and symptom duration. A resolved mild concussion typically settles between $20,000 and $65,000. Persistent Post-Concussion Syndrome (PCS) with documented vestibular, ocular, or cognitive deficits documented by a neuropsychologist often settles between $125,000 and $450,000. Moderate-to-severe TBIs involving positive DTI/MRI findings, intracranial bleed, or permanent executive-function wage loss regularly exceed $750,000 to $5,000,000+.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Can I win a brain injury settlement if my ER CT scan was 'normal'? <i class="chev">▾</i></button><div class="faq-a">Yes. Emergency room CT scans only detect acute skull fractures or large brain bleeds—they miss over 90% of mild Traumatic Brain Injuries (mTBI) and microscopic axonal shearing (Diffuse Axonal Injury). Specialized neuro-attorneys use 3T MRI with Susceptibility Weighted Imaging (SWI), Diffusion Tensor Imaging (DTI), Videonystagmography (VNG) eye-tracking, and formal Neuropsychological Testing batteries to prove objective brain injury.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">How does cognitive impairment impact future lost earning capacity? <i class="chev">▾</i></button><div class="faq-a">Even when a TBI survivor looks physically normal ('the invisible injury'), chronic migraines, photophobia, short-term memory loss, executive dysfunction, and emotional lability can reduce work productivity by 25% to 100%. Vocational rehabilitation experts and forensic economists quantify this lifetime cognitive wage-loss penalty into present-value dollars.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Why do insurance adjusters fight post-concussion syndrome claims so hard? <i class="chev">▾</i></button><div class="faq-a">Because brain injuries carry massive jury verdict potential, insurers hire Defense Medical Examiners (DMEs) to claim that symptoms lasting beyond 90 days are psychological or malingering. Documenting vestibular therapy, neuro-optometry, and testimony from "before-and-after" witnesses (coworkers and family) is essential to defeat defense tactics.</div></div>
+  </section>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script>var BASE = '../';</script>
+<script src="../js/common.js"></script>
+<script>
+  const TBI_TIERS = {
+    mild_resolved: { m: 0.85, l: '🟡 Mild Concussion (mTBI)', n: 'Acute headaches, dizziness, and brain fog resolving within 3–6 months' },
+    pcs: { m: 1.35, l: '🟠 Persistent Post-Concussion Syndrome (PCS)', n: 'Symptoms persisting >6 months indicates likely permanent neuro-functional deficit' },
+    moderate: { m: 1.75, l: '🔴 Moderate Traumatic Brain Injury', n: 'Documented cognitive, memory, and executive-function impairment' },
+    dai: { m: 2.25, l: '🚨 Diffuse Axonal Injury (DAI)', n: 'White-matter tract shearing with lifelong neuro-behavioral impact' },
+    severe: { m: 3.10, l: '🆘 Severe TBI / Intracranial Hemorrhage', n: 'Catastrophic brain trauma requiring Certified Life Care Planner (CLCP)' }
+  };
+
+  const DIAG_TIERS = {
+    er_ct: { u: 0.08, l: '⚠️ ER CT Diagnosis Only', n: 'Standard CT is often negative — obtaining neurologist follow-up is critical' },
+    neuro_eval: { u: 0.25, l: '🩺 Neurologist + Vestibular/VNG Therapy', n: 'Objective eye-tracking & balance testing validates post-concussion syndrome' },
+    neuropsych: { u: 0.45, l: '📊 Formal Neuropsychological Battery', n: 'Standardized psychometric testing proves cognitive & memory decline' },
+    dti_swi: { u: 0.70, l: '🔬 Positive 3T MRI / DTI / Brain Bleed', n: 'Irrefutable radiologic proof of structural brain injury — defeats defense DMEs' }
+  };
+
+  const CAUSE_MODS = {
+    auto_std: { m: 0.90, l: '🚗 Standard Auto / UIM Policy', n: 'Recovery may be constrained if at-fault driver carries low personal limits' },
+    commercial: { m: 1.30, l: '🚛 Commercial Truck / Rideshare ($1M–$5M+)', n: 'Deep commercial policy limits allow full recovery of cognitive wage loss' },
+    premises: { m: 1.15, l: '🏢 Commercial Premises CGL Policy', n: 'High commercial property limits for fall or falling-merchandise head strikes' },
+    industrial: { m: 1.35, l: '🛢️ Industrial / Construction 3rd-Party Policy', n: 'Multi-million-dollar contractor policies cover full lifetime neuro care' }
+  };
+
+  document.getElementById('cog-loss').addEventListener('input', e => document.getElementById('cog-display').textContent = e.target.value + '%');
+  document.getElementById('multiplier').addEventListener('input', e => document.getElementById('mult-display').textContent = e.target.value + '×');
+
+  document.getElementById('calc-btn').addEventListener('click', () => {
+    const tbi = document.getElementById('tbi-tier').value;
+    const diag = document.getElementById('diag-tier').value;
+    const cause = document.getElementById('cause-policy').value;
+    const hasLoc = document.querySelector('input[name="loc"]:checked')?.value === 'yes';
+
+    const pastMed = +document.getElementById('past-med').value || 0;
+    const neuroRehab = +document.getElementById('neuro-rehab').value || 0;
+    const annualInc = +document.getElementById('annual-income').value || 0;
+    const workYears = +document.getElementById('work-years').value || 0;
+    const cogLossPct = (+document.getElementById('cog-loss').value || 0) / 100;
+    const mult = +document.getElementById('multiplier').value || 3.5;
+
+    const totalMed = pastMed + neuroRehab;
+    const cogWageLoss = annualInc * workYears * cogLossPct * 0.88; // Present value adjusted
+    const basePain = totalMed * mult * (TBI_TIERS[tbi]?.m || 1);
+    const diagUplift = (totalMed + cogWageLoss + basePain) * (DIAG_TIERS[diag]?.u || 0.1);
+
+    const gross = (totalMed + cogWageLoss + basePain + diagUplift) * (CAUSE_MODS[cause]?.m || 1) * (hasLoc ? 1.12 : 1.0);
+    const low = gross * 0.42;
+    const midLow = gross * 0.85;
+    const midHigh = gross * 1.18;
+    const high = gross * 1.65;
+
+    document.getElementById('res-tbi-label').textContent = TBI_TIERS[tbi].l;
+    document.getElementById('res-diag-label').textContent = DIAG_TIERS[diag].l;
+    document.getElementById('res-low').textContent = fmtMoney(low);
+    document.getElementById('res-mid').textContent = fmtMoney(midLow) + ' – ' + fmtMoney(midHigh);
+    document.getElementById('res-high').textContent = fmtMoney(high);
+
+    const tot = totalMed + cogWageLoss + diagUplift + basePain || 1;
+    document.getElementById('amt-med').textContent = fmtMoney(totalMed);
+    document.getElementById('amt-wage').textContent = fmtMoney(cogWageLoss);
+    document.getElementById('amt-diag').textContent = fmtMoney(diagUplift);
+    document.getElementById('amt-pain').textContent = fmtMoney(basePain);
+
+    animateBars([
+      { id: 'bar-med', pct: totalMed / tot * 100 },
+      { id: 'bar-wage', pct: cogWageLoss / tot * 100 },
+      { id: 'bar-diag', pct: diagUplift / tot * 100 },
+      { id: 'bar-pain', pct: basePain / tot * 100 }
+    ]);
+
+    const facs = [
+      TBI_TIERS[tbi],
+      DIAG_TIERS[diag],
+      CAUSE_MODS[cause],
+      { l: `📉 ${Math.round(cogLossPct * 100)}% Cognitive Earning Penalty`, n: `Quantifies ${workYears}-year executive fatigue & productivity loss (${fmtMoney(cogWageLoss)})` },
+      hasLoc ? { l: '🚑 Documented LOC / Amnesia at Scene', n: 'EMS/ER notes confirming loss of consciousness or confusion bolster causation' } : { l: '🧠 Non-LOC Coup-Contrecoup Mechanism', n: 'Brain whiplash inside the skull causes TBI even without a direct blackout' },
+      { l: '🗣️ Lay "Before & After" Witnesses', n: 'Spouse and coworker testimony on memory/mood shifts unlocks non-economic damages' }
+    ];
+    document.getElementById('factors').innerHTML = facs.map(f => `<div class="factor-item"><strong>${f.l}</strong><span>${f.n}</span></div>`).join('');
+    showResults();
+  });
+</script>
+</body>
+</html>
