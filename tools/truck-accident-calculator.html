@@ -257,11 +257,12 @@
       <div class="lead-box">
         <h3>🚨 Urgent: Demand an Immediate ECM "Black Box" Preservation Letter</h3>
         <p>Trucking defense teams deploy rapid-response investigators within hours of a crash, and federal law allows carriers to overwrite Electronic Logging Device (ELD) logs in 6 months—or sooner if the cab is repaired. Lock in your valuation dossier and connect with a vetted Commercial Truck Trial Attorney.</p>
-        <form class="lead-grid" onsubmit="event.preventDefault(); alert('Your Truck Accident Valuation Dossier has been queued. A commercial trucking trial specialist will reach out shortly.');">
-          <input type="text" placeholder="Full Name" required />
-          <input type="text" placeholder="Phone Number" required />
-          <input type="text" placeholder="State / ZIP Code" required />
-          <button type="submit" class="btn-cta" style="border:none;cursor:pointer;">Request Free Case Review →</button>
+        <form class="lead-grid" onsubmit="event.preventDefault(); window.submitLegalLead(this, '18-Wheeler Truck Dossier Lead');">
+          <input type="text" name="name" placeholder="Full Name *" required />
+          <input type="email" name="email" placeholder="Email Address *" required />
+          <input type="tel" name="phone" placeholder="Phone Number *" required />
+          <input type="text" name="state" placeholder="State / ZIP Code *" required />
+          <button type="submit" class="btn-cta" style="border:none;cursor:pointer;grid-column:1/-1;">Request Free Case Review →</button>
         </form>
       </div>
     </div>

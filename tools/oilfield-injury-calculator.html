@@ -229,11 +229,12 @@
       <div class="lead-box">
         <h3>🛢️ Don't Let the Company Man or Comp Adjuster Force a Recorded Statement</h3>
         <p>After a rig or refinery accident, company safety reps work to pin fault on the injured hand and shield the third-party operator (Master Service Agreement indemnities). Get a free, confidential evaluation from an Oilfield &amp; Industrial Trial Lawyer.</p>
-        <form class="lead-grid" onsubmit="event.preventDefault(); alert('Your Oilfield Injury Valuation Dossier has been submitted. An industrial trial attorney will contact you shortly.');">
-          <input type="text" placeholder="Full Name" required />
-          <input type="text" placeholder="Phone Number" required />
-          <input type="text" placeholder="Basin / State (e.g. Permian, TX)" required />
-          <button type="submit" class="btn-cta" style="border:none;cursor:pointer;">Get Free Rig Claim Review →</button>
+        <form class="lead-grid" onsubmit="event.preventDefault(); window.submitLegalLead(this, 'Oilfield & Rig Injury Dossier Lead');">
+          <input type="text" name="name" placeholder="Full Name *" required />
+          <input type="email" name="email" placeholder="Email Address *" required />
+          <input type="tel" name="phone" placeholder="Phone Number *" required />
+          <input type="text" name="state" placeholder="Basin / State (e.g. Permian, TX) *" required />
+          <button type="submit" class="btn-cta" style="border:none;cursor:pointer;grid-column:1/-1;">Get Free Rig Claim Review →</button>
         </form>
       </div>
     </div>

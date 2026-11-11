@@ -232,11 +232,12 @@
       <div class="lead-box">
         <h3>📱 Subpoena the Uber/Lyft Electronic Trip Log Before Adjusters Dispute Period Status</h3>
         <p>Uber and Lyft commercial adjusters (Progressive / Farmers / James River) routinely claim the driver was "logged off" or in Period 1 to cap payouts at $50,000 instead of $1,000,000. Get a free rideshare legal audit to lock in the $1M policy tier.</p>
-        <form class="lead-grid" onsubmit="event.preventDefault(); alert('Your Rideshare Valuation Dossier has been queued. A rideshare injury specialist will contact you shortly.');">
-          <input type="text" placeholder="Full Name" required />
-          <input type="text" placeholder="Phone Number" required />
-          <input type="text" placeholder="City / State" required />
-          <button type="submit" class="btn-cta" style="border:none;cursor:pointer;">Verify $1M Policy Tier →</button>
+        <form class="lead-grid" onsubmit="event.preventDefault(); window.submitLegalLead(this, 'Uber/Lyft Rideshare Dossier Lead');">
+          <input type="text" name="name" placeholder="Full Name *" required />
+          <input type="email" name="email" placeholder="Email Address *" required />
+          <input type="tel" name="phone" placeholder="Phone Number *" required />
+          <input type="text" name="state" placeholder="City / State *" required />
+          <button type="submit" class="btn-cta" style="border:none;cursor:pointer;grid-column:1/-1;">Verify $1M Policy Tier →</button>
         </form>
       </div>
     </div>

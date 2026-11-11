@@ -235,11 +235,12 @@
       <div class="lead-box">
         <h3>🧠 Upgrade a "Negative ER CT Scan" with Advanced DTI &amp; Neuropsychological Testing</h3>
         <p>Insurance adjusters routinely discount concussion claims by pointing to a normal emergency room CT scan. Top Brain Injury Trial Lawyers arrange lien-based 3T MRI with Diffusion Tensor Imaging (DTI) and Neuropsychological testing at zero upfront cost to prove microscopic white-matter injury.</p>
-        <form class="lead-grid" onsubmit="event.preventDefault(); alert('Your TBI Case Valuation Dossier has been queued. A specialized Brain Injury Trial Attorney will contact you shortly.');">
-          <input type="text" placeholder="Full Name" required />
-          <input type="text" placeholder="Phone Number" required />
-          <input type="text" placeholder="State / ZIP Code" required />
-          <button type="submit" class="btn-cta" style="border:none;cursor:pointer;">Request Free TBI Case Audit →</button>
+        <form class="lead-grid" onsubmit="event.preventDefault(); window.submitLegalLead(this, 'Concussion & TBI Dossier Lead');">
+          <input type="text" name="name" placeholder="Full Name *" required />
+          <input type="email" name="email" placeholder="Email Address *" required />
+          <input type="tel" name="phone" placeholder="Phone Number *" required />
+          <input type="text" name="state" placeholder="State / ZIP Code *" required />
+          <button type="submit" class="btn-cta" style="border:none;cursor:pointer;grid-column:1/-1;">Request Free TBI Case Audit →</button>
         </form>
       </div>
     </div>

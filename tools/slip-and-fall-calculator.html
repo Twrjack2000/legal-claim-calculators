@@ -228,11 +228,12 @@
       <div class="lead-box">
         <h3>📹 Crucial: Store CCTV Security Cameras Overwrite Footage Every 7 to 14 Days</h3>
         <p>Big-box retailers and grocery chains use third-party claims administrators (Sedgwick, Gallagher Bassett) who stall claimants until store surveillance video is automatically looped over. Have a Premises Liability Attorney send a legal CCTV Preservation Demand today.</p>
-        <form class="lead-grid" onsubmit="event.preventDefault(); alert('Your Premises Liability Dossier has been queued. A local slip-and-fall attorney will reach out shortly.');">
-          <input type="text" placeholder="Full Name" required />
-          <input type="text" placeholder="Phone Number" required />
-          <input type="text" placeholder="ZIP Code" required />
-          <button type="submit" class="btn-cta" style="border:none;cursor:pointer;">Preserve Store Video Now →</button>
+        <form class="lead-grid" onsubmit="event.preventDefault(); window.submitLegalLead(this, 'Slip & Fall Premises Dossier Lead');">
+          <input type="text" name="name" placeholder="Full Name *" required />
+          <input type="email" name="email" placeholder="Email Address *" required />
+          <input type="tel" name="phone" placeholder="Phone Number *" required />
+          <input type="text" name="state" placeholder="State / ZIP Code *" required />
+          <button type="submit" class="btn-cta" style="border:none;cursor:pointer;grid-column:1/-1;">Preserve Store Video Now →</button>
         </form>
       </div>
     </div>

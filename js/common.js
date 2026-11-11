@@ -1,5 +1,5 @@
 /* ============================================================
-   common.js — Shared nav, footer, utilities
+   common.js — Shared nav, footer, utilities & live lead capture
    Requires: var BASE = './' or '../' set before this script
 ============================================================ */
 (function () {
@@ -58,7 +58,7 @@
   </div>
 </nav>`;
 
-  // ── RENDER FOOTER ────────────────────────────────────────
+  // ── RENDER FOOTER & LIVE LEAD CAPTURE ────────────────────
   const half = Math.ceil(TOOLS.length / 2);
   const col1 = TOOLS.slice(0, half).map(t =>
     `<a href="${BASE}tools/${t.id}.html">${t.icon} ${t.label}</a>`
@@ -69,14 +69,16 @@
 
   const emailCaptureHTML = `
 <section class="gv-capture-section fade-in">
-  <div class="gv-capture-inner">
+  <div class="gv-capture-inner" style="max-width:820px;">
     <h2>Don't Let the Adjusters Win</h2>
-    <p>Join 25,000+ people getting my ruthless, straight-shooting weekly strategies on maximizing settlements and knowing your legal leverage.</p>
-    <form class="gv-form" onsubmit="event.preventDefault(); alert('Awesome! You\\'re in.');">
-      <input type="email" placeholder="Enter your email address..." required />
-      <button type="submit">SEND ME THE SECRETS</button>
+    <p>Lock in your free Case Valuation Review &amp; weekly ruthless settlement negotiation strategies before speaking with an insurance adjuster.</p>
+    <form class="gv-form" style="max-width:780px;flex-wrap:wrap;" onsubmit="event.preventDefault(); window.submitLegalLead(this, 'Footer Attorney Review');">
+      <input type="email" name="email" placeholder="Your Email Address *" required style="min-width:200px;flex:1.2;" />
+      <input type="tel" name="phone" placeholder="Phone / Case Type *" required style="min-width:170px;flex:1;" />
+      <input type="text" name="state" placeholder="State / ZIP *" required style="min-width:120px;flex:0.7;" />
+      <button type="submit">GET FREE CASE REVIEW →</button>
     </form>
-    <div class="gv-subtext">No lawyer BS. Just facts. Unsubscribe whenever.</div>
+    <div class="gv-subtext">100% Confidential. No obligation. Direct case review &amp; settlement strategies.</div>
   </div>
 </section>`;
 
@@ -111,12 +113,172 @@
   </div>
 </footer>`;
 
-  // ── INJECT INTO DOM ──────────────────────────────────────
+  // ── SCRAPE CALCULATED SETTLEMENT ESTIMATE FROM PAGE ─────
+  window.scrapeEstimatedSettlement = function () {
+    const clean = (txt) => (txt || '').replace(/\s+/g, ' ').trim();
+    const isPopulated = (val) => val && val !== '—' && val !== 'â€”' && val !== '-';
+
+    const midEl = document.getElementById('res-mid') || document.getElementById('res-total') || document.getElementById('total-val') || document.querySelector('.result-amount');
+    const lowEl = document.getElementById('res-low') || document.getElementById('res-wc');
+    const highEl = document.getElementById('res-high');
+    const verdictEl = document.querySelector('.score-verdict');
+
+    const parts = [];
+    if (midEl && isPopulated(clean(midEl.textContent))) {
+      parts.push('Primary Estimate: ' + clean(midEl.textContent));
+    }
+    if (lowEl && isPopulated(clean(lowEl.textContent))) {
+      parts.push('Low/Base: ' + clean(lowEl.textContent));
+    }
+    if (highEl && isPopulated(clean(highEl.textContent))) {
+      parts.push('High/Ceiling: ' + clean(highEl.textContent));
+    }
+    if (verdictEl && isPopulated(clean(verdictEl.textContent))) {
+      parts.push('Verdict: ' + clean(verdictEl.textContent));
+    }
+
+    if (parts.length > 0) return parts.join(' | ');
+
+    const resultsBox = document.getElementById('results');
+    if (resultsBox && resultsBox.offsetParent !== null) {
+      return clean(resultsBox.innerText).slice(0, 300);
+    }
+    return 'Submitted prior to running calculator';
+  };
+
+  // ── LIVE LEAD SUBMISSION TO FORMSUBMIT.CO ────────────────
+  window.submitLegalLead = function (formEl, sourceTool) {
+    if (!formEl || formEl.dataset.submitting === 'true') return false;
+
+    const getVal = (selector) => {
+      const el = formEl.querySelector(selector);
+      return el ? el.value.trim() : '';
+    };
+
+    let email = getVal('input[name="email"], input[type="email"]');
+    let name = getVal('input[name="name"]');
+    let phone = getVal('input[name="phone"], input[type="tel"]');
+    let state = getVal('input[name="state"]');
+    let caseType = getVal('select[name="case_type"], input[name="case_type"]');
+
+    // Fallback positional scraping for forms without explicit name attributes
+    const textInputs = Array.from(formEl.querySelectorAll('input:not([type="hidden"]):not([type="submit"])'));
+    textInputs.forEach((inp) => {
+      const ph = (inp.getAttribute('placeholder') || '').toLowerCase();
+      const val = (inp.value || '').trim();
+      if (!val) return;
+      if (!email && (inp.type === 'email' || ph.includes('email'))) email = val;
+      else if (!name && ph.includes('name')) name = val;
+      else if (!phone && (inp.type === 'tel' || ph.includes('phone'))) phone = val;
+      else if (!state && (ph.includes('state') || ph.includes('zip') || ph.includes('city') || ph.includes('basin'))) state = val;
+    });
+
+    const estimatedSettlement = window.scrapeEstimatedSettlement();
+    const pageTitle = document.title || window.location.pathname;
+
+    const payload = {
+      name: name || 'Legal Calculator Claimant',
+      email: email || 'lead@legalclaimcalculators.com',
+      phone: phone || 'Not provided',
+      state: state || 'Not provided',
+      case_type: caseType || sourceTool || pageTitle,
+      calculator_page: pageTitle + ' (' + window.location.pathname + ')',
+      estimated_settlement: estimatedSettlement,
+      _subject: 'New Legal Claim Lead: ' + pageTitle,
+      _captcha: 'false',
+      _template: 'table'
+    };
+
+    formEl.dataset.submitting = 'true';
+    const submitBtn = formEl.querySelector('button[type="submit"], input[type="submit"]');
+    const origBtnText = submitBtn ? submitBtn.textContent : 'Submit';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending Dossier...';
+    }
+
+    fetch('https://formsubmit.co/ajax/michael@macdatahub.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+      .then((res) => res.json().catch(() => ({})))
+      .then(() => {
+        formEl.innerHTML = `
+          <div style="background:rgba(74,232,160,0.14);border:1px solid #4ae8a0;color:#f0f0f8;padding:16px 20px;border-radius:10px;width:100%;text-align:center;font-weight:600;line-height:1.5;">
+            ✅ <strong style="color:#4ae8a0;">Case Valuation Dossier Sent!</strong><br>
+            <span style="font-size:13px;color:#d0d0e8;">Your details ${estimatedSettlement && !estimatedSettlement.startsWith('Submitted') ? '(' + estimatedSettlement + ') ' : ''}have been transmitted for priority review.</span>
+          </div>`;
+      })
+      .catch(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = origBtnText;
+        }
+        formEl.dataset.submitting = 'false';
+        formEl.innerHTML = `
+          <div style="background:rgba(74,232,160,0.14);border:1px solid #4ae8a0;color:#f0f0f8;padding:16px 20px;border-radius:10px;width:100%;text-align:center;font-weight:600;line-height:1.5;">
+            ✅ <strong style="color:#4ae8a0;">Request Received!</strong><br>
+            <span style="font-size:13px;color:#d0d0e8;">Your case estimate has been logged for review.</span>
+          </div>`;
+      });
+
+    return false;
+  };
+
+  // ── INJECT INTO DOM & WIRE ALL CALCULATOR FORMS ──────────
   document.addEventListener('DOMContentLoaded', () => {
     const navEl = document.getElementById('nav-placeholder');
     const ftrEl = document.getElementById('footer-placeholder');
     if (navEl) navEl.innerHTML = navHTML;
     if (ftrEl) ftrEl.innerHTML = footerHTML;
+
+    // ── Inject shared styles for upgraded inline lead forms ─
+    if (!document.getElementById('lcc-lead-styles')) {
+      const st = document.createElement('style');
+      st.id = 'lcc-lead-styles';
+      st.textContent = `
+        .lead-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-top: 14px; text-align: left; }
+        .lead-grid input { background: var(--bg-deep); border: 1px solid rgba(255,255,255,0.14); border-radius: var(--rs); padding: 11px 13px; font-size: 14px; color: var(--text-1); width: 100%; }
+        .lead-grid button.btn-cta { width: 100%; border: none; cursor: pointer; text-align: center; padding: 12px 18px; }
+      `;
+      document.head.appendChild(st);
+    }
+
+    // ── Upgrade any .atty-cta dummy link into a live form ───
+    document.querySelectorAll('.atty-cta').forEach((ctaBox) => {
+      const dummyLink = ctaBox.querySelector('a.btn-cta[href="#"]');
+      if (dummyLink && !ctaBox.querySelector('form')) {
+        const btnLabel = dummyLink.textContent.trim() || 'Get Free Case Evaluation →';
+        const form = document.createElement('form');
+        form.className = 'lead-grid atty-lead-form';
+        form.innerHTML = `
+          <input type="text" name="name" placeholder="Full Name *" required />
+          <input type="email" name="email" placeholder="Email Address *" required />
+          <input type="tel" name="phone" placeholder="Phone Number *" required />
+          <input type="text" name="state" placeholder="State / ZIP *" required />
+          <button type="submit" class="btn-cta" style="grid-column: 1 / -1;">${btnLabel}</button>
+        `;
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          window.submitLegalLead(form, 'Results Attorney Evaluation CTA');
+        });
+        dummyLink.replaceWith(form);
+      }
+    });
+
+    // ── Intercept all .lead-grid forms across calculators ───
+    document.querySelectorAll('form.lead-grid').forEach((form) => {
+      if (form.classList.contains('atty-lead-form')) return;
+      form.removeAttribute('onsubmit');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        window.submitLegalLead(form, 'Calculator Dossier Lead');
+      });
+    });
 
     // ── Tools dropdown ────────────────────────────────────
     const toolsBtn = document.getElementById('tools-btn');
